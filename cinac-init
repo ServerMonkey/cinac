@@ -449,9 +449,12 @@ if systemctl is-active --quiet nginx.service; then
 	if [ ! -f "$SSL_CERT" ]; then
 		error "Failed to find or create SSL certificate and key"
 	else
+		NGINX_DEFAULT="/etc/nginx/sites-enabled/default"
 		info "Configure NGINX with SSL"
-		sudo unlink "/etc/nginx/sites-enabled/default" ||
-			error "unlink default nginx"
+		if [ -f "$NGINX_DEFAULT" ]; then
+			sudo unlink "$NGINX_DEFAULT" ||
+				error "unlink default nginx"
+		fi
 		NGINX_SITE_AV="/etc/nginx/sites-available/cinac"
 		NGINX_SITE_EN="/etc/nginx/sites-enabled/cinac"
 		sudo cp -f "$CINAC_SHARED/nginx-site" "$NGINX_SITE_AV"
