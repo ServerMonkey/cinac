@@ -1,0 +1,104 @@
+#!/bin/sh
+#info: Generate a complete PDF manual for CinaC
+# shellcheck disable=SC2039
+
+if [ -z "$(command -v pdflatex)" ]; then
+	echo "pdflatex is not installed, please install:"
+	echo "texlive-latex-base and texlive-latex-recommended"
+	exit 1
+fi
+
+if [ -z "$(command -v img2pdf)" ]; then
+	echo "img2pdf is not installed, please install"
+	exit 1
+fi
+
+if [ -z "$(command -v wkhtmltopdf)" ]; then
+	echo "wkhtmltopdf is not installed, please install."
+	echo "The default Debian 11 version is unpatched."
+	echo "The switch '--disable-smart-shrinking' will not work."
+	echo "Recommend to install with:"
+	echo "  fastpkg -p wkhtmltox install"
+	exit 1
+fi
+
+TMP_DIR=/tmp/cinac-documentation
+rm -rf "$TMP_DIR"
+mkdir -p $TMP_DIR
+COUNTER=10
+
+# todo: add this in the ansible2deb script instead. that automatically
+# generates readme-index.md files via ansible2deb
+#wwroletopdf() {
+#	local WW_FILES
+#	local i
+#	local CURRENT_FILE
+#	WW_FILES=$(find "$HOME/.ansible/roles/servermonkey.ww/tasks")
+#
+#	for i in $WW_FILES; do
+#		CURRENT_FILE=$(basename "$i")
+#		echo "$CURRENT_FILE" >>"$TMP_DIR/ww-role-$2.txt"
+#		if [ -f "$i" ]; then
+#			topdf "$i" "ww-role-$(basename "$i")"
+#		fi
+#	done
+#
+#	COUNTER=$((COUNTER + 1))
+#	echo "Generating $COUNTER $2"
+#	pandoc \
+#		-V geometry:margin=0.75in \
+#		-V papersize:a4 "$1" \
+#		-o "$TMP_DIR/$COUNTER $2.pdf" || exit 1
+#}
+
+topdf() {
+	COUNTER=$((COUNTER + 1))
+	echo "Generating $COUNTER $2"
+	pandoc \
+		-V geometry:margin=0.75in \
+		-V papersize:a4 "$1" \
+		-o "$TMP_DIR/$COUNTER $2.pdf" || exit 1
+}
+
+imgtopdf() {
+	COUNTER=$((COUNTER + 1))
+	echo "Generating $COUNTER $2"
+	img2pdf --pagesize A4 -o "$TMP_DIR/$COUNTER $2.pdf" "$1" || exit 1
+}
+
+txttopdf() {
+	COUNTER=$((COUNTER + 1))
+	echo "Generating $COUNTER $2"
+	pygmentize -g -O style=colorful,linenos=1 "$1" |
+		ansi2html -w >"$TMP_DIR/$COUNTER $2.html"
+	wkhtmltopdf --disable-smart-shrinking --dpi 96 -s A4 \
+		"$TMP_DIR/$COUNTER $2.html" "$TMP_DIR/$COUNTER $2.pdf" || exit 1
+}
+
+# base
+topdf docs/toc.md "Index"
+topdf README.md "CinaC"
+topdf ../servermonkeys-devtools/docs/software-philosophy.md "Philosophy"
+topdf ../servermonkeys-templates/templates/ventoy/README.md "ventoy-templates"
+topdf ../fastpkg/README.md "fastpkg"
+imgtopdf docs/fastpkg-example.png "fastpkg-example"
+topdf ../inventorymaker/README.md "inventorymaker"
+topdf ../wildwest/README.md "wildwest"
+txttopdf ../wildwest/ww_default.cfg "wildwest-config"
+topdf ../vmh/README.md "vmh"
+topdf ../autokiosk/README.md "autokiosk"
+topdf ../spice-web-client/README_2.md "spice-web-client"
+# devtools
+topdf ../servermonkeys-devtools/README.md "servermonkeys-devtools"
+topdf ../servermonkeys-templates/README.md "servermonkeys-templates"
+topdf ../isoremixer/README.md "isoremixer"
+topdf ../servermonkeys-devtools/docs/windows-isos.md "windows-isos"
+topdf ../cinac2deb/README.md "cinac2deb"
+# dictionary last
+topdf ../servermonkeys-devtools/docs/dictionary.md "Dictionary"
+
+echo "Merge all pdfs into one"
+qpdf --empty --pages $TMP_DIR/*.pdf -- $TMP_DIR/manual.pdf || exit 1
+mv -f $TMP_DIR/manual.pdf ./docs/manual.pdf || exit 1
+rm -rf "$TMP_DIR"
+echo "Done!"

@@ -1,0 +1,3 @@
+HOSTNAME,OS,USER,PASSWORD,BECOME_METHOD,DESCRIPTION,ORDER
+,,,,,,
+my-server,libvirt-img-debian-11-firmware-dvd1,ansible,ansible,sudo,Personal Server,1

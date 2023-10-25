@@ -1,0 +1,6 @@
+HOSTNAME,OS,FACTORY_USER,FACTORY_PASSWORD,FACTORY_BECOME_METHOD,USER,PASSWORD,BECOME_METHOD,BECOME,DESCRIPTION,ORDER,PYTHON_INTERPRETER
+,,ansible,ansible,sudo,admin,gargargaru55,sudo,,,,
+www.webhoster.aa,libvirt-img-debian-11-firmware-dvd1,,,,,,,,Public webserver,1,
+srv1.webhoster.aa,libvirt-img-debian-11-firmware-dvd1,,,,,,,,,1,
+srv2.webhoster.aa,libvirt-img-debian-11-firmware-dvd1,,,,,,,,,1,
+dns.webhoster.aa,libvirt-img-debian-11-firmware-dvd1,,,,,,,,,1,

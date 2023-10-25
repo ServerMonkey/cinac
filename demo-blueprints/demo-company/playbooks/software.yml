@@ -1,0 +1,142 @@
+---
+#info: Install and setup custom software
+
+- name: Setup a webserver with a website
+  hosts: stockholm
+  gather_facts: no
+  become: true
+  tasks:
+    - name: Install a webserver
+      package:
+        update_cache: yes
+        name:
+          - nginx
+
+    - name: Remove default website
+      file:
+        path: /var/www/html
+        state: absent
+
+    - include_role: name=servermonkey.fastpkg
+      vars:
+        fpkg_package: webrip-www-idsoftware-com-killer
+        fpkg_offline: true
+        fpkg_install_dir: "/var/www/html"
+        fpkg_extra_opts: "o"
+
+- name: Setup Desktop hosts (as root)
+  hosts: jacks-pc.lan, susans-laptop.lan
+  gather_facts: no
+  become: true
+  tasks:
+
+    - include_role: name=servermonkey.ww
+      vars:
+        task: install_xfce
+        ww_minimal_packages: true
+
+    - include_role: name=servermonkey.ww
+      vars:
+        task: cfg_xfce
+
+    - name: Install Firefox
+      package:
+        name:
+          - firefox-esr
+
+    - include_role: name=servermonkey.fastpkg
+      vars:
+        fpkg_offline: true
+        fpkg_package: '{{ fastpkg_desktop }}'
+      loop_control:
+        loop_var: fastpkg_desktop
+      loop:
+        - wallpaper-doom
+        - zdoom_2.8.1.x64
+
+    # todo: create doom installer role
+    - include_role: name=servermonkey.fastpkg
+      vars:
+        fpkg_offline: true
+        fpkg_package: wadfile-Doom-Demo
+        fpkg_install_dir: "/usr/local/share/doom/doom1.wad"
+        fpkg_extra_opts: "or"
+
+    - include_role: name=servermonkey.fastpkg
+      vars:
+        fpkg_package: wadfile-doom2
+        fpkg_install_dir: "/cygdrive/c/opt/zdoom_2.8.1/DOOM2.WAD"
+        fpkg_extra_opts: "or"
+
+    - include_role: name=servermonkey.ww
+      vars:
+        task: cfg_theme
+        cfg_theme_wall_img: '/usr/share/backgrounds/Doom.jpg'
+
+- name: Config Desktop hosts (as user)
+  hosts: jacks-pc.lan, susans-laptop.lan
+  gather_facts: no
+  become: false
+  vars:
+    ww_vm_res_x: 1280
+    ww_vm_res_y: 720
+  tasks:
+    - name: Create Doom config
+      shell: |
+        export DISPLAY=:0
+        zdoom -norun 1>/dev/null 2>&1 || true
+
+    - name: Set Doom config (OPL MIDI)
+      lineinfile:
+        path: "/home/{{ ansible_user }}/.config/zdoom/zdoom.ini"
+        regexp: '^snd_mididevice='
+        line: "snd_mididevice=-3"
+        state: present
+        create: no
+
+    - name: Set Doom config (fullscreen)
+      lineinfile:
+        path: "/home/{{ ansible_user }}/.config/zdoom/zdoom.ini"
+        regexp: '^fullscreen='
+        line: "fullscreen=true"
+        state: present
+        create: no
+
+    - name: Set Doom config (resolution width)
+      lineinfile:
+        path: "/home/{{ ansible_user }}/.config/zdoom/zdoom.ini"
+        regexp: '^vid_defwidth='
+        line: "vid_defwidth={{ ww_vm_res_x }}"
+        state: present
+        create: no
+
+    - name: Set Doom config (resolution height)
+      lineinfile:
+        path: "/home/{{ ansible_user }}/.config/zdoom/zdoom.ini"
+        regexp: '^vid_defheight='
+        line: "vid_defheight={{ ww_vm_res_y }}"
+        state: present
+        create: no
+
+    - include_role: name=servermonkey.ww
+      vars:
+        task: cfg_firefox_homepage
+        cfg_firefox_homepage: 'http://web.lan'
+
+- name: Set firewall rules
+  hosts: ---
+  gather_facts: no
+  become: true
+  tasks:
+    - name: Open firewall
+      shell: |
+        netsh firewall add allowedprogram "C:\\opt\\zdoom_2.8.1\\zdoom.exe" ZDoom ENABLE
+
+- name: Autologin Desktop hosts
+  hosts: jacks-pc.lan, susans-laptop.lan, hackerman.lan
+  gather_facts: no
+  become: true
+  tasks:
+    - include_role: name=servermonkey.ww
+      vars:
+        task: cfg_autologin

@@ -1,0 +1,63 @@
+---
+#info: Start A multiplayer Doom game
+
+- name: Start Doom (server)
+  hosts: jacks-pc.lan
+  gather_facts: no
+  become: false
+  tasks:
+    - name: Start Doom server
+      shell: |
+        export DISPLAY=:0
+        xhost +local:
+        xterm -e 'zdoom -deathmatch -nomonsters -host 2' &
+
+    - name: Wait
+      connection: local
+      vars:
+        ansible_python_interpreter: "{{ ansible_playbook_python }}"
+      shell: sleep 3
+
+- name: Start Doom (client)
+  hosts: susans-laptop.lan
+  gather_facts: no
+  become: false
+  tasks:
+    - name: Start Doom server
+      shell: |
+        export DISPLAY=:0
+        xhost +local:
+        xterm -e 'zdoom -join jacks-pc.lan' &
+
+
+
+
+---
+#info: Start applications
+
+- name: Start Doom server
+  hosts: ---
+  gather_facts: no
+  tasks:
+    - include_role: name=servermonkey.winrun
+      vars:
+        winrun_path: 'C:\\opt\\zdoom_2.8.1\\zdoom.exe'
+        winrun_args: '-deathmatch -nomonsters -host 3'
+
+    - name: Wait for Doom server to start
+      shell: sleep 3
+      connection: local
+      vars:
+        ansible_python_interpreter: "{{ ansible_playbook_python }}"
+      become: false
+      run_once: true
+      changed_when: false
+
+- name: Join Doom clients
+  hosts: ---
+  gather_facts: no
+  tasks:
+    - include_role: name=servermonkey.winrun
+      vars:
+        winrun_path: 'C:\\opt\\zdoom_2.8.1\\zdoom.exe'
+        winrun_args: '-join HOSTNAME'

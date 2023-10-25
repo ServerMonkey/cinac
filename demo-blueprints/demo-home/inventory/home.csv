@@ -1,0 +1,7 @@
+HOSTNAME,OS,FACTORY_USER,FACTORY_PASSWORD,FACTORY_BECOME_METHOD,USER,PASSWORD,BECOME_METHOD,DESCRIPTION,ORDER,PYTHON_INTERPRETER
+,,ansible,PASS:ansible,sudo,,,,,,
+jacks-pc.lan,libvirt-img-debian-11-firmware-dvd1-xfce-jacks-pc,,,,jack,1234,sudo,Jacks personal PC,1,
+susans-laptop.lan,libvirt-img-debian-11-firmware-dvd1-xfce-susans-laptop,,,,susan,1111,sudo,Susans personal Laptop,1,
+multimedia.lan,libvirt-img-debian-11-firmware-dvd1-multimedia,,,,jack,1234,sudo,Jacks and Susans movie station,1,
+hackerman.lan,libvirt-img-kali-linux-32bit-hackerman,,,,hacker,evil,sudo,A hacker that is inside the home LAN,1,/usr/bin/python3
+web.lan,libvirt-img-debian-11-firmware-dvd1-web,,,,jack,1234,sudo,Webserver that hosts a website,1,

@@ -1,0 +1,30 @@
+---
+#info: Start A multiplayer Doom game
+
+- name: Start Doom (server)
+  hosts: jacks-pc.lan
+  gather_facts: no
+  become: false
+  tasks:
+    - name: Start Doom server
+      shell: |
+        export DISPLAY=:0
+        xhost +local:
+        xterm -e 'zdoom -deathmatch -nomonsters -host 2' &
+
+    - name: Wait
+      connection: local
+      vars:
+        ansible_python_interpreter: "{{ ansible_playbook_python }}"
+      shell: sleep 3
+
+- name: Start Doom (client)
+  hosts: susans-laptop.lan
+  gather_facts: no
+  become: false
+  tasks:
+    - name: Join Doom server
+      shell: |
+        export DISPLAY=:0
+        xhost +local:
+        xterm -e 'zdoom -join jacks-pc.lan' &

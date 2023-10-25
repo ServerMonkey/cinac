@@ -1,0 +1,17 @@
+<network>
+  <name>home</name>
+  <!-- enable spanning tree, prevent bridge loops and broadcast radiation -->
+  <bridge name='virbr-home' stp='on' delay='0'/>
+  <mac address='52:54:00:16:5d:4c'/>
+  <!-- use a domain/DNS name -->
+  <domain name='lan' localOnly='yes'/>
+  <ip address='10.10.0.1' netmask='255.255.255.0'>
+    <dhcp>
+      <host mac='52:54:00:3f:dc:f2' name='jacks-pc' ip='10.10.0.2'/>
+      <host mac='52:54:00:7b:68:e5' name='susans-laptop' ip='10.10.0.3'/>
+      <host mac='52:54:00:bd:c1:69' name='multimedia' ip='10.10.0.4'/>
+      <host mac='52:54:00:ee:96:fe' name='hackerman' ip='10.10.0.30'/>
+      <host mac='52:54:00:16:32:ca' name='web' ip='10.10.0.21'/>
+    </dhcp>
+  </ip>
+</network>

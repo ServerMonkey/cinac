@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+complete -W "autoload close get-autoload get-default hide install-blueprints install-demo-blueprints list list-available load load-fast log-autoload reboot reset screenshot set-autoload set-default shell shutdown tgui unload view watch-autoload watch-vmh" cinac

@@ -1,0 +1,29 @@
+server {
+    listen 80;
+    listen [::]:80;
+
+    root /var/www/cinac;
+    index index.html index.htm;
+    server_tokens off;
+    server_name _;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
+
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+    ssl_certificate /etc/ssl/certs/cinac.crt;
+    ssl_certificate_key /etc/ssl/private/cinac.key;
+
+    root /var/www/cinac;
+    index index.html index.htm;
+    server_tokens off;
+    server_name _;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}

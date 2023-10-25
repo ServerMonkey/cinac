@@ -1,0 +1,402 @@
+#!/bin/sh
+# info: Run CinaC Acions
+# shellcheck disable=SC2039
+
+# parse arguments
+if [ -z "$1" ] || [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
+    man cinac.1 || ronn -r <README.md | man -l -
+    exit
+fi
+
+# must run as normal user
+if [ "$(id -u)" = 0 ]; then
+    echo 'This script must be run as a normal user, not root!' >&2
+    echo 'Run as the user that will be using CinaC' >&2
+    echo 'This user must can become root on this system' >&2
+    exit 1
+fi
+
+# parameters
+ACTION="$1"
+ARGS="$2"
+
+# verify input
+if [ -z "$ACTION" ]; then
+    echo "ACTION is unset"
+    exit 1
+fi
+case "$ACTION" in
+'' | *[' !&()'@#$%^*+]*)
+    echo "ACTION has forbidden character"
+    exit 1
+    ;;
+esac
+
+# variables
+# tput requires an interactive terminal
+if [ -n "$TERM" ]; then
+    RED=$(tput setaf 1)
+    NOCOL=$(tput sgr0)
+else
+    RED=""
+    NOCOL=""
+fi
+
+CINAC_BASE="$HOME/.cinac"
+
+info() {
+    # shellcheck disable=SC2046
+    #whiptail --title "Info" --msgbox "$1" $(stty size)
+    echo "$1"
+}
+
+error() {
+    # info "Command failed: $1"
+    echo "${RED}aborting: ${NOCOL}$1" >&2
+    exit 1
+}
+
+get_list_of_envs() {
+    find -L "$CINAC_BASE/"* \
+        -maxdepth 0 -type d -printf "%f\n" 2>/dev/null
+}
+
+list_running() {
+    local FILE_RUNNING
+    local RUNNING_ENV
+    local RUNNING_NAME
+
+    FILE_RUNNING="$CINAC_BASE/running"
+    if [ -f "$FILE_RUNNING" ]; then
+        RUNNING_ENV=$(cat "$FILE_RUNNING")
+        if [ -n "$RUNNING_ENV" ]; then
+            RUNNING_NAME=$(basename "$RUNNING_ENV")
+            echo "$RUNNING_NAME"
+        else
+            error "Please erase $FILE_RUNNING"
+        fi
+    else
+        echo "None"
+    fi
+}
+
+list_available() {
+    local LIST_ENVS
+
+    LIST_ENVS=$(get_list_of_envs)
+
+    if [ -n "$LIST_ENVS" ]; then
+        echo "$LIST_ENVS"
+    else
+        echo "None"
+    fi
+}
+
+install_blueprint() {
+    local BPS
+    local BP_SRC
+    local BP_DES
+
+    if [ -d "$1" ]; then
+        BPS=$(find "$1" -maxdepth 1 -mindepth 1 -type d -printf '%f\n')
+        for k in $BPS; do
+            BP_SRC="$1/$k"
+            if [ ! -d "$BP_SRC" ]; then
+                error "Blueprint not found: $BP_SRC"
+            fi
+            BP_DES="$CINAC_BASE/$k"
+            if [ -d "$BP_DES" ]; then
+                info "Blueprint already installed: $k"
+            else
+                info "Installing blueprint: $k"
+                ln -s "$BP_SRC" "$BP_DES" || error "linking $BP_SRC" "$BP_DES"
+            fi
+        done
+    else
+        echo "No blueprint folder found"
+        exit 1
+    fi
+}
+
+cinac_tgui() {
+    local GUI_PASSWORD
+    local USER_PASSWORD
+    local RUNNING
+
+    RUNNING=$(list_running)
+    if [ "$RUNNING" != "None" ]; then
+        GUI_PASSWORD=$(sed '/^ *$/d' <"$CINAC_BASE/$RUNNING/password")
+        if [ -n "$GUI_PASSWORD" ]; then
+            while true; do
+                echo "Please enter the CinaC password:"
+                # shellcheck disable=SC2162
+                read USER_PASSWORD </dev/tty
+                if [ "$USER_PASSWORD" = "$GUI_PASSWORD" ]; then
+                    break
+                else
+                    echo "Wrong password, try again"
+                fi
+            done
+        fi
+    fi
+
+    # verify
+    if [ -z "$(command -v whiptail)" ]; then
+        echo "whiptail not installed. Install to make this script work." >&2
+        exit 1
+    fi
+    local NEXT_ACTION
+    resize
+    # todo: "Sleep" "Pause blueprint and shutdown OS" \
+    # shellcheck disable=SC2046
+    NEXT_ACTION=$(whiptail --title "CinaC Terminal GUI" \
+        --menu "Choose an option" $(stty size) 24 \
+        "List" "List current running blueprints" \
+        "List-available" "List available blueprints" \
+        "Get-Default" "Show default blueprint" \
+        "Set-Default" "Set default blueprint" \
+        "Load" "Load current default blueprint" \
+        "Load-fast" "Load current default blueprint, skip hashing files" \
+        "Get-Autoload" "Show default blueprint to load on boot" \
+        "Set-Autoload" "Set default blueprint to load on boot" \
+        "Autoload" "Load current autoload blueprint" \
+        "Log-autoload" "View log for on boot load blueprint" \
+        "Watch-autoload" "Follow log for on boot load blueprint" \
+        "Watch-vmh" "Follow log for virtualmachinehandler" \
+        "Unload" "Unload current blueprint" \
+        "Reset" "Unload and reload current blueprint" \
+        "Shutdown" "Unload blueprint and shutdown OS" \
+        "Reboot" "Unload blueprint and reboot OS" \
+        "View" "Show the network map" \
+        "Screenshot" "Create image montage of VMs, for 'View'" \
+        "Close" "Close all autokiosk windows" \
+        "Hide" "Hide all autokiosk windows" \
+        "Hide-vms" "Hide all autokiosk VM windows" \
+        "Install-blueprints" "Install from /usr/share/cinac/blueprints/" \
+        "Install-Demo-blueprints" "Install Demo blueprints" \
+        "Shell" "Start a new Bash instance" \
+        3>&1 1>&2 2>&3)
+    if [ -z "$NEXT_ACTION" ]; then
+        clear
+        echo "No option was chosen (user hit Cancel)"
+        exit 0
+    else
+        clear
+        cinac "$NEXT_ACTION"
+        echo ""
+        echo "Press enter to continue..."
+        # shellcheck disable=SC2162
+        read _
+        cinac_tgui
+    fi
+}
+
+cinac_get_from_file() {
+    local CURRENT_ENV
+    CURRENT_ENV=$(sed '/^ *$/d' <"$CINAC_BASE/$1")
+
+    # shellcheck disable=SC2046
+    if [ -z "$CURRENT_ENV" ]; then
+        info "$1 blueprint is unset"
+    else
+        info "$1 blueprint is set to: $CURRENT_ENV"
+    fi
+}
+
+cinac_tgui_set() {
+    local LIST_ENVS
+    local OPTIONS
+    local SELECTED_ENV
+    local FILE_CFG
+    FILE_CFG="$CINAC_BASE/$1"
+
+    LIST_ENVS=$(get_list_of_envs)
+
+    if [ -z "$LIST_ENVS" ]; then
+        info "No blueprint definitions found"
+        exit 1
+    fi
+
+    OPTIONS=$(
+        for i in $LIST_ENVS; do
+            # shellcheck disable=SC2002
+            TEXT_INFO=$(head -n1 <"$CINAC_BASE/$i/README.md" |
+                sed 's|^#||g' |
+                sed 's|CinaC blueprint:||g' |
+                sed 's|cinac blueprint:||g' |
+                sed 's|CinaC blueprint||g' |
+                sed 's|cinac blueprint||g' |
+                awk '{$1=$1;print}' | cut -c -50)
+            if [ -z "$TEXT_INFO" ]; then
+                TEXT_INFO="Missing title in README.md"
+            fi
+            echo "$i" | tr ' ' '_'
+            echo "$TEXT_INFO" | tr ' ' '_'
+        done
+    )
+
+    # shellcheck disable=SC2046
+    # shellcheck disable=SC2086
+    SELECTED_ENV=$(whiptail --title "Select $1 blueprint" \
+        --menu "Select blueprint to be set as $1 blueprint" \
+        $(stty size) 20 \
+        "Empty" "Disable $1 blueprint" \
+        $OPTIONS \
+        3>&1 1>&2 2>&3)
+
+    if [ "$SELECTED_ENV" = "Empty" ]; then
+        echo "" >"$FILE_CFG" || error "writing to $FILE_CFG"
+        info "$1 blueprint is now disabled"
+    else
+        echo "$SELECTED_ENV" >"$FILE_CFG" ||
+            error "writing to $FILE_CFG"
+        info "$1 blueprint is now: $SELECTED_ENV"
+    fi
+}
+
+### MAIN ######################################################################
+
+ACTION_NOCASE=$(echo "$ACTION" | tr '[:upper:]' '[:lower:]')
+case $ACTION_NOCASE in
+autoload)
+    FILE_AUTOLOAD="$CINAC_BASE/autoload"
+    if [ -f "$FILE_AUTOLOAD" ]; then
+        # shellcheck disable=SC2002
+        ENV_AUTOLOAD=$(cat "$FILE_AUTOLOAD" 2>/dev/null | head -n1)
+        if [ -n "$ENV_AUTOLOAD" ]; then
+            cinac-unload "" "$ARGS"
+            cinac-load "$ENV_AUTOLOAD" -s || error "cinac-load"
+        else
+            echo "No autoload blueprint found in: $FILE_AUTOLOAD"
+        fi
+    else
+        echo "No autoload file found in: $FILE_AUTOLOAD"
+    fi
+    ;;
+close)
+    if [ -z "$(command -v autokiosk)" ]; then
+        echo "autokiosk is not installed."
+    else
+        autokiosk close-all || error autokiosk
+    fi
+    ;;
+get-autoload)
+    cinac_get_from_file autoload
+    ;;
+get-default)
+    cinac_get_from_file default
+    ;;
+hide)
+    if [ -z "$(command -v autokiosk)" ]; then
+        echo "autokiosk is not installed."
+    else
+        autokiosk hide-all || error "autokiosk hide-all"
+    fi
+    ;;
+hide-vms)
+    if [ -z "$(command -v autokiosk)" ]; then
+        echo "autokiosk is not installed."
+    else
+        autokiosk hide-vms || error "autokiosk hide-vms"
+    fi
+    ;;
+install-blueprints)
+    install_blueprint "/usr/share/cinac/blueprints" ||
+        error "install blueprint"
+    ;;
+install-demo-blueprints)
+    install_blueprint "/usr/local/share/cinac/demo-blueprints" ||
+        error "install blueprint"
+    ;;
+list)
+    list_running
+    ;;
+list-available)
+    list_available
+    ;;
+load)
+    cinac-load "" "$ARGS" || error cinac-load
+    ;;
+load-fast)
+    cinac-load "" s"$ARGS" || error cinac-load
+    ;;
+log-autoload)
+    journalctl -b -q -u cinac-autoload.service | ccze -A | less -R
+    ;;
+reboot)
+    cinac-unload "" "$ARGS"
+    sudo vmh-clear-logs
+    sudo reboot || error reboot
+    ;;
+reset)
+    cinac-unload "" "$ARGS"
+    cinac-load "" "$ARGS" || error cinac-load
+    ;;
+screenshot)
+    PATH_VMH_ENV=$(sudo vmh get path_environments)
+    LIST_ENVS=$(find "$PATH_VMH_ENV" -type f -name "*.csv")
+    for k in $LIST_ENVS; do
+        NEXT_ENV=$(basename "$k" | sed 's|.csv$||g')
+        sudo vmh env-screenshot "$NEXT_ENV" || error env-screenshot
+    done
+    ;;
+set-autoload)
+    cinac_tgui_set autoload
+    ;;
+set-default)
+    cinac_tgui_set default
+    ;;
+shell)
+    bash || error bash
+    ;;
+shutdown)
+    cinac-unload "" "$ARGS"
+    sudo vmh-clear-logs
+    sudo shutdown -h now || error shutdown
+    ;;
+tgui)
+    cinac_tgui
+    ;;
+unload)
+    cinac-unload "" "$ARGS" || error cinac-unload
+    ;;
+view)
+    TMP_IMG_DIR=$(mktemp -d)
+    PATH_VMH_ENV=$(sudo vmh get path_environments)
+    LIST_ENVS=$(find "$PATH_VMH_ENV" -type f -name "*.svg")
+    LIST_MONAGES=$(find "$PATH_VMH_ENV" -type f -name "*.jpg")
+    if [ -z "$LIST_ENVS" ] && [ -z "$LIST_MONAGES" ]; then
+        echo "No screenshots or network images found"
+    else
+        # network images
+        if [ -n "$LIST_ENVS" ]; then
+            for j in $LIST_ENVS; do
+                OUT_IMG=$(basename "$j" | sed 's|.svg$|.png|g')
+                convert -font \
+                '/usr/share/fonts/truetype/noto/NotoSansMono-Regular.ttf' \
+                    -size 300% "$j" "$TMP_IMG_DIR/$OUT_IMG" ||
+                    error convert
+            done
+        fi
+        # display result
+        sxiv -bf "$PATH_VMH_ENV/montage_"* "$TMP_IMG_DIR" 2>/dev/null ||
+            error sxiv
+        rm -rf "$TMP_IMG_DIR"
+    fi
+    ;;
+watch-autoload)
+    journalctl -b -q -f -u cinac-autoload.service | ccze -A
+    ;;
+watch-vmh)
+    vmh-watch || error vmh-watch
+    ;;
+*)
+    error "Unknown action"
+    ;;
+esac
+
+# todo:
+#sleep)
+#    cinac-sleep || error cinac-sleep
+#    sudo shutdown -h now || error shutdown
+#    ;;

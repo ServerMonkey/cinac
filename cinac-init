@@ -1,0 +1,604 @@
+#!/bin/sh
+# info: Run this setup the first time to configure the OS for CinaC
+# shellcheck disable=SC2039
+
+# to run this script unattended, export the following variables before:
+# Variable              Default         Other options
+#export CINAC_PYARG=    true            # false
+#export CINAC_GPGAGENT= merge           # ignore, replace
+#export CINAC_KEY=      existing        # new, skip
+#export CINAC_MAIL=     cinac@localhost # GPG mail
+#export CINAC_NAME=     CinaC           # GPG real user name
+#export CINAC_PASSWORD= none            # GPG password, 'none' = empty string
+
+set -e
+
+# parse arguments
+if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
+	man cinac.1 || ronn -r <README.md | man -l -
+	exit
+fi
+
+# must run as normal user
+if [ "$(id -u)" = 0 ]; then
+	echo 'This script must be run as a normal user, not root!' >&2
+	echo 'Run as the user that will be using CinaC' >&2
+	echo 'This user must can become root on this system' >&2
+	exit 1
+fi
+
+if [ -z "$(command -v gpg)" ]; then
+	echo "gpg not installed. Install to make this script work." >&2
+	exit 1
+fi
+
+if [ -z "$(command -v whiptail)" ]; then
+	echo "whiptail not installed. Install to make this script work." >&2
+	exit 1
+fi
+
+# test if user can become root
+echo "Requires superuser privileges:"
+if ! sudo true "$USER"; then
+	echo 'The user is unable to become root!' >&2
+	exit 1
+fi
+
+abort() {
+	if [ -z "$1" ]; then
+		echo "Setup aborted because a variable was empty" >&2 | tee -a "$LOG"
+		exit 1
+	fi
+}
+
+error() {
+	local MSG=""
+
+	if [ -n "$1" ]; then
+		MSG=", $1"
+	fi
+
+	echo "ERROR: aborting$MSG" >&2 | tee -a "$LOG"
+	exit 1
+}
+
+info() {
+	RED=$(tput setaf 1)
+	NOCOL=$(tput sgr0)
+	echo "> $1" >>"$LOG"
+	echo "${RED}>${NOCOL} $1"
+}
+
+info_yellow() {
+	YELLOW=$(tput setaf 3)
+	NOCOL=$(tput sgr0)
+	echo "$1" >>"$LOG"
+	echo "${YELLOW}$1${NOCOL}"
+}
+
+add_app_to_sudoers() {
+	info "Allow '$1' to be run without sudo password"
+	local FILE_SUDOERS
+	local APP_BIN
+	FILE_SUDOERS="/etc/sudoers.d/$1"
+	APP_BIN=$(sudo which "$1")
+	if [ -z "$APP_BIN" ]; then
+		error "can not find path for: $1"
+	fi
+	sudo touch "$FILE_SUDOERS" || error "touch $FILE_SUDOERS"
+	sudo chmod 0440 "$FILE_SUDOERS" || error "chmod 0440 $FILE_SUDOERS"
+	echo "$USER ALL=NOPASSWD:$APP_BIN" |
+		sudo tee "$FILE_SUDOERS" 1>/dev/null ||
+		error "adding application to $FILE_SUDOERS"
+}
+
+firewall_allow() {
+	local NAME="$1"
+	local PROTO="$2"
+	local PORT="$3"
+	local NIC="$4"
+
+	[ -n "$NAME" ] || error "firewall_allow: NAME is empty"
+	[ -n "$PROTO" ] || error "firewall_allow: PROTO is empty"
+	[ -n "$PORT" ] || error "firewall_allow: PORT is empty"
+
+	if [ -n "$NIC" ]; then
+		echo "firewall allowing $NAME on $NIC"
+		sudo ufw allow in on "$NIC" \
+			proto "$PROTO" to any port "$PORT" 1>/dev/null ||
+			error "ufw allow in on $NIC proto $PROTO to any port $PORT"
+	else
+		echo "firewall allowing $NAME on all interfaces"
+		sudo ufw allow in \
+			proto "$PROTO" to any port "$PORT" 1>/dev/null ||
+			error "ufw allow in proto $PROTO to any port $PORT"
+	fi
+}
+
+gen_key() {
+	local OUT_CERT="$1"
+	local OUT_KEY="$2"
+
+	[ -n "$OUT_CERT" ] || error "gen_key: OUT_CERT is empty"
+	[ -n "$OUT_KEY" ] || error "gen_key: OUT_KEY is empty"
+
+	sudo openssl req -x509 -new -nodes \
+		-newkey RSA:2048 \
+		-days 3650 \
+		-subj '/C=US/ST=None/L=None/O=CinaC/CN=CinaC-Self-signed' \
+		-addext "subjectAltName = DNS:$CURRENT_HOST" \
+		-addext 'authorityKeyIdentifier = keyid,issuer' \
+		-addext 'basicConstraints = CA:FALSE' \
+		-addext 'keyUsage = digitalSignature, keyEncipherment' \
+		-addext 'extendedKeyUsage=serverAuth' \
+		-out "$SSL_CERT" \
+		-keyout "$SSL_KEY" 1>/dev/null 2>&1 ||
+		error "failed to generate openssl cert and key"
+}
+
+### MAIN ######################################################################
+
+# basic files
+PATH_CINAC="$HOME/.cinac"
+LOG="$PATH_CINAC/cinac-init.log"
+CINAC_SHARED="/usr/local/share/cinac"
+mkdir -p "$PATH_CINAC" || exit 1
+touch "$LOG" || exit 1
+chmod 0600 "$LOG" || exit 1
+
+CURRENT_HOST=$(hostname --fqdn)
+[ -n "$CURRENT_HOST" ] || error "'hostname --fqdn' is empty"
+
+# gui sizes
+BOX_SMALL_H=12
+BOX_H=20
+BOX_W=78
+
+### QUESTIONS #################################################################
+
+info "Asking questions"
+# question: python-argcomplete ------------------------------------------------
+MSG_PYARG="Globally enable python-argcomplete \n
+This is required to be able to use TAB-complete with 'wildwest'"
+
+if [ -z "$CINAC_PYARG" ]; then
+	if (whiptail --title "1/7 argcomplete" \
+		--yesno "$MSG_PYARG" "$BOX_SMALL_H" "$BOX_W"); then
+		CINAC_PYARG=true
+	fi
+fi
+
+# question: gpg agent ---------------------------------------------------------
+FILE_GPGCFG="$HOME/.gnupg/gpg-agent.conf"
+MSG_GPGCFG="\nwildwest works best with a correctly configured GPG agent:
+$FILE_GPGCFG"
+
+if [ -z "$CINAC_GPGAGENT" ]; then
+	# check if a file does not exist
+	if [ -f "$FILE_GPGCFG" ]; then
+		CINAC_GPGAGENT=$(whiptail --title "3/7 GPG-Agent options" --radiolist \
+			"$MSG_GPGCFG" "$BOX_H" "$BOX_W" 4 \
+			"merge" "Merge files and replace newer lines (recommendet)" ON \
+			"ignore" "Skip this part" OFF \
+			"replace" "Replace the existing gpg-agent.conf" OFF 3>&1 1>&2 2>&3)
+		abort "$CINAC_GPGAGENT"
+	else
+		CINAC_GPGAGENT="replace"
+	fi
+fi
+
+# question: gpg setup ---------------------------------------------------------
+info "Checking GPG keys"
+GPG_KEYS=$(gpg -k --with-colons --with-subkey-fingerprint |
+	awk -F: '/uid/ { print $10 }')
+MSG_NOKEY="\nSeveral tools require a working GPG key.
+Setup could not find any existing keys."
+MSG_YESKEY="\nSeveral tools require a working GPG key.
+Recommendet to use a key based on your email
+like 'first.lastname@example.com'.
+Setup found the following keys: \n
+$GPG_KEYS"
+
+if [ -z "$CINAC_KEY" ]; then
+	# no keys
+	if [ -z "$GPG_KEYS" ]; then
+		CINAC_KEY=$(whiptail --title "4/7 GPG key options" --radiolist \
+			"$MSG_NOKEY" "$BOX_H" "$BOX_W" 4 \
+			"new" "Create a new GPG key (recommendet)" ON \
+			"skip" "Do not configure any GPG key" OFF 3>&1 1>&2 2>&3)
+		abort "$CINAC_KEY"
+	# keys already exist
+	else
+		CINAC_KEY=$(whiptail --title "4/7 GPG key options" --radiolist \
+			"$MSG_YESKEY" "$BOX_H" "$BOX_W" 4 \
+			"existing" "Choose one of the existing keys" ON \
+			"new" "Create a new GPG key" OFF \
+			"skip" "Do not configure any GPG key" OFF 3>&1 1>&2 2>&3)
+		abort "$CINAC_KEY"
+	fi
+fi
+
+# question: gpg mail ----------------------------------------------------------
+MSG_MAIL="\nEnter the email address for your GPG key \n
+Setup found the folowing keys: \n
+$GPG_KEYS"
+
+MSG_PASS="\nEnter a new uniq GPG password. \n
+You can leave the password empty, but the password storage
+will not be encrypted. Use an empty password on an automated server.
+Do not enter a password on the next screen and confirm."
+
+case "$CINAC_KEY" in
+skip)
+	:
+	;;
+new)
+	if [ -z "$CINAC_MAIL" ]; then
+		CINAC_MAIL=$(whiptail --title "5/7 User email" \
+			--inputbox "\nEnter your email address" \
+			"$BOX_SMALL_H" "$BOX_W" 3>&1 1>&2 2>&3)
+	fi
+	if [ -z "$CINAC_NAME" ]; then
+		CINAC_NAME=$(whiptail --title "6/7 User name" \
+			--inputbox "\nEnter your full name, eg: Jo Smith" \
+			"$BOX_H" "$BOX_W" 3>&1 1>&2 2>&3)
+	fi
+	if [ -z "$CINAC_PASSWORD" ]; then
+		CINAC_PASSWORD=$(whiptail --title "7/7 User password" \
+			--inputbox "$MSG_PASS" \
+			"$BOX_H" "$BOX_W" 3>&1 1>&2 2>&3)
+	fi
+	;;
+existing)
+	# auto choose if only one keys exists
+	COUNT_KEYS=$(echo "$GPG_KEYS" | wc -l)
+	if [ "$COUNT_KEYS" = 1 ]; then
+		CINAC_MAIL=$(echo "$GPG_KEYS" | awk -F'[<>]' '{print $2}')
+	# manually choose a key
+	else
+		if [ -z "$CINAC_MAIL" ]; then
+			CINAC_MAIL=$(whiptail --title "5/7 User email" \
+				--inputbox "$MSG_MAIL" \
+				"$BOX_H" "$BOX_W" 3>&1 1>&2 2>&3)
+			abort "$CINAC_MAIL"
+			# verify
+			if ! echo "$GPG_KEYS" | grep -q "$CINAC_MAIL"; then
+				error "Can not find GPG key, aborting, correct mail?"
+			fi
+		fi
+	fi
+	;;
+esac
+
+### SETUP #####################################################################
+info "Running setup"
+
+# setup: Firewall rules -------------------------------------------------------
+info "Configuring firewall"
+
+[ -f /usr/sbin/ufw ] || error "ufw not installed"
+
+info "Resetting all firewall rules"
+sudo ufw --force reset 1>/dev/null || error "ufw --force reset"
+
+sudo ufw default reject incoming 1>/dev/null ||
+	error "ufw default reject incoming"
+sudo ufw default allow outgoing 1>/dev/null ||
+	error "ufw default allow outgoing"
+sudo ufw default deny routed 1>/dev/null ||
+	error "ufw default deny routed"
+
+# allow CinaC management from all physical network and wifi interfaces
+PHYS_NICS=$(find /sys/class/net \( -name "e*" -o -name "w*" \) -printf '%P\n')
+[ -n "$PHYS_NICS" ] || error "no physical network interfaces found"
+
+for i in $PHYS_NICS; do
+	firewall_allow SSHD tcp 22 "$i" || exit 1
+	firewall_allow HTTP tcp 80 "$i" || exit 1
+	firewall_allow HTTPS tcp 443 "$i" || exit 1
+	firewall_allow SPICE-WS tcp 7200:7300 "$i" || exit 1
+	firewall_allow SPICE-WSS tcp 8200:8300 "$i" || exit 1
+	firewall_allow CINAC-API tcp 8888 "$i" || exit 1
+done
+
+# allow dnsmasq on any interface
+firewall_allow DHCP tcp 67 || exit 1
+firewall_allow DNS tcp 53 || exit 1
+firewall_allow DNS udp 53 || exit 1
+
+# start firewall
+info "Enabling firewall"
+sudo ufw --force enable 1>/dev/null || error "ufw --force enable"
+
+# setup: GPG-Agent ------------------------------------------------------------
+if [ -f "$FILE_GPGCFG" ]; then
+	case $CINAC_GPGAGENT in
+	merge)
+		info "Merging inventorymakers settings into gpg-agent.conf"
+		inventorymaker-init || error "inventorymaker-init"
+		;;
+	ignore)
+		info "Skip gpg-agent.conf configuration"
+		;;
+	replace)
+		info "Replacing gpg-agent.conf configuration with inventorymakers"
+		rm -f "$FILE_GPGCFG"
+		inventorymaker-init || error "inventorymaker-init"
+		;;
+	esac
+else
+	info "Creating new gpg-agent.conf for inventorymaker"
+	inventorymaker-init || error "inventorymaker-init"
+fi
+
+# setup: gpg and pass ---------------------------------------------------------
+info "GPG and PASS config is: $CINAC_KEY"
+case "$CINAC_KEY" in
+skip)
+	info "Skip GPG key configuration"
+	;;
+new)
+	if [ -z "$CINAC_MAIL" ]; then
+		CINAC_MAIL="cinac@localhost"
+	fi
+	if [ -z "$CINAC_NAME" ]; then
+		CINAC_NAME="CinaC"
+	fi
+
+	KEY_EXISTS=$(gpg -k | grep "^uid" | grep "$CINAC_MAIL" || true)
+
+	if [ -n "$KEY_EXISTS" ]; then
+		info "Key $CINAC_MAIL already exists, skipping"
+	elif [ "$CINAC_PASSWORD" = "none" ] || [ "$CINAC_PASSWORD" = "" ]; then
+		gpg --batch --passphrase '' --quick-gen-key \
+			"$CINAC_NAME (GPG key) <$CINAC_MAIL>" \
+			default default none
+
+		info "Done key generation"
+
+		echo "Keys are:"
+		gpg -k || error "gpg -k"
+	else
+		info "Generating a new key for $CINAC_MAIL"
+		TMP_KEY_CFG="$HOME/keycfgtmp"
+		touch "$TMP_KEY_CFG" || error "touch"
+		chmod 0600 "$TMP_KEY_CFG" || error "chmod"
+
+		echo "Key-Type: default" >"$TMP_KEY_CFG" || error "echo"
+		# shellcheck disable=SC2129
+		echo "Subkey-Type: default" >>"$TMP_KEY_CFG"
+		echo "Name-Real: $CINAC_NAME" >>"$TMP_KEY_CFG"
+		echo "Name-Comment: GPG key" >>"$TMP_KEY_CFG"
+		echo "Name-Email: $CINAC_MAIL" >>"$TMP_KEY_CFG"
+		echo "Expire-Date: 0" >>"$TMP_KEY_CFG"
+		echo "Passphrase: $CINAC_PASSWORD" >>"$TMP_KEY_CFG"
+
+		gpg --batch --generate-key "$TMP_KEY_CFG" || error "gpg generate-key"
+		rm -f "$TMP_KEY_CFG"
+		info "Done key generation"
+
+		echo "Keys are:"
+		gpg -k || error "gpg -k"
+	fi
+
+	info "Initializing 'pass' tool"
+	pass init "$CINAC_MAIL" || error "pass init"
+	;;
+existing)
+	if [ -z "$CINAC_MAIL" ]; then
+		CINAC_MAIL="cinac@localhost"
+	fi
+
+	gpg -k | grep -qF $CINAC_MAIL || error "no existing GPG keys found"
+
+	info "Initializing 'pass' tool"
+	pass init "$CINAC_MAIL" || error "pass init"
+	;;
+esac
+
+# setup: python-argcomplete ---------------------------------------------------
+if [ -f /etc/bash_completion.d/python-argcomplete.sh ]; then
+	info "python-argcomplete already enabled"
+else
+	if [ "$CINAC_PYARG" = "true" ]; then
+		info "Enable python-argcomplete, relogin to activate TAB-completion"
+		if [ -n "$(command -v activate-global-python-argcomplete)" ]; then
+			sudo activate-global-python-argcomplete ||
+				error "activate argcomplete"
+		elif [ -n "$(command -v activate-global-python-argcomplete3)" ]; then
+			sudo activate-global-python-argcomplete3 ||
+				error "activate argcomplete"
+		else
+			error "activate-global-python-argcomplete not found"
+		fi
+	else
+		info "Skip python-argcomplete"
+	fi
+fi
+
+# setup: ww -------------------------------------------------------------------
+
+info "Add user '$USER' to libvirt"
+sudo usermod -a -G libvirt "$USER" || error "usermod"
+
+info "Create webroot and index"
+WEB_ROOT="/var/www/cinac"
+sudo mkdir -p "$WEB_ROOT" || error "Failed to create $WEB_ROOT"
+sudo chown -R www-data:www-data "$WEB_ROOT" ||
+	error "Failed to set permissions on $WEB_ROOT"
+sudo ln -sf "$CINAC_SHARED/favicon.ico" "$WEB_ROOT/favicon.ico"
+sudo ln -sf "$CINAC_SHARED/autokiosk.png" "$WEB_ROOT/logo.png"
+sudo cp -f "$CINAC_SHARED/index-template.html" "$WEB_ROOT/index.html"
+sudo sed -i "s|\[HOSTNAME\]|$CURRENT_HOST|g" "$WEB_ROOT/index.html"
+
+SSL_CERT="/etc/ssl/certs/cinac.crt"
+SSL_KEY="/etc/ssl/private/cinac.key"
+
+if systemctl is-active --quiet nginx.service; then
+	info "Configure NGINX"
+
+	# create a 10 years valid self-signed certificate
+	if [ ! -f "$SSL_CERT" ]; then
+		info "Generating self-signed SSL certificate and key"
+		sudo rm -f "$SSL_KEY"
+		gen_key "$SSL_CERT" "$SSL_KEY" || exit 1
+	else
+		info "Skip key generation, SSL certificate already exists"
+	fi
+
+	if [ ! -f "$SSL_CERT" ]; then
+		error "Failed to find or create SSL certificate and key"
+	else
+		info "Configure NGINX with SSL"
+		sudo unlink "/etc/nginx/sites-enabled/default" ||
+			error "unlink default nginx"
+		NGINX_SITE_AV="/etc/nginx/sites-available/cinac"
+		NGINX_SITE_EN="/etc/nginx/sites-enabled/cinac"
+		sudo cp -f "$CINAC_SHARED/nginx-site" "$NGINX_SITE_AV"
+		sudo ln -sf "$NGINX_SITE_AV" "$NGINX_SITE_EN"
+		sudo systemctl restart nginx.service ||
+			error "systemctl restart nginx"
+	fi
+else
+	info "Skip NGINX and SSL cert configuration, NGINX is not installed"
+fi
+
+if [ ! -f "$SSL_CERT" ]; then
+	info "Skip link SSL to spice-web-client, no SSL certificate found"
+else
+	info "Link CinaC SSL certificate to spice-web-client"
+	SSL_CERT_SPICE="/etc/ssl/certs/spice-web-client.crt"
+	SSL_KEY_SPICE="/etc/ssl/private/spice-web-client.key"
+	sudo ln -sf "$SSL_CERT" "$SSL_CERT_SPICE"
+	sudo ln -sf "$SSL_KEY" "$SSL_KEY_SPICE"
+fi
+
+# allow programs to be run without sudo password by current user
+add_app_to_sudoers vmh
+add_app_to_sudoers vmh-clear-logs
+add_app_to_sudoers vmh-watch
+add_app_to_sudoers reboot
+add_app_to_sudoers shutdown
+add_app_to_sudoers fastpkg
+add_app_to_sudoers apt-get
+if [ -n "$(command -v spice-web-client)" ]; then
+	add_app_to_sudoers spice-web-client
+else
+	info "Skip adding spice-web-client to sudoers, not installed"
+fi
+
+info "Set default libvirt connection URI"
+LIBVIRT_CFG="/etc/libvirt/libvirt.conf"
+LIBVIRT_URI="\"qemu:///system\""
+sudo sed -i "s;^uri_default.*;uri_default = $LIBVIRT_URI;g" "$LIBVIRT_CFG" ||
+	error "sed $LIBVIRT_CFG"
+sudo sed -i "s;^#uri_default.*;uri_default = $LIBVIRT_URI;g" "$LIBVIRT_CFG" ||
+	error "sed $LIBVIRT_CFG"
+
+POOL_NAME="default"
+POOL_PATH="/var/lib/libvirt/images"
+POOLS="$(sudo virsh pool-list --name)" || error "pool-list"
+if echo "$POOLS" | grep -q "$POOL_NAME"; then
+	info "Skip, storage pool already exists"
+else
+	info "Adding new storage pool"
+	sudo virsh -q pool-define-as --name "$POOL_NAME" \
+		--type dir --target "$POOL_PATH" || error "pool-define"
+	sudo virsh -q pool-autostart "$POOL_NAME" || error "pool-autostart"
+	sudo virsh -q pool-start "$POOL_NAME" || error "pool-start"
+fi
+
+info "Faster systemd boot in offline mode"
+# faster systemd boot without network
+sudo sed -i "/TimeoutStartSec=/c\TimeoutStartSec=10" \
+	/etc/systemd/system/network-online.target.wants/networking.service ||
+	error "sed network-online networking.service"
+sudo sed -i "/TimeoutStartSec=/c\TimeoutStartSec=10" \
+	/etc/systemd/system/multi-user.target.wants/networking.service ||
+	error "sed multi-user networking.service"
+
+info "Initalizing vmh"
+sudo vmh init || error "vmh init"
+sudo vmh-logging-enable || error "vmh-logging-enable"
+
+if [ -d "$HOME/.ww" ]; then
+	info "Skip initializing ww"
+	info "Folder ~.ww already exists"
+	info "If you want a new config, remove ~.ww manually and run 'ww' again"
+else
+	info "Initializing ww and fastpkg"
+	ww 1>/dev/null || error "ww"
+	sudo fastpkg init || error "fastpkg init"
+fi
+
+info "Marking setup as complete"
+touch \
+	"$PATH_CINAC/autoload" \
+	"$PATH_CINAC/default" \
+	"$PATH_CINAC/setup-complete"
+
+info "Linking Ansible Debian sources"
+mkdir -p "$HOME/.ansible/collections"
+ln -sf "/usr/share/ansible/collections" \
+	"$HOME/.ansible/collections/ansible_collections"
+ln -sf "/usr/share/ansible/roles" "$HOME/.ansible/roles"
+
+if [ -n "$(command -v autokiosk)" ]; then
+	info "Initializing autokiosk"
+	ln -sf "$CINAC_SHARED/autokiosk_keys" "$HOME/.autokiosk_keys"
+	ln -sf "$CINAC_SHARED/autokiosk.png" "$HOME/.autokiosk.png"
+	sudo autokiosk-init "$USER" || error "autokiosk-init"
+fi
+
+info "Create autostart script for desktop session"
+FILE_AUTOSTART="$HOME/.autokiosk_logon"
+if ! [ -f "$FILE_AUTOSTART" ]; then
+	# create autostart script
+	echo "#!/bin/sh
+#info: User session startup script, run extra application on Desktop user login
+# example: Load blueprint on user login
+# cinac-load myenv
+# example: Start a webapplication
+# autokiosk http://localhost/" >"$FILE_AUTOSTART"
+fi
+
+# create service
+FILE_AUTOSTART_SERVICE="/etc/systemd/system/cinac-autoload.service"
+echo "[Unit]
+Description=CinaC autoload
+After=multi-user.target
+
+[Service]
+Type=forking
+User=$USER
+ExecStart=cinac autoload
+RemainAfterExit=false
+TimeoutSec=0
+
+[Install]
+WantedBy=multi-user.target" |
+	sudo tee "$FILE_AUTOSTART_SERVICE" 1>/dev/null
+# enable service
+sudo systemctl enable cinac-autoload.service || error "systemd"
+
+info "Done!"
+info "List blueprints with 'cinac list-available'"
+info "Load a blueprints with 'cinac-load <NAME>'"
+
+# shellcheck disable=SC2009
+if [ -n "$(command -v autokiosk)" ]; then
+	if ! ps a | grep -v grep | grep -q Xorg; then
+		info "No Xorg session found, rebooting in 5 seconds..."
+		sleep 5
+		sudo reboot || error reboot
+	else
+		info "Xorg session found, skipping reboot"
+	fi
+else
+	if groups | grep -q "libvirt"; then
+		info "User is already a member of libvirt"
+	else
+		info "Starting new user session"
+		su - "$USER"
+	fi
+fi

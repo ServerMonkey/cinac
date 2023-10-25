@@ -1,0 +1,603 @@
+#!/bin/sh
+# info: Load a CinaC blueprint
+
+# must run as normal user
+if [ "$(id -u)" = 0 ]; then
+    echo 'This script must be run as a normal user, not root!' >&2
+    echo 'Run as the user that will be using CinaC' >&2
+    echo 'This user must can become root on this system' >&2
+    exit 1
+fi
+
+# parse arguments
+if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
+    man cinac.1 || ronn -r <README.md | man -l -
+    exit
+fi
+
+wait_for_openbox() {
+    if ! w | grep -qF openbox; then
+        echo "Waiting for openbox session..."
+        sleep 2
+    fi
+}
+
+# parameter
+DIR_OR_SEARCH="$(basename "$1")"
+ARGS="$2"
+SKIP_FPKG_HASH=""
+if echo "$ARGS" | grep -q "s"; then
+    SKIP_FPKG_HASH="s"
+fi
+
+SKIP_VM_INSTALL=false
+if echo "$ARGS" | grep -q "i"; then
+    SKIP_VM_INSTALL=true
+fi
+
+SKIP_AUTOCONF=false
+if echo "$ARGS" | grep -q "a"; then
+    SKIP_AUTOCONF=true
+fi
+
+if echo "$ARGS" | grep -q "vvvv"; then
+    DB_ENABLE=true
+    DB_FPKG="vvv"
+    DB_APT="-y"
+    DB_WW="vvvv"
+    DB_SPICE="d"
+elif echo "$ARGS" | grep -q "vvv"; then
+    DB_ENABLE=true
+    DB_FPKG="vvb"
+    DB_APT="-q"
+    DB_WW="vvv"
+    DB_SPICE="d"
+elif echo "$ARGS" | grep -q "vv"; then
+    DB_ENABLE=true
+    DB_FPKG="vb"
+    DB_APT="-qq"
+    DB_WW="vv"
+    DB_SPICE="d"
+elif echo "$ARGS" | grep -q "v"; then
+    DB_ENABLE=true
+    DB_FPKG="b"
+    DB_APT="-qq"
+    DB_WW="v"
+    DB_SPICE=""
+else
+    DB_ENABLE=false
+    DB_FPKG="b"
+    DB_APT="-qq"
+    DB_WW="f"
+    DB_SPICE=""
+fi
+
+# verify input
+# fallback to default
+if [ -z "$DIR_OR_SEARCH" ]; then
+    FILE_DEFAULT="$HOME/.cinac/default"
+    if [ -f "$FILE_DEFAULT" ]; then
+        DIR_OR_SEARCH=$(cat "$FILE_DEFAULT" 2>/dev/null)
+        if [ -z "$DIR_OR_SEARCH" ]; then
+            echo "No default blueprint set in $FILE_DEFAULT"
+            exit 1
+        fi
+    else
+        echo "No default blueprint config file found at $FILE_DEFAULT"
+        exit 1
+    fi
+fi
+case "$DIR_OR_SEARCH" in
+'' | *[' !&()'@#$%^*+]*)
+    echo "DIR_OR_SEARCH has forbidden character, please rename"
+    exit 1
+    ;;
+esac
+
+# search current path and default config folder for blueprint
+PATH_CINAC="$HOME/.cinac"
+if [ -d "$PATH_CINAC/$DIR_OR_SEARCH" ]; then
+    DIR_DEF="$PATH_CINAC/$DIR_OR_SEARCH"
+else
+    echo "No blueprint folder found '$DIR_OR_SEARCH'"
+    exit 1
+fi
+
+# variables
+# tput requires an interactive terminal
+if [ -n "$TERM" ]; then
+    RED=$(tput setaf 1)
+    GREEN=$(tput setaf 2)
+    YELLOW=$(tput setaf 3)
+    BLUE=$(tput setaf 4)
+    PURPLE=$(tput setaf 5)
+    NOCOL=$(tput sgr0)
+else
+    RED=""
+    GREEN=""
+    YELLOW=""
+    BLUE=""
+    PURPLE=""
+    NOCOL=""
+fi
+
+# default display fallback
+if [ -n "$(command -v autokiosk)" ]; then
+    # wait for an openbox session
+    wait_for_openbox
+    wait_for_openbox
+    wait_for_openbox
+    wait_for_openbox
+    wait_for_openbox
+
+    if [ -z "$DISPLAY" ]; then
+        # required if run from terminal
+        export DISPLAY=:0
+        # required for systemd to run as service
+        echo "Running cinac in none-interactive mode"
+        xhost +local: 1>/dev/null
+    fi
+fi
+
+# check that cinac-init has been run before!
+if ! [ -f "$PATH_CINAC/setup-complete" ]; then
+    echo "Must run 'cinac-init' first!"
+    exit 1
+fi
+
+# as a function
+require_app() {
+    if [ -z "$(command -v "$1")" ]; then
+        echo "$1 is not installed. Install to make this program work" >&2
+        exit 1
+    fi
+}
+
+abort() {
+    if [ -z "$1" ]; then
+        echo "Setup aborted because a variable was empty" >&2
+        exit 1
+    fi
+}
+
+title() {
+    echo "${RED}[CinaC ### ${YELLOW}$1 ${RED}### ]${NOCOL}"
+}
+
+info_autokiosk() {
+    # display status information on desktop
+    # shellcheck disable=SC2009
+    if [ -n "$(command -v autokiosk)" ] &&
+        ps a | grep -v grep | grep -q Xorg; then
+
+        INFO_TEXT=$(echo "$1" | tr -d "\'")
+        IMAGE_OUT="$HOME/.autokiosk_update.png"
+
+        # load custom background image
+        BG_IMAGE="$HOME/.autokiosk.png"
+        BG_IMAGE_CUSTOM="$DIR_DEF/autokiosk.png"
+        if [ -f "$BG_IMAGE_CUSTOM" ]; then
+            BG_IMAGE="$BG_IMAGE_CUSTOM"
+        fi
+
+        # generate image
+        gm convert \
+            -font '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf' \
+            -pointsize 36 \
+            -fill black \
+            -draw "text 40,1030 '$INFO_TEXT'" \
+            "$BG_IMAGE" "$IMAGE_OUT" || error_crit "gm convert: '$INFO_TEXT'"
+
+        # draw image to background
+        feh --bg-scale "$IMAGE_OUT" || error_crit "feh"
+    fi
+}
+
+info() {
+    echo "${PURPLE}[CinaC ### ${YELLOW}$1 ${PURPLE}### ]${NOCOL}"
+    info_autokiosk "$1" || error_crit "info_autokiosk"
+}
+
+info_ok() {
+    if [ "$DB_ENABLE" = true ]; then
+        echo "[ ${GREEN}OK${NOCOL} ] $1"
+    else
+        echo "[ OK ] $1"
+    fi
+}
+
+info_skip() {
+    echo "[${YELLOW}SKIP${NOCOL}] $1"
+}
+
+debug() {
+    if [ "$DB_ENABLE" = true ]; then
+        if echo "$ARGS" | grep -q "vv"; then
+            echo "${BLUE}[CinaC] $1${NOCOL}"
+        fi
+    fi
+}
+
+error_crit() {
+    echo "${RED}[CinaC] ERROR, aborting: ${NOCOL}$1" >&2
+    exit 1
+}
+
+error() {
+    echo "${RED}[CinaC] ERROR, aborting: ${NOCOL}$1" >&2
+    info_autokiosk "ERROR: $1" || error_crit "info_autokiosk"
+    # play fail sound
+    if [ -n "$(command -v aplay)" ]; then
+        aplay -q "/usr/local/share/cinac/fail.wav" 1>/dev/null 2>&1 &
+    fi
+    exit 1
+}
+
+get_section() {
+    # shellcheck disable=SC2039
+    local SECTION
+    SECTION=$(sed 's:#.*$::g' <"$DIR_DEF/bp.ini" |
+        tr '\t' ' ' |
+        sed 's/  */ /g' |
+        tr ' ' '@' |
+        tr '\n' ' ' |
+        sed "s|.*\[$1\]||g" |
+        sed "s|\[.*||g" |
+        awk '{$1=$1;print}')
+    if [ -z "$SECTION" ]; then
+        exit 1
+    else
+        echo "$SECTION"
+    fi
+}
+
+### MAIN ######################################################################
+
+# measure time for a command
+TIME_START=$(date +%s)
+
+require_app gpg
+require_app apt
+require_app fastpkg
+
+debug "DIR_DEF $DIR_DEF"
+
+ENV_NAME=$(basename "$DIR_DEF")
+
+title "BLUEPRINT: $ENV_NAME"
+
+if [ -n "$(command -v autokiosk)" ]; then
+    autokiosk close-all 1>/dev/null
+fi
+
+FILE_RUNNING="$PATH_CINAC/running"
+if [ -f "$FILE_RUNNING" ]; then
+    if grep -q "$DIR_DEF" <"$FILE_RUNNING"; then
+        title "UPDATING"
+    else
+        error "Another blueprint is already running"
+    fi
+else
+    title "CREATING NEW"
+fi
+
+info "Verify blueprint"
+# blueprint readme
+if [ -f "$DIR_DEF/README.md" ]; then
+    info_ok "README.md"
+else
+    error "Missing README.md"
+fi
+# blueprint definition
+if [ -f "$DIR_DEF/bp.ini" ]; then
+    info_ok "bp.ini"
+else
+    error "Missing bp.ini"
+fi
+
+# inventory
+INVENTORY_EXISTS=$(find "$DIR_DEF/inventory/"*)
+if echo "$INVENTORY_EXISTS" | grep -q ".csv$"; then
+    info_ok "inventory"
+else
+    error "Missing inventory"
+fi
+
+# wildwest config
+FILE_WWCFG_SRC="$DIR_DEF/ww.cfg"
+FILE_WWCFG_DES="$HOME/.ww/ww.cfg"
+FILE_WWCFG_ORI="$PATH_CINAC/ww.cfg.orig"
+if [ -f "$FILE_WWCFG_ORI" ]; then
+    debug "skip ww.cfg, already set"
+elif [ -f "$FILE_WWCFG_SRC" ]; then
+    info_ok "ww.cfg"
+    mv "$FILE_WWCFG_DES" "$FILE_WWCFG_ORI" || error "move ww.cfg"
+    ln -s "$FILE_WWCFG_SRC" "$FILE_WWCFG_DES" || error "link ww.cfg"
+else
+    debug "skip ww.cfg"
+fi
+
+# ansible config
+FILE_ANSCFG_SRC="$DIR_DEF/ansible.cfg"
+FILE_ANSCFG_DES="$HOME/.ww/ansible.cfg"
+FILE_ANSCFG_ORI="$PATH_CINAC/ansible.cfg.orig"
+if [ -f "$FILE_ANSCFG_ORI" ]; then
+    debug "skip ansible.cfg, already set"
+elif [ -f "$FILE_ANSCFG_SRC" ]; then
+    info_ok "ansible.cfg"
+    mv "$FILE_ANSCFG_DES" "$FILE_ANSCFG_ORI" || error "move ansible.cfg"
+    ln -s "$FILE_ANSCFG_SRC" "$FILE_ANSCFG_DES" || error "link ansible.cfg"
+else
+    debug "skip ansible.cfg"
+fi
+
+# extra templates
+EXTRA_TEMPLATES="$DIR_DEF/vm_templates"
+if [ -d "$EXTRA_TEMPLATES" ]; then
+    info_ok "vm_templates"
+else
+    debug "skip vm_templates"
+fi
+
+# prerun
+if [ -f "$DIR_DEF/prerun.sh" ]; then
+    info "Execute prerun.sh"
+    sh "$DIR_DEF/prerun.sh" || error "prerun.sh"
+else
+    info "no prerun script"
+fi
+
+info "Add Fastpkg repos"
+REPOS_FPKG=$(get_section repos-fastpkg)
+debug "REPOS_FPKG $REPOS_FPKG"
+if [ -n "$REPOS_FPKG" ]; then
+    for i in $REPOS_FPKG; do
+        sudo fastpkg -"$DB_FPKG"r "$i" enlist || error "fastpkg enlist"
+    done
+else
+    info_skip "No repos found"
+fi
+
+# check if network is working
+if systemctl -q is-active network-online.target; then
+    OFFLINE_MODE=false
+else
+    OFFLINE_MODE=true
+fi
+
+info "Update APT repos"
+if [ "$OFFLINE_MODE" = true ]; then
+    echo "Offline mode, skip update APT"
+else
+    if ! sudo apt-get "$DB_APT" update -o APT::Update::Error-Mode=any; then
+        info_skip "apt update, assuming offline mode"
+        OFFLINE_MODE=true
+    fi
+fi
+
+info "Update Fastpkg repos"
+if [ "$OFFLINE_MODE" = true ]; then
+    echo "Offline mode, skip update fastpkg"
+else
+    if ! sudo fastpkg -"$DB_FPKG" update; then
+        info_skip "fastpkg update failed, assuming offline mode"
+        OFFLINE_MODE=true
+    fi
+fi
+
+info "Upgrade APT packages"
+if [ "$OFFLINE_MODE" = true ]; then
+    echo "Offline mode, skip upgrade APT packages"
+else
+    sudo apt-get "$DB_APT" upgrade -y || error "apt upgrade"
+fi
+
+info "Install APT packages"
+if [ "$OFFLINE_MODE" = true ]; then
+    echo "Offline mode, skip install APT packages"
+else
+    PKGS_DEB=$(get_section pkgs-debian)
+    debug "PKGS_DEB $PKGS_DEB"
+    if [ -n "$PKGS_DEB" ]; then
+        for j in $PKGS_DEB; do
+            echo "[INST] $j"
+            sudo apt-get "$DB_APT" install "$j" -y || error "apt install $j"
+        done
+    else
+        info_skip "No packages found"
+    fi
+fi
+
+info "Download Fastpkg packages"
+if [ "$OFFLINE_MODE" = true ]; then
+    echo "Offline mode, skip download Fastpkg packages"
+else
+    PKGS_FPKG=$(get_section pkgs-fastpkg-download)
+    debug "PKGS_FPKG $PKGS_FPKG"
+    if [ -n "$PKGS_FPKG" ]; then
+        debug "fastpkg -$SKIP_FPKG_HASH$DB_FPKG -p \"$PKGS_FPKG\" download"
+        sudo fastpkg -$SKIP_FPKG_HASH$DB_FPKG -p "$PKGS_FPKG" download ||
+            error "fastpkg download, try: 'fastpkg -fp <PACKAGE> download'"
+    else
+        info_skip "No packages found"
+    fi
+fi
+
+info "Install Fastpkg packages"
+if [ "$OFFLINE_MODE" = true ]; then
+    echo "Offline mode, skip install Fastpkg packages"
+else
+    PKGS_FPKG_I=$(get_section pkgs-fastpkg-install)
+    debug "PKGS_FPKG_I $PKGS_FPKG_I"
+    if [ -n "$PKGS_FPKG_I" ]; then
+        for l in $PKGS_FPKG_I; do
+            sudo fastpkg -$SKIP_FPKG_HASH$DB_FPKG -p "$l" install ||
+                error "fastpkg install $l, try: sudo fastpkg -fp $l download"
+        done
+    else
+        info_skip "No packages found"
+    fi
+fi
+
+info "Set inventory"
+INV_SRC="$DIR_DEF/inventory"
+INV_TARGET="$HOME/.ww/inventory_src"
+rm -rf "$INV_TARGET"
+ln -s "$INV_SRC" "$INV_TARGET" || error "link inventory"
+debug "link $INV_SRC --> $INV_TARGET"
+
+# vmh config
+info "Configure VMH"
+
+# vmh environments
+PATH_VMH_ENV=$(sudo vmh get path_environments) || error "vmh get environments"
+debug "PATH_VMH_ENV $PATH_VMH_ENV"
+if [ -z "$PATH_VMH_ENV" ]; then
+    error "PATH_ENVIRONMENTS variable is empty or missing from vmh.conf"
+elif ! [ -d "$PATH_VMH_ENV" ]; then
+    error "'$PATH_VMH_ENV' is not a directory"
+fi
+
+# vmh debug
+sudo vmh set debug "$DB_ENABLE" || error "vmh set debug $DB_ENABLE"
+
+# extra templates
+if [ -d "$EXTRA_TEMPLATES" ]; then
+    info "Add extra templates"
+    for TEMPLATE in "$EXTRA_TEMPLATES"/*; do
+        [ -e "$TEMPLATE" ] || continue
+        debug "template file: $TEMPLATE"
+        sudo vmh template-add "$TEMPLATE" || error "vmh template-add $TEMPLATE"
+    done
+fi
+
+# vmh networks
+VMH_NETS=$(get_section "admin-networks") || error "get_section admin-networks"
+debug "VMH_NETS $VMH_NETS"
+if [ "$(echo "$VMH_NETS" | wc -l)" -gt 1 ]; then
+    error "admin-networks must be one line only"
+fi
+sudo vmh set "admin_networks" "$VMH_NETS" || error "vmh set networks $VMH_NETS"
+sudo vmh-clear-logs || error "vmh-clear-logs"
+
+# ww config
+info "Generate inventory"
+ww gen || error "ww gen"
+
+info "Stop old processes"
+pkill -f "vmh wait"
+
+info "Sync filesystem"
+sync || error "sync"
+
+info "Register blueprint"
+echo "$DIR_DEF" >"$FILE_RUNNING" || error "echo $DIR_DEF"
+
+info "Installing virtual machines"
+VMH_AUTOCONFIG=$(get_section "auto-config") || error "get_section auto-config"
+debug "VMH_AUTOCONFIG $VMH_AUTOCONFIG"
+TMP_ALREADY_DEPLOYED="$(mktemp)"
+# shellcheck disable=SC2002
+VALID_HOSTS=$(awk -F ',' '{print $2}' "$PATH_VMH_ENV/"*.csv)
+# find maximum config steps
+for _ in $VMH_AUTOCONFIG; do
+    COUNT_DCP_MAX=$((COUNT_DCP_MAX + 1))
+done
+
+for m in $VMH_AUTOCONFIG; do
+    COUNT_DCP=$((COUNT_DCP + 1))
+    COUNTER=0
+    TARGET_HOST=""
+    ACTIONSPACE=""
+    ACTION=""
+    WW_CMD=$(echo "$m" | tr '@' ' ' | sed 's/  */ /g')
+    debug "WW_CMD $WW_CMD"
+    for n in $WW_CMD; do
+        COUNTER=$((COUNTER + 1))
+        if [ "$COUNTER" = 1 ]; then
+            TARGET_HOST="$n"
+        elif [ "$COUNTER" = 2 ]; then
+            ACTIONSPACE="$n"
+        elif [ "$COUNTER" = 3 ]; then
+            ACTION="$n"
+        fi
+    done
+
+    debug "TARGET_HOST $TARGET_HOST"
+    debug "ACTIONSPACE $ACTIONSPACE"
+    debug "ACTION $ACTION"
+
+    if grep -Fxq "$TARGET_HOST" <"$TMP_ALREADY_DEPLOYED"; then
+        info_skip "'$TARGET_HOST' already installed"
+    elif echo "$VALID_HOSTS" | grep -Fxq "$TARGET_HOST"; then
+        info_skip "'$TARGET_HOST' is a host not an inventory, not installing"
+    elif [ "$SKIP_VM_INSTALL" = true ]; then
+        info_skip "virtual machine installation is disabled"
+    else
+        sudo vmh env-map "$TARGET_HOST" ||
+            error "vmh env-map $TARGET_HOST"
+        sudo vmh env-deploy "$TARGET_HOST" ||
+            error "vmh env-deploy $TARGET_HOST"
+        echo "$TARGET_HOST" >>"$TMP_ALREADY_DEPLOYED"
+
+        ERROR_LOG=$(grep "ERROR:" </var/log/vmhandler.log)
+        if [ -n "$ERROR_LOG" ]; then
+            info "Errors occured during virtual machine installation"
+            echo "$ERROR_LOG" | sed "s/$(hostname) vmhandler: ERROR:   //g" |
+                ccze -A
+            error "Virtual machine installation failed for '$TARGET_HOST'"
+        fi
+    fi
+
+    if [ "$SKIP_AUTOCONF" = true ]; then
+        info_skip "Configuring inventory is disabled"
+    else
+        info "Configuring inventory: $TARGET_HOST $COUNT_DCP/$COUNT_DCP_MAX"
+        echo "[$TARGET_HOST] $ACTIONSPACE $ACTION"
+        ww -"$DB_WW"t "$TARGET_HOST" "$ACTIONSPACE" -b "$ACTION" ||
+            error "ww $TARGET_HOST $ACTIONSPACE $ACTION"
+    fi
+done
+rm "$TMP_ALREADY_DEPLOYED"
+
+# install webserver
+WEB_ROOT="/var/www/cinac"
+# enable spice-web-client
+if [ -n "$(command -v spice-web-client)" ]; then
+    info "Installing SPICE web clients"
+    sudo spice-web-client if"$DB_SPICE" "$WEB_ROOT" ||
+        error "spice-web-client"
+fi
+
+# initial screenshot
+info "Take screenshots"
+cinac screenshot || error "cinac screenshot"
+
+# autokiosk
+# shellcheck disable=SC2009
+if [ -n "$(command -v autokiosk)" ] &&
+    ps a | grep -v grep | grep -q Xorg; then
+
+    info "Open autokiosk windows"
+    AUTOKIOSK_TARGETS=$(get_section autokiosk)
+    debug "AUTOKIOSK_TARGETS $AUTOKIOSK_TARGETS"
+    if [ -n "$AUTOKIOSK_TARGETS" ]; then
+        # open each window application
+        for o in $AUTOKIOSK_TARGETS; do
+            autokiosk "$o" || error "autokiosk $o"
+        done
+    else
+        info_skip "No autokiosk targets found"
+    fi
+fi
+
+# play finish sound
+if [ -n "$(command -v aplay)" ]; then
+    aplay -q "/usr/local/share/cinac/notification.wav" 1>/dev/null 2>&1 &
+fi
+
+# show time
+TIME_END=$(date +%s)
+TIME_RESULT=$((TIME_END - TIME_START))
+TIME_INFO=$(echo "$TIME_RESULT" | awk '{print int($1/60)"."int($1%60)}')
+info "Blueprint loaded, took $TIME_INFO min."

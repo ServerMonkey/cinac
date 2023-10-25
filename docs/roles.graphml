@@ -1,0 +1,1694 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:java="http://www.yworks.com/xml/yfiles-common/1.0/java" xmlns:sys="http://www.yworks.com/xml/yfiles-common/markup/primitives/2.0" xmlns:x="http://www.yworks.com/xml/yfiles-common/markup/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:y="http://www.yworks.com/xml/graphml" xmlns:yed="http://www.yworks.com/xml/yed/3" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://www.yworks.com/xml/schema/graphml/1.1/ygraphml.xsd">
+  <!--Created by yEd 3.19-->
+  <key attr.name="Description" attr.type="string" for="graph" id="d0"/>
+  <key for="port" id="d1" yfiles.type="portgraphics"/>
+  <key for="port" id="d2" yfiles.type="portgeometry"/>
+  <key for="port" id="d3" yfiles.type="portuserdata"/>
+  <key attr.name="url" attr.type="string" for="node" id="d4"/>
+  <key attr.name="description" attr.type="string" for="node" id="d5"/>
+  <key for="node" id="d6" yfiles.type="nodegraphics"/>
+  <key for="graphml" id="d7" yfiles.type="resources"/>
+  <key attr.name="url" attr.type="string" for="edge" id="d8"/>
+  <key attr.name="description" attr.type="string" for="edge" id="d9"/>
+  <key for="edge" id="d10" yfiles.type="edgegraphics"/>
+  <graph edgedefault="directed" id="G">
+    <data key="d0" xml:space="preserve"/>
+    <node id="n0">
+      <data key="d6">
+        <y:SVGNode>
+          <y:Geometry height="69.94900512695312" width="56.554100036621094" x="255.1016502380371" y="15.10198974609375"/>
+          <y:Fill color="#CCCCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#CC99FF" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="31.9375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="87.9765625" x="-15.711231231689453" xml:space="preserve" y="73.94900512695312">Golden Image
+developer<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="-0.5" nodeRatioX="0.0" nodeRatioY="0.5" offsetX="0.0" offsetY="4.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+          <y:SVGNodeProperties usingVisualBounds="true"/>
+          <y:SVGModel svgBoundsPolicy="0">
+            <y:SVGContent refid="1"/>
+          </y:SVGModel>
+        </y:SVGNode>
+      </data>
+    </node>
+    <node id="n1">
+      <data key="d6">
+        <y:ImageNode>
+          <y:Geometry height="64.0" width="64.0" x="494.0" y="241.0"/>
+          <y:Fill color="#CCCCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#99CCFF" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="31.9375" horizontalTextPosition="center" iconTextGap="4" modelName="sandwich" modelPosition="s" textColor="#000000" verticalTextPosition="bottom" visible="true" width="91.064453125" x="-13.5322265625" xml:space="preserve" y="68.0">Blueprint
+(e.g. GIT repo)</y:NodeLabel>
+          <y:Image alphaImage="true" refid="2"/>
+        </y:ImageNode>
+      </data>
+    </node>
+    <node id="n2">
+      <data key="d6">
+        <y:SVGNode>
+          <y:Geometry height="53.24563217163086" width="65.0260009765625" x="795.3788986206055" y="278.8703670501709"/>
+          <y:Fill color="#CCCCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#FFFFFF" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" hasText="false" height="4.0" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="4.0" x="30.51300048828125" y="57.24563217163086">
+            <y:LabelModel>
+              <y:SmartNodeLabelModel distance="4.0"/>
+            </y:LabelModel>
+            <y:ModelParameter>
+              <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="-0.5" nodeRatioX="0.0" nodeRatioY="0.5" offsetX="0.0" offsetY="4.0" upX="0.0" upY="-1.0"/>
+            </y:ModelParameter>
+          </y:NodeLabel>
+          <y:SVGNodeProperties usingVisualBounds="true"/>
+          <y:SVGModel svgBoundsPolicy="0">
+            <y:SVGContent refid="3"/>
+          </y:SVGModel>
+        </y:SVGNode>
+      </data>
+    </node>
+    <node id="n3">
+      <data key="d6">
+        <y:SVGNode>
+          <y:Geometry height="56.231998443603516" width="35.095298767089844" x="740.3442497253418" y="284.88400077819824"/>
+          <y:Fill color="#CCCCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#FFFFFF" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" hasText="false" height="4.0" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="4.0" x="15.547649383544922" y="60.231998443603516">
+            <y:LabelModel>
+              <y:SmartNodeLabelModel distance="4.0"/>
+            </y:LabelModel>
+            <y:ModelParameter>
+              <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="-0.5" nodeRatioX="0.0" nodeRatioY="0.5" offsetX="0.0" offsetY="4.0" upX="0.0" upY="-1.0"/>
+            </y:ModelParameter>
+          </y:NodeLabel>
+          <y:SVGNodeProperties usingVisualBounds="true"/>
+          <y:SVGModel svgBoundsPolicy="0">
+            <y:SVGContent refid="4"/>
+          </y:SVGModel>
+        </y:SVGNode>
+      </data>
+    </node>
+    <node id="n4">
+      <data key="d6">
+        <y:SVGNode>
+          <y:Geometry height="58.38100051879883" width="58.50005340576172" x="1025.0168991088867" y="364.75"/>
+          <y:Fill color="#CCCCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#99CC00" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="31.9375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="99.009765625" x="-20.25485610961914" xml:space="preserve" y="62.38100051879883">End User guest
+(limited access)<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="-0.5" nodeRatioX="0.0" nodeRatioY="0.5" offsetX="0.0" offsetY="4.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+          <y:SVGNodeProperties usingVisualBounds="false"/>
+          <y:SVGModel svgBoundsPolicy="0">
+            <y:SVGContent refid="5"/>
+          </y:SVGModel>
+        </y:SVGNode>
+      </data>
+    </node>
+    <node id="n5">
+      <data key="d6">
+        <y:SVGNode>
+          <y:Geometry height="64.96826171875" width="56.554100036621094" x="1025.989875793457" y="240.515869140625"/>
+          <y:Fill color="#CCCCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#99CC00" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="31.9375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="99.384765625" x="-21.415332794189453" xml:space="preserve" y="68.96826171875">End User admin
+(superuser)<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="-0.5" nodeRatioX="0.0" nodeRatioY="0.5" offsetX="0.0" offsetY="4.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+          <y:SVGNodeProperties usingVisualBounds="true"/>
+          <y:SVGModel svgBoundsPolicy="0">
+            <y:SVGContent refid="6"/>
+          </y:SVGModel>
+        </y:SVGNode>
+      </data>
+    </node>
+    <node id="n6">
+      <data key="d6">
+        <y:SVGNode>
+          <y:Geometry height="64.63923645019531" width="56.554100036621094" x="761.6148490905762" y="17.756874084472656"/>
+          <y:Fill color="#CCCCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#FF6600" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="17.96875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="97.92578125" x="-20.685840606689453" xml:space="preserve" y="68.63923645019531">Blueprint tester<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="-0.5" nodeRatioX="0.0" nodeRatioY="0.5" offsetX="0.0" offsetY="4.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+          <y:SVGNodeProperties usingVisualBounds="true"/>
+          <y:SVGModel svgBoundsPolicy="0">
+            <y:SVGContent refid="7"/>
+          </y:SVGModel>
+        </y:SVGNode>
+      </data>
+    </node>
+    <node id="n7">
+      <data key="d6">
+        <y:SVGNode>
+          <y:Geometry height="64.53585815429688" width="56.560157775878906" x="761.6118202209473" y="463.65557861328125"/>
+          <y:Fill color="#CCCCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#FF6600" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="17.96875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="140.7109375" x="-42.07538986206055" xml:space="preserve" y="68.53585815429688">Backend administrator<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="-0.5" nodeRatioX="0.0" nodeRatioY="0.5" offsetX="0.0" offsetY="4.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+          <y:SVGNodeProperties usingVisualBounds="true"/>
+          <y:SVGModel svgBoundsPolicy="0">
+            <y:SVGContent refid="8"/>
+          </y:SVGModel>
+        </y:SVGNode>
+      </data>
+    </node>
+    <node id="n8">
+      <data key="d6">
+        <y:SVGNode>
+          <y:Geometry height="58.30099868774414" width="35.78980255126953" x="508.10509872436523" y="136.61824798583984"/>
+          <y:Fill color="#CCCCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#CC99FF" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="31.9375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="92.751953125" x="-28.481075286865234" xml:space="preserve" y="62.30099868774414">Storage server
+(webserver)<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="-0.5" nodeRatioX="0.0" nodeRatioY="0.5" offsetX="0.0" offsetY="4.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+          <y:SVGNodeProperties usingVisualBounds="true"/>
+          <y:SVGModel svgBoundsPolicy="0">
+            <y:SVGContent refid="9"/>
+          </y:SVGModel>
+        </y:SVGNode>
+      </data>
+    </node>
+    <node id="n9">
+      <data key="d6">
+        <y:SVGNode>
+          <y:Geometry height="66.76200103759766" width="56.554100036621094" x="255.1016502380371" y="132.3877468109131"/>
+          <y:Fill color="#CCCCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#CC99FF" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="17.96875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="103.791015625" x="-23.618457794189453" xml:space="preserve" y="70.76200103759766">Repo maintainer<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="-0.5" nodeRatioX="0.0" nodeRatioY="0.5" offsetX="0.0" offsetY="4.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+          <y:SVGNodeProperties usingVisualBounds="true"/>
+          <y:SVGModel svgBoundsPolicy="0">
+            <y:SVGContent refid="10"/>
+          </y:SVGModel>
+        </y:SVGNode>
+      </data>
+    </node>
+    <node id="n10">
+      <data key="d6">
+        <y:SVGNode>
+          <y:Geometry height="45.56999588012695" width="67.49800109863281" x="756.1428985595703" y="250.21500205993652"/>
+          <y:Fill color="#CCCCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#FF6600" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="17.96875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="77.400390625" x="-4.951194763183594" xml:space="preserve" y="49.56999588012695">Deployment<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="-0.5" nodeRatioX="0.0" nodeRatioY="0.5" offsetX="0.0" offsetY="4.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+          <y:SVGNodeProperties usingVisualBounds="true"/>
+          <y:SVGModel svgBoundsPolicy="0">
+            <y:SVGContent refid="11"/>
+          </y:SVGModel>
+        </y:SVGNode>
+      </data>
+    </node>
+    <node id="n11" yfiles.foldertype="group">
+      <data key="d4" xml:space="preserve"/>
+      <data key="d6">
+        <y:ProxyAutoBoundsNode>
+          <y:Realizers active="0">
+            <y:GroupNode>
+              <y:Geometry height="100.46875" width="135.0" x="962.5439758300781" y="21.143001556396484"/>
+              <y:Fill color="#F5F5F5" transparent="false"/>
+              <y:BorderStyle hasColor="false" type="dashed" width="1.0"/>
+              <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="21.4609375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="false" width="135.0" x="0.0" xml:space="preserve" y="0.0">Group 1</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+              <y:State closed="false" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
+              <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
+              <y:BorderInsets bottom="0" bottomF="0.0" left="0" leftF="0.0" right="0" rightF="0.0" top="0" topF="0.0"/>
+            </y:GroupNode>
+            <y:GroupNode>
+              <y:Geometry height="50.0" width="50.0" x="0.0" y="60.0"/>
+              <y:Fill color="#F5F5F5" transparent="false"/>
+              <y:BorderStyle color="#000000" type="dashed" width="1.0"/>
+              <y:NodeLabel alignment="right" autoSizePolicy="node_width" backgroundColor="#EBEBEB" borderDistance="0.0" fontFamily="Dialog" fontSize="15" fontStyle="plain" hasLineColor="false" height="21.4609375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="65.201171875" x="-7.6005859375" xml:space="preserve" y="0.0">Folder 1</y:NodeLabel>
+              <y:Shape type="roundrectangle"/>
+              <y:State closed="true" closedHeight="50.0" closedWidth="50.0" innerGraphDisplayEnabled="false"/>
+              <y:Insets bottom="5" bottomF="5.0" left="5" leftF="5.0" right="5" rightF="5.0" top="5" topF="5.0"/>
+              <y:BorderInsets bottom="0" bottomF="0.0" left="0" leftF="0.0" right="0" rightF="0.0" top="0" topF="0.0"/>
+            </y:GroupNode>
+          </y:Realizers>
+        </y:ProxyAutoBoundsNode>
+      </data>
+      <graph edgedefault="directed" id="n11:">
+        <node id="n11::n0">
+          <data key="d6">
+            <y:ShapeNode>
+              <y:Geometry height="17.5" width="105.0" x="977.5439758300781" y="36.377376556396484"/>
+              <y:Fill color="#CC99FF" transparent="false"/>
+              <y:BorderStyle hasColor="false" raised="false" type="line" width="1.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="17.96875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="40.720703125" x="32.1396484375" xml:space="preserve" y="-0.234375">DATA<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+              <y:Shape type="rectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="n11::n1">
+          <data key="d6">
+            <y:ShapeNode>
+              <y:Geometry height="17.5" width="105.0" x="977.5439758300781" y="53.877376556396484"/>
+              <y:Fill color="#99CCFF" transparent="false"/>
+              <y:BorderStyle hasColor="false" raised="false" type="line" width="1.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="17.96875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="41.166015625" x="31.9169921875" xml:space="preserve" y="-0.234375">CODE<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+              <y:Shape type="rectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="n11::n2">
+          <data key="d6">
+            <y:ShapeNode>
+              <y:Geometry height="17.5" width="105.0" x="977.5439758300781" y="71.37737655639648"/>
+              <y:Fill color="#FF6600" transparent="false"/>
+              <y:BorderStyle hasColor="false" raised="false" type="line" width="1.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="17.96875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="95.857421875" x="4.5712890625" xml:space="preserve" y="-0.234375">DEPLOYMENT<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+              <y:Shape type="rectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+        <node id="n11::n3">
+          <data key="d6">
+            <y:ShapeNode>
+              <y:Geometry height="17.5" width="105.0" x="977.5439758300781" y="88.87737655639648"/>
+              <y:Fill color="#99CC00" transparent="false"/>
+              <y:BorderStyle hasColor="false" raised="false" type="line" width="1.0"/>
+              <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="17.96875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="30.583984375" x="37.2080078125" xml:space="preserve" y="-0.234375">USE<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+              <y:Shape type="rectangle"/>
+            </y:ShapeNode>
+          </data>
+        </node>
+      </graph>
+    </node>
+    <node id="n12">
+      <data key="d6">
+        <y:SVGNode>
+          <y:Geometry height="69.94900512695312" width="56.554100036621094" x="255.1016502380371" y="460.9490051269531"/>
+          <y:Fill color="#CCCCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#99CCFF" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="31.9375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="122.658203125" x="-33.05205154418945" xml:space="preserve" y="73.94900512695312">Blueprint developer
+(network)<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="-0.5" nodeRatioX="0.0" nodeRatioY="0.5" offsetX="0.0" offsetY="4.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+          <y:SVGNodeProperties usingVisualBounds="true"/>
+          <y:SVGModel svgBoundsPolicy="0">
+            <y:SVGContent refid="1"/>
+          </y:SVGModel>
+        </y:SVGNode>
+      </data>
+    </node>
+    <node id="n13">
+      <data key="d6">
+        <y:SVGNode>
+          <y:Geometry height="69.94900512695312" width="56.554100036621094" x="255.1016502380371" y="238.02549743652344"/>
+          <y:Fill color="#CCCCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#99CCFF" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="31.9375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="122.658203125" x="-33.05205154418945" xml:space="preserve" y="73.94900512695312">Blueprint developer
+(inventory)<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="-0.5" nodeRatioX="0.0" nodeRatioY="0.5" offsetX="0.0" offsetY="4.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+          <y:SVGNodeProperties usingVisualBounds="true"/>
+          <y:SVGModel svgBoundsPolicy="0">
+            <y:SVGContent refid="1"/>
+          </y:SVGModel>
+        </y:SVGNode>
+      </data>
+    </node>
+    <node id="n14">
+      <data key="d6">
+        <y:SVGNode>
+          <y:Geometry height="66.76200103759766" width="56.554100036621094" x="255.1016502380371" y="356.3689994812012"/>
+          <y:Fill color="#CCCCFF" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#99CCFF" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="31.9375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="122.658203125" x="-33.05205154418945" xml:space="preserve" y="70.76200103759766">Blueprint developer
+(configuration)<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="-0.5" nodeRatioX="0.0" nodeRatioY="0.5" offsetX="0.0" offsetY="4.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+          <y:SVGNodeProperties usingVisualBounds="true"/>
+          <y:SVGModel svgBoundsPolicy="0">
+            <y:SVGContent refid="10"/>
+          </y:SVGModel>
+        </y:SVGNode>
+      </data>
+    </node>
+    <node id="n15">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="56.275386810302734" width="90.89921062498354" x="555.1053077581525" y="21.938798904418945"/>
+          <y:Fill hasColor="false" transparent="false"/>
+          <y:BorderStyle hasColor="false" raised="false" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="30" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="73.84375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="91.626953125" x="-0.36387125000828746" xml:space="preserve" y="-8.784181594848633">CinaC
+Roles<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+          <y:Shape type="rectangle"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <edge id="e0" source="n14" target="n1">
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:LineStyle color="#99CCFF" type="dashed" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#99CCFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasLineColor="false" height="38.921875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="57.935546875" x="68.7130069732666" xml:space="preserve" y="-66.46518479298857">playbooks,
+scripts,
+libvirt XML<y:LabelModel><y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/></y:LabelModel><y:ModelParameter><y:SmartEdgeLabelModelParameter angle="0.0" distance="30.0" distanceToCenter="true" position="center" ratio="0.5" segment="0"/></y:ModelParameter><y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e1" source="n13" target="n1">
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:LineStyle color="#99CCFF" type="dashed" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#99CCFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasLineColor="false" height="15.640625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="74.9423828125" x="67.61379432678223" xml:space="preserve" y="-7.8203125">inventory CSV<y:LabelModel><y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/></y:LabelModel><y:ModelParameter><y:SmartEdgeLabelModelParameter angle="0.0" distance="30.0" distanceToCenter="true" position="center" ratio="0.5" segment="0"/></y:ModelParameter><y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e2" source="n12" target="n1">
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:LineStyle color="#99CCFF" type="dashed" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#99CCFF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasLineColor="false" height="15.640625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="56.861328125" x="77.11355873277546" xml:space="preserve" y="-104.79566955566406">libvirt XML<y:LabelModel><y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/></y:LabelModel><y:ModelParameter><y:SmartEdgeLabelModelParameter angle="0.0" distance="30.0" distanceToCenter="true" position="center" ratio="0.5" segment="0"/></y:ModelParameter><y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e3" source="n0" target="n8">
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:LineStyle color="#CC99FF" type="dashed" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#CC99FF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasLineColor="false" height="27.28125" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="79.2197265625" x="75.48937225341797" xml:space="preserve" y="41.24363106061378">qcow2 images,
+libvirt XML<y:LabelModel><y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/></y:LabelModel><y:ModelParameter><y:SmartEdgeLabelModelParameter angle="0.0" distance="30.0" distanceToCenter="true" position="center" ratio="0.5" segment="0"/></y:ModelParameter><y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e4" source="n9" target="n8">
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:LineStyle color="#CC99FF" type="dashed" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#CC99FF" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasLineColor="false" height="50.5625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="119.654296875" x="44.373069763183594" xml:space="preserve" y="-25.2812557220459">gathers/consolidates
+packages and files
+Packages.gz (Debian)
+packages.csv (fastpkg)<y:LabelModel><y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/></y:LabelModel><y:ModelParameter><y:SmartEdgeLabelModelParameter angle="0.0" distance="30.0" distanceToCenter="true" position="center" ratio="0.5" segment="0"/></y:ModelParameter><y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e5" source="n7" target="n10">
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:LineStyle color="#FF6600" type="dashed" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FF6600" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasLineColor="false" height="62.203125" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="93.521484375" x="-46.76074981689453" xml:space="preserve" y="-88.09758942685664">provides
+physical
+infrastructure,
+installs CinaC and
+Thin Clients<y:LabelModel><y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/></y:LabelModel><y:ModelParameter><y:SmartEdgeLabelModelParameter angle="0.0" distance="30.0" distanceToCenter="true" position="center" ratio="0.21818457499930033" segment="-1"/></y:ModelParameter><y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e6" source="n5" target="n10">
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:LineStyle color="#99CC00" type="dashed" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#99CC00" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasLineColor="false" height="50.5625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="72.4765625" x="-151.32865524291992" xml:space="preserve" y="-25.28125">manages,
+deploys and
+destroys
+infrastructure<y:LabelModel><y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/></y:LabelModel><y:ModelParameter><y:SmartEdgeLabelModelParameter angle="0.0" distance="30.0" distanceToCenter="true" position="center" ratio="0.5" segment="0"/></y:ModelParameter><y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e7" source="n4" target="n10">
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:LineStyle color="#99CC00" type="dashed" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#99CC00" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasLineColor="false" height="38.921875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="72.4765625" x="-136.90535354614258" xml:space="preserve" y="-65.51187326571932">uses
+a deployed
+infrastructure<y:LabelModel><y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/></y:LabelModel><y:ModelParameter><y:SmartEdgeLabelModelParameter angle="0.0" distance="30.0" distanceToCenter="true" position="center" ratio="0.5" segment="0"/></y:ModelParameter><y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e8" source="n1" target="n10">
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:LineStyle color="#FF6600" type="dashed" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FF6600" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasLineColor="false" height="27.28125" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="47.1103515625" x="82.0354995727539" xml:space="preserve" y="-13.640625">copy or
+git clone<y:LabelModel><y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/></y:LabelModel><y:ModelParameter><y:SmartEdgeLabelModelParameter angle="0.0" distance="30.0" distanceToCenter="true" position="center" ratio="0.5" segment="0"/></y:ModelParameter><y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e9" source="n6" target="n10">
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:LineStyle color="#FF6600" type="dashed" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FF6600" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasLineColor="false" height="38.921875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="63.21875" x="-31.609382629394645" xml:space="preserve" y="64.46707820892334">verification,
+testing and
+feedback<y:LabelModel><y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/></y:LabelModel><y:ModelParameter><y:SmartEdgeLabelModelParameter angle="0.0" distance="30.0" distanceToCenter="true" position="center" ratio="0.5" segment="0"/></y:ModelParameter><y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e10" source="n8" target="n10">
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:LineStyle color="#FF6600" type="dashed" width="2.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FF6600" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasLineColor="false" height="27.28125" horizontalTextPosition="center" iconTextGap="4" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" verticalTextPosition="bottom" visible="true" width="73.814453125" x="69.23325538635254" xml:space="preserve" y="29.489074631360324">provides file
+dependencies<y:LabelModel><y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/></y:LabelModel><y:ModelParameter><y:SmartEdgeLabelModelParameter angle="0.0" distance="30.0" distanceToCenter="true" position="center" ratio="0.5" segment="0"/></y:ModelParameter><y:PreferredPlacementDescriptor angle="0.0" angleOffsetOnRightSide="0" angleReference="absolute" angleRotationOnRightSide="co" distance="-1.0" frozen="true" placement="anywhere" side="anywhere" sideReference="relative_to_edge_flow"/></y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+  </graph>
+  <data key="d7">
+    <y:Resources>
+      <y:Resource id="1" xml:space="preserve">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="57px" height="65px" viewBox="0 0 57 65" enable-background="new 0 0 57 65" xml:space="preserve"&gt;
+&lt;g&gt;
+	
+		&lt;linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="26.3398" y1="3115.7266" x2="27.5807" y2="3145.5239" gradientTransform="matrix(1 0 0 1 0.3203 -3091.7656)"&gt;
+		&lt;stop  offset="0.2711" style="stop-color:#FFAB4F"/&gt;
+		&lt;stop  offset="1" style="stop-color:#FFD28F"/&gt;
+	&lt;/linearGradient&gt;
+	&lt;path fill="url(#SVGID_1_)" stroke="#ED9135" stroke-miterlimit="10" d="M49.529,51.225c-4.396-4.396-10.951-5.884-12.063-6.109
+		V37.8H19.278c0,0,0.038,6.903,0,6.868c0,0-6.874,0.997-12.308,6.432C1.378,56.691,0.5,62.77,0.5,62.77
+		c0,1.938,1.575,3.492,3.523,3.492h48.51c1.947,0,3.521-1.558,3.521-3.492C56.055,62.768,54.211,55.906,49.529,51.225z"/&gt;
+	
+		&lt;radialGradient id="face_x5F_white_1_" cx="27.5835" cy="3117.4922" r="23.425" fx="23.0139" fy="3115.0024" gradientTransform="matrix(1 0 0 1 0.3203 -3091.7656)" gradientUnits="userSpaceOnUse"&gt;
+		&lt;stop  offset="0" style="stop-color:#FFD28F"/&gt;
+		&lt;stop  offset="1" style="stop-color:#FFAB4F"/&gt;
+	&lt;/radialGradient&gt;
+	&lt;path id="face_x5F_white_3_" fill="url(#face_x5F_white_1_)" stroke="#ED9135" stroke-miterlimit="10" d="M43.676,23.357
+		c0.086,10.2-6.738,18.52-15.25,18.586c-8.5,0.068-15.464-8.146-15.55-18.344C12.794,13.4,19.618,5.079,28.123,5.012
+		C36.627,4.945,43.59,13.158,43.676,23.357z"/&gt;
+	
+		&lt;linearGradient id="face_highlight_1_" gradientUnits="userSpaceOnUse" x1="6468.501" y1="-12291.5195" x2="6492.1304" y2="-12384.9688" gradientTransform="matrix(0.275 0 0 -0.2733 -1752.8849 -3351.7349)"&gt;
+		&lt;stop  offset="0" style="stop-color:#FFFFFF;stop-opacity:0.24"/&gt;
+		&lt;stop  offset="1" style="stop-color:#FFFFFF;stop-opacity:0.16"/&gt;
+	&lt;/linearGradient&gt;
+	&lt;path id="face_highlight_3_" fill="url(#face_highlight_1_)" d="M28.415,5.625c-6.035,0.047-10.747,4.493-12.787,10.386
+		c-0.664,1.919-0.294,4.043,0.98,5.629c2.73,3.398,5.729,6.283,9.461,8.088c3.137,1.518,7.535,2.385,11.893,1.247
+		c2.274-0.592,3.988-2.459,4.375-4.766c0.187-1.094,0.293-2.289,0.283-3.553C42.54,13.244,36.729,5.56,28.415,5.625z"/&gt;
+	&lt;path fill="#5C5C5C" stroke="#353535" stroke-linecap="round" stroke-linejoin="round" d="M32.215,9.938
+		c0,0,5.688,2.75,7.688,8.125c2.104,5.652,4.123,8.232,4.188,8c1.875-6.794,1.063-21.438-10.17-21.587
+		c-20.455-7.663-25.58,11.962-23.893,19.65c1.078,4.911,2.234,6.686,3.938,8.08C13.966,32.205,15.028,17.563,32.215,9.938z"/&gt;
+	
+		&lt;linearGradient id="body_1_" gradientUnits="userSpaceOnUse" x1="95.9063" y1="-3136.23" x2="31.5133" y2="-3136.23" gradientTransform="matrix(0.9852 0 0 -0.9852 -34.4844 -3033.9702)"&gt;
+		&lt;stop  offset="0" style="stop-color:#49AD33"/&gt;
+		&lt;stop  offset="1" style="stop-color:#C2DA92"/&gt;
+	&lt;/linearGradient&gt;
+	&lt;path id="body_8_" fill="url(#body_1_)" stroke="#008D33" d="M0.5,62.768c0,1.938,1.575,3.494,3.523,3.494h48.51
+		c1.947,0,3.521-1.559,3.521-3.494c0,0-1.844-6.861-6.525-11.543c-4.815-4.813-8.244-5.146-8.244-5.146
+		c-1.444,6.983-8.555,8.786-13.007,8.786s-11.322-2.643-11.941-9.439c0,0-4.559,1.199-9.367,5.674
+		C1.378,56.689,0.5,62.768,0.5,62.768z"/&gt;
+&lt;/g&gt;
+&lt;/svg&gt;
+</y:Resource>
+      <y:Resource id="2" type="java.awt.image.BufferedImage" xml:space="preserve">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</y:Resource>
+      <y:Resource id="3" xml:space="preserve">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;svg version="1.1"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	 x="0px" y="0px" width="65px" height="53px" viewBox="-0.811 -0.063 65 53" enable-background="new -0.811 -0.063 65 53"
+	 xml:space="preserve"&gt;
+&lt;defs&gt;
+&lt;/defs&gt;
+&lt;linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="220.9624" y1="824.415" x2="220.9624" y2="801.0922" gradientTransform="matrix(1 0 0 1 -195.2002 -770.8008)"&gt;
+	&lt;stop  offset="0.0319" style="stop-color:#808080"/&gt;
+	&lt;stop  offset="0.1229" style="stop-color:#939393"/&gt;
+	&lt;stop  offset="0.2702" style="stop-color:#ABABAB"/&gt;
+	&lt;stop  offset="0.4266" style="stop-color:#BCBCBC"/&gt;
+	&lt;stop  offset="0.5968" style="stop-color:#C6C6C6"/&gt;
+	&lt;stop  offset="0.8061" style="stop-color:#C9C9C9"/&gt;
+&lt;/linearGradient&gt;
+&lt;path fill="url(#SVGID_1_)" d="M51.333,51.918c0.195,0.459-0.053,0.836-0.553,0.836H0.58c-0.5,0-0.604-0.272-0.232-0.605
+	l8.023-7.191c0.373-0.334,1.086-0.605,1.586-0.605h37.255c0.498,0,1.065,0.377,1.265,0.836L51.333,51.918z"/&gt;
+&lt;path fill="none" stroke="#8D8D8D" stroke-width="0.25" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+	M51.333,51.918c0.195,0.459-0.053,0.836-0.553,0.836H0.58c-0.5,0-0.604-0.272-0.232-0.605l8.023-7.191
+	c0.373-0.334,1.086-0.605,1.586-0.605h37.255c0.498,0,1.065,0.377,1.265,0.836L51.333,51.918z"/&gt;
+&lt;path fill="#717171" d="M32.117,50.571c0,0.25-0.205,0.454-0.455,0.454H4.024c-0.25,0-0.304-0.139-0.119-0.307l5.638-5.154
+	c0.184-0.17,0.539-0.309,0.789-0.309h21.332c0.25,0,0.454,0.205,0.454,0.455L32.117,50.571L32.117,50.571z"/&gt;
+&lt;path fill="#717171" d="M40.738,50.598c0.086,0.236,0.359,0.428,0.609,0.428h7.465c0.25,0,0.375-0.188,0.279-0.42l-2.049-4.93
+	c-0.098-0.229-0.379-0.42-0.629-0.42h-7.17c-0.25,0-0.386,0.191-0.301,0.428L40.738,50.598z"/&gt;
+&lt;path fill="#717171" d="M32.89,50.571c0,0.25,0.205,0.454,0.455,0.454h6.135c0.25,0,0.382-0.189,0.293-0.426l-0.156-0.409
+	c-0.089-0.233-0.365-0.421-0.615-0.416l-1.045,0.021c-0.25,0.004-0.509-0.189-0.574-0.432l-0.021-0.082
+	c-0.065-0.242-0.321-0.439-0.571-0.439h-1.316c-0.25,0-0.444,0.205-0.432,0.453l0.002,0.059c0.016,0.25-0.181,0.455-0.431,0.459
+	l-1.269,0.021c-0.25,0.006-0.454,0.211-0.454,0.461L32.89,50.571L32.89,50.571z"/&gt;
+&lt;path fill="#717171" d="M32.89,47.004c0,0.25,0.205,0.455,0.455,0.455h4.845c0.25,0,0.396-0.195,0.323-0.437l-0.402-1.333
+	c-0.07-0.238-0.335-0.438-0.585-0.438h-4.181c-0.25,0-0.455,0.205-0.455,0.455V47.004z"/&gt;
+&lt;linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="535.2017" y1="-1418.6563" x2="511.4634" y2="-1418.6563" gradientTransform="matrix(1 0 0 -1 -488 -1376.627)"&gt;
+	&lt;stop  offset="0" style="stop-color:#4D4D4D"/&gt;
+	&lt;stop  offset="1" style="stop-color:#999999"/&gt;
+&lt;/linearGradient&gt;
+&lt;path fill="url(#SVGID_2_)" d="M47.048,40.514c0,0.965-6.758,1.404-12.371,1.404c-3.889,0-10.914-0.348-11.367-1.267
+	c0,0.446,0,1.502,0,1.661c0,0.725,4.803,1.234,11.357,1.234c6.554,0,12.381-0.643,12.381-1.361
+	C47.048,42.028,47.048,40.977,47.048,40.514z"/&gt;
+&lt;path fill="#808080" d="M35.179,39.307c6.556,0,11.869,0.584,11.869,1.307c0,0.721-5.313,1.42-11.869,1.42
+	c-6.701,0-11.869-0.697-11.869-1.42S28.625,39.307,35.179,39.307z"/&gt;
+&lt;linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="525.7661" y1="-1412.6865" x2="520.77" y2="-1412.6865" gradientTransform="matrix(1 0 0 -1 -488 -1376.627)"&gt;
+	&lt;stop  offset="0" style="stop-color:#999999"/&gt;
+	&lt;stop  offset="0.0417" style="stop-color:#8D8D8D"/&gt;
+	&lt;stop  offset="0.1617" style="stop-color:#717171"/&gt;
+	&lt;stop  offset="0.2821" style="stop-color:#5D5D5D"/&gt;
+	&lt;stop  offset="0.4021" style="stop-color:#515151"/&gt;
+	&lt;stop  offset="0.5212" style="stop-color:#4D4D4D"/&gt;
+	&lt;stop  offset="0.6202" style="stop-color:#565656"/&gt;
+	&lt;stop  offset="0.7817" style="stop-color:#6E6E6E"/&gt;
+	&lt;stop  offset="0.9844" style="stop-color:#969696"/&gt;
+	&lt;stop  offset="1" style="stop-color:#999999"/&gt;
+&lt;/linearGradient&gt;
+&lt;path fill="url(#SVGID_3_)" d="M37.734,40.896c0,0-1.477,0.096-2.498,0.096s-2.499-0.096-2.499-0.096v-9.768h4.997V40.896z"/&gt;
+&lt;radialGradient id="SVGID_4_" cx="415.8687" cy="-1386.5146" r="24.0778" gradientTransform="matrix(1.15 0 0 -1 -453.4719 -1376.627)" gradientUnits="userSpaceOnUse"&gt;
+	&lt;stop  offset="0" style="stop-color:#F2F2F2"/&gt;
+	&lt;stop  offset="1" style="stop-color:#666666"/&gt;
+&lt;/radialGradient&gt;
+&lt;path fill="url(#SVGID_4_)" d="M9.453,2.122c0-1.1,0.9-2,2-2h48.246c1.1,0,2,0.9,2,2v30.073c0,1.101-0.9,2-2,2H11.453
+	c-1.1,0-2-0.899-2-2V2.122z"/&gt;
+&lt;path fill="none" stroke="#666666" stroke-width="0.2436" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+	M9.453,2.122c0-1.1,0.9-2,2-2h48.246c1.1,0,2,0.9,2,2v30.073c0,1.101-0.9,2-2,2H11.453c-1.1,0-2-0.899-2-2V2.122z"/&gt;
+&lt;radialGradient id="SVGID_5_" cx="402.1509" cy="-1378.3662" r="53.3339" fx="444.1083" fy="-1385.5538" gradientTransform="matrix(1.1935 0 0 -1 -443.5655 -1376.627)" gradientUnits="userSpaceOnUse"&gt;
+	&lt;stop  offset="0" style="stop-color:#4D4D4D"/&gt;
+	&lt;stop  offset="1" style="stop-color:#999999"/&gt;
+&lt;/radialGradient&gt;
+&lt;path fill="url(#SVGID_5_)" d="M10.475,3.143c0-1.1,0.9-2,2-2h46.429c1.1,0,2,0.9,2,2v27.805c0,1.1-0.9,2-2,2H12.475
+	c-1.1,0-2-0.9-2-2V3.143z"/&gt;
+&lt;radialGradient id="SVGID_6_" cx="402.939" cy="-1378.4502" r="34.1874" gradientTransform="matrix(1.1923 0 0 -1 -443.8286 -1376.627)" gradientUnits="userSpaceOnUse"&gt;
+	&lt;stop  offset="0" style="stop-color:#9CD7FF"/&gt;
+	&lt;stop  offset="1" style="stop-color:#3C89C9"/&gt;
+&lt;/radialGradient&gt;
+&lt;path fill="url(#SVGID_6_)" d="M11.043,3.598c0-1.1,0.9-2,2-2h45.294c1.1,0,2,0.9,2,2v26.895c0,1.1-0.9,2-2,2H13.043
+	c-1.1,0-2-0.9-2-2V3.598z"/&gt;
+&lt;path opacity="0.24" fill="#F2F2F2" d="M11.043,24.936V3.598c0-1.1,0.9-2,2-2h45.294c1.1,0,2,0.9,2,2v13.539l-23.164,4.94
+	c-1.064,0.273-2.836,0.547-3.935,0.609L11.043,24.936z"/&gt;
+&lt;path fill="#C9C9C9" d="M58.777,46.596c-0.003-0.002-0.005-0.002-0.007,0c-0.188-0.061-0.429-0.254-0.702-0.482
+	C58.335,46.268,58.578,46.436,58.777,46.596z"/&gt;
+&lt;radialGradient id="SVGID_7_" cx="450.8638" cy="1259.1514" r="6.3766" gradientTransform="matrix(1 0 0 1 -390.4004 -1211.6016)" gradientUnits="userSpaceOnUse"&gt;
+	&lt;stop  offset="0.1939" style="stop-color:#C9C9C9"/&gt;
+	&lt;stop  offset="0.3299" style="stop-color:#C6C6C6"/&gt;
+	&lt;stop  offset="0.4405" style="stop-color:#BCBCBC"/&gt;
+	&lt;stop  offset="0.5421" style="stop-color:#ABABAB"/&gt;
+	&lt;stop  offset="0.6378" style="stop-color:#939393"/&gt;
+	&lt;stop  offset="0.697" style="stop-color:#808080"/&gt;
+&lt;/radialGradient&gt;
+&lt;path fill="url(#SVGID_7_)" d="M58.77,46.596c0.005,0.002,0.007,0.002,0.009,0.002c0.002,0.004,0.006,0.004,0.006,0.004
+	c0.084,0.023,0.153,0.021,0.213-0.021c0.017-0.008,0.026-0.021,0.037-0.041c0.604-0.119,1.329-0.154,2.197-0.086
+	c2.032,1.545,3.77,4.625,1.18,5.801c-2.048,0.929-3.543,0.783-4.722-0.485c-0.624-0.675-1.239-1.47-1.729-2.265
+	C56.226,48.369,56.855,47.061,58.77,46.596z"/&gt;
+&lt;radialGradient id="SVGID_8_" cx="603.5698" cy="1426.6348" r="3.8245" gradientTransform="matrix(0.9761 0.2173 -0.1478 0.6641 -320.0412 -1031.1759)" gradientUnits="userSpaceOnUse"&gt;
+	&lt;stop  offset="0.1939" style="stop-color:#C9C9C9"/&gt;
+	&lt;stop  offset="0.3739" style="stop-color:#C6C6C6"/&gt;
+	&lt;stop  offset="0.5203" style="stop-color:#BCBCBC"/&gt;
+	&lt;stop  offset="0.6549" style="stop-color:#ABABAB"/&gt;
+	&lt;stop  offset="0.7816" style="stop-color:#939494"/&gt;
+	&lt;stop  offset="0.8364" style="stop-color:#868787"/&gt;
+&lt;/radialGradient&gt;
+&lt;path fill="url(#SVGID_8_)" d="M55.96,49.504c-0.893-1.438-1.355-2.869-0.664-3.533c0.244-0.236,0.539-0.422,0.863-0.559
+	c0.6,0.051,1.307,0.346,1.9,0.691c0.002,0,0.005,0.004,0.007,0.006c0.272,0.229,0.519,0.426,0.702,0.482
+	C56.855,47.061,56.226,48.369,55.96,49.504z"/&gt;
+&lt;radialGradient id="SVGID_9_" cx="448.7241" cy="1259.3271" r="3.928" gradientTransform="matrix(1 0 0 1 -390.4004 -1211.6016)" gradientUnits="userSpaceOnUse"&gt;
+	&lt;stop  offset="0.1939" style="stop-color:#C9C9C9"/&gt;
+	&lt;stop  offset="0.3496" style="stop-color:#C6C6C6"/&gt;
+	&lt;stop  offset="0.4761" style="stop-color:#BCBCBC"/&gt;
+	&lt;stop  offset="0.5925" style="stop-color:#ABABAB"/&gt;
+	&lt;stop  offset="0.702" style="stop-color:#939393"/&gt;
+	&lt;stop  offset="0.7697" style="stop-color:#808080"/&gt;
+&lt;/radialGradient&gt;
+&lt;path fill="url(#SVGID_9_)" d="M56.16,45.414c1.353-0.564,3.287-0.266,4.963,0.955c0.035,0.025,0.073,0.055,0.109,0.084
+	c-0.867-0.068-1.818-0.033-2.427,0.086c-0.109-0.105-0.763-0.449-0.744-0.434C57.464,45.758,56.757,45.463,56.16,45.414z"/&gt;
+&lt;path fill="none" stroke="#717171" stroke-width="0.1136" stroke-linecap="round" stroke-miterlimit="10" d="M56.16,45.414
+	c1.353-0.564,3.287-0.266,4.963,0.955c0.035,0.025,0.073,0.055,0.109,0.084c2.032,1.545,3.77,4.627,1.18,5.801
+	c-2.048,0.93-3.543,0.785-4.722-0.484c-0.624-0.676-1.239-1.471-1.729-2.264c-0.892-1.438-1.354-2.871-0.664-3.533
+	C55.541,45.734,55.835,45.549,56.16,45.414z"/&gt;
+&lt;path fill="none" stroke="#717171" stroke-width="0.1136" stroke-linecap="round" stroke-miterlimit="10" d="M58.777,46.596
+	c0.083-0.021,0.168-0.041,0.258-0.057c0.604-0.119,1.329-0.154,2.197-0.086"/&gt;
+&lt;path fill="none" stroke="#717171" stroke-width="0.1136" stroke-linecap="round" stroke-miterlimit="10" d="M55.958,49.516
+	c0-0.002,0.002-0.008,0.002-0.012c0.269-1.135,0.896-2.441,2.813-2.908"/&gt;
+&lt;path fill="none" stroke="#717171" stroke-width="0.1136" stroke-linecap="round" stroke-miterlimit="10" d="M58.061,46.105
+	c-0.597-0.35-1.306-0.643-1.901-0.693"/&gt;
+&lt;path fill="none" stroke="#717171" stroke-width="0.1136" stroke-linecap="round" stroke-miterlimit="10" d="M58.779,46.598
+	c0-0.002,0-0.002-0.002-0.002c-0.199-0.16-0.441-0.328-0.709-0.482"/&gt;
+&lt;path fill="#4D4D4D" d="M58.259,45.936c0.354,0.264,0.438,0.48,0.548,0.604c-0.091,0.018-0.173,0.033-0.259,0.059
+	c-0.355-0.393-0.996-0.666-0.955-0.727C57.688,45.729,58.063,45.791,58.259,45.936z"/&gt;
+&lt;/svg&gt;
+</y:Resource>
+      <y:Resource id="4" xml:space="preserve">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;svg version="1.1"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	 x="0px" y="0px" width="36px" height="57px" viewBox="0 -0.741 36 57" enable-background="new 0 -0.741 36 57"
+	 xml:space="preserve"&gt;
+&lt;defs&gt;
+&lt;/defs&gt;
+&lt;linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="230.1768" y1="798.6021" x2="180.3346" y2="798.6021" gradientTransform="matrix(1 0 0 1 -195.2002 -770.8008)"&gt;
+	&lt;stop  offset="0" style="stop-color:#4D4D4D"/&gt;
+	&lt;stop  offset="1" style="stop-color:#8D8D8D"/&gt;
+&lt;/linearGradient&gt;
+&lt;rect y="0.943" fill="url(#SVGID_1_)" width="34.977" height="53.716"/&gt;
+&lt;linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="224.6807" y1="798.6021" x2="200.6973" y2="798.6021" gradientTransform="matrix(1 0 0 1 -195.2002 -770.8008)"&gt;
+	&lt;stop  offset="0.0319" style="stop-color:#848484"/&gt;
+	&lt;stop  offset="0.1202" style="stop-color:#8C8C8C"/&gt;
+	&lt;stop  offset="0.308" style="stop-color:#969696"/&gt;
+	&lt;stop  offset="0.5394" style="stop-color:#999999"/&gt;
+	&lt;stop  offset="0.5501" style="stop-color:#9C9C9C"/&gt;
+	&lt;stop  offset="0.6256" style="stop-color:#B0B0B0"/&gt;
+	&lt;stop  offset="0.7118" style="stop-color:#BEBEBE"/&gt;
+	&lt;stop  offset="0.8178" style="stop-color:#C7C7C7"/&gt;
+	&lt;stop  offset="1" style="stop-color:#C9C9C9"/&gt;
+&lt;/linearGradient&gt;
+&lt;path fill="url(#SVGID_2_)" d="M5.497,0.943c7.945-1.258,16.04-1.258,23.983,0c0,17.905,0,35.811,0,53.716
+	c-7.943,1.258-16.039,1.258-23.983,0C5.497,36.753,5.497,18.848,5.497,0.943z"/&gt;
+&lt;path fill="#515151" d="M5.497,14.621c7.995,0,15.989,0,23.983,0c0,13.346,0,26.693,0,40.037c-7.943,1.258-16.039,1.258-23.983,0
+	C5.497,41.314,5.497,27.967,5.497,14.621z"/&gt;
+&lt;path opacity="0.43" fill="#565656" d="M5.497,4.745c7.982-0.628,16.001-0.628,23.983,0c0,2.707,0,5.413,0,8.12
+	c-7.994,0-15.989,0-23.983,0C5.497,10.158,5.497,7.452,5.497,4.745z"/&gt;
+&lt;path opacity="0.43" fill="none" stroke="#4D4D4D" stroke-width="0.0999" stroke-miterlimit="10" d="M5.497,4.745
+	c7.982-0.628,16.001-0.628,23.983,0c0,2.707,0,5.413,0,8.12c-7.994,0-15.989,0-23.983,0C5.497,10.158,5.497,7.452,5.497,4.745z"/&gt;
+&lt;polygon opacity="0.43" fill="#565656" stroke="#4D4D4D" stroke-width="0.0135" stroke-miterlimit="10" enable-background="new    " points="
+	6.496,5.746 9.869,5.606 9.869,6.661 6.496,6.799 "/&gt;
+&lt;rect x="31.307" y="2.517" fill="#E7ED00" stroke="#717171" stroke-width="0.1926" stroke-miterlimit="10" width="3.692" height="1.505"/&gt;
+&lt;rect x="31.307" y="5.8" fill="#C8FF00" stroke="#717171" stroke-width="0.1926" stroke-miterlimit="10" width="3.692" height="1.507"/&gt;
+&lt;linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="29.4414" y1="35.1235" x2="5.4995" y2="35.1235"&gt;
+	&lt;stop  offset="0" style="stop-color:#808080"/&gt;
+	&lt;stop  offset="0.1907" style="stop-color:#828282"/&gt;
+	&lt;stop  offset="0.2955" style="stop-color:#8A8A8A"/&gt;
+	&lt;stop  offset="0.3795" style="stop-color:#989898"/&gt;
+	&lt;stop  offset="0.4524" style="stop-color:#ACACAC"/&gt;
+	&lt;stop  offset="0.5175" style="stop-color:#C5C5C5"/&gt;
+	&lt;stop  offset="0.5273" style="stop-color:#C9C9C9"/&gt;
+	&lt;stop  offset="0.5914" style="stop-color:#C9C9C9"/&gt;
+	&lt;stop  offset="0.9681" style="stop-color:#C9C9C9"/&gt;
+&lt;/linearGradient&gt;
+&lt;path fill="url(#SVGID_3_)" d="M5.5,14.822c0,13.22,0,26.438,0,39.66c7.931,1.256,16.012,1.256,23.941,0c0-13.222,0-26.439,0-39.66
+	C21.461,14.822,13.48,14.822,5.5,14.822z M28.396,18.703c-0.74,0.01-1.482,0.02-2.225,0.029c0-0.951,0-1.901-0.001-2.85
+	c0.742-0.003,1.483-0.005,2.224-0.008C28.396,16.817,28.396,17.76,28.396,18.703z M16.354,42.496c0-0.961,0-1.924,0-2.885
+	c0.744,0.006,1.489,0.006,2.233,0c0,0.961,0,1.924,0,2.885C17.843,42.503,17.098,42.503,16.354,42.496z M18.587,43.568
+	c0,0.955,0,1.91,0,2.866c-0.744,0.009-1.489,0.009-2.234,0c0-0.956,0-1.911,0-2.866C17.098,43.574,17.843,43.574,18.587,43.568z
+	 M18.586,27.742c0,0.961,0,1.922,0,2.886c-0.744,0.004-1.488,0.004-2.231,0c0-0.964,0-1.925,0-2.886
+	C17.099,27.746,17.842,27.746,18.586,27.742z M16.354,26.671c0-0.955,0-1.91,0-2.865c0.743,0.002,1.487,0.002,2.23,0
+	c0,0.955,0,1.91,0,2.865C17.842,26.675,17.099,26.675,16.354,26.671z M16.354,34.583c0-0.961,0-1.924,0-2.885
+	c0.744,0.004,1.488,0.004,2.231,0c0,0.961,0,1.924,0,2.885C17.842,34.588,17.099,34.588,16.354,34.583z M18.586,35.656
+	c0,0.961,0,1.924,0.001,2.885c-0.745,0.008-1.489,0.008-2.233,0c0-0.961,0-1.924,0-2.885C17.099,35.66,17.842,35.66,18.586,35.656z
+	 M15.307,30.619c-0.742-0.01-1.484-0.021-2.227-0.039c0-0.957,0-1.916,0-2.875c0.742,0.014,1.485,0.023,2.226,0.029
+	C15.307,28.695,15.307,29.656,15.307,30.619z M15.307,31.689c0,0.961,0,1.924,0,2.885c-0.742-0.012-1.485-0.025-2.227-0.047
+	c0-0.959,0.001-1.92,0.001-2.877C13.822,31.667,14.565,31.68,15.307,31.689z M15.307,35.644c0,0.959,0,1.922-0.001,2.883
+	c-0.742-0.012-1.485-0.031-2.228-0.056c0-0.959,0.001-1.918,0.001-2.877C13.821,35.617,14.564,35.633,15.307,35.644z M15.306,39.597
+	c0,0.96,0,1.922,0,2.883c-0.742-0.016-1.486-0.037-2.228-0.064c0-0.959,0-1.916,0.001-2.877
+	C13.82,39.564,14.563,39.585,15.306,39.597z M19.637,39.597c0.742-0.012,1.484-0.033,2.227-0.059c0,0.959,0,1.918,0,2.875
+	c-0.741,0.029-1.483,0.052-2.227,0.064C19.637,41.519,19.637,40.559,19.637,39.597z M19.637,38.527c0-0.961,0-1.924,0-2.883
+	c0.74-0.012,1.482-0.027,2.225-0.05c0,0.959,0,1.918,0.002,2.876C21.121,38.496,20.377,38.515,19.637,38.527z M19.637,34.572
+	c0-0.961,0-1.922-0.002-2.883c0.741-0.01,1.483-0.021,2.225-0.039c0.002,0.957,0.002,1.916,0.002,2.875
+	C21.119,34.547,20.376,34.564,19.637,34.572z M19.635,30.619c0-0.963,0-1.924,0-2.885c0.74-0.006,1.483-0.017,2.225-0.029
+	c0,0.959,0,1.916,0,2.875C21.118,30.599,20.376,30.609,19.635,30.619z M19.633,26.666c0-0.955,0-1.909,0-2.864
+	c0.741-0.005,1.483-0.013,2.227-0.021c0,0.951,0,1.903,0,2.856C21.118,26.65,20.375,26.66,19.633,26.666z M19.633,22.732
+	c-0.001-0.963-0.001-1.924-0.001-2.885c0.741-0.002,1.483-0.006,2.226-0.012c0,0.959,0.002,1.918,0.002,2.877
+	C21.116,22.72,20.374,22.728,19.633,22.732z M18.586,22.736c-0.744,0.002-1.487,0.002-2.23,0c0-0.963,0-1.924,0-2.887
+	c0.743,0.002,1.487,0.002,2.23,0C18.586,20.813,18.586,21.773,18.586,22.736z M15.309,22.732c-0.742-0.004-1.483-0.012-2.226-0.02
+	c0-0.959,0.001-1.918,0.001-2.877c0.742,0.006,1.484,0.01,2.226,0.012C15.31,20.808,15.309,21.769,15.309,22.732z M15.309,23.801
+	c0,0.955,0,1.91,0,2.864c-0.742-0.006-1.483-0.016-2.227-0.027c0-0.953,0-1.906,0-2.859C13.825,23.789,14.566,23.796,15.309,23.801z
+	 M12.036,26.617c-0.742-0.017-1.483-0.033-2.225-0.055c0-0.947,0-1.895,0.001-2.841c0.741,0.019,1.483,0.031,2.225,0.042
+	C12.037,24.716,12.036,25.666,12.036,26.617z M12.035,27.683c0,0.957,0,1.916,0,2.873c-0.742-0.021-1.483-0.047-2.225-0.076
+	c0-0.953,0-1.904,0-2.857C10.552,27.646,11.293,27.667,12.035,27.683z M12.035,31.621c0,0.957-0.001,1.914-0.001,2.871
+	c-0.742-0.023-1.483-0.055-2.224-0.092c0-0.953,0-1.906,0-2.859C10.551,31.572,11.292,31.6,12.035,31.621z M12.033,35.56
+	c0,0.956-0.001,1.914-0.001,2.871c-0.742-0.031-1.484-0.066-2.225-0.111c0-0.953,0.001-1.906,0.001-2.858
+	C10.549,35.5,11.291,35.533,12.033,35.56z M12.031,39.498c0,0.955,0,1.914-0.001,2.869c-0.742-0.035-1.484-0.078-2.225-0.129
+	c0-0.953,0-1.904,0.001-2.857C10.547,39.426,11.289,39.465,12.031,39.498z M12.03,43.435c0,0.951-0.001,1.901-0.001,2.854
+	c-0.742-0.041-1.484-0.09-2.225-0.149c0-0.944,0.001-1.892,0.001-2.838C10.546,43.353,11.288,43.4,12.03,43.435z M13.077,43.482
+	c0.743,0.031,1.486,0.053,2.228,0.067c0,0.956,0,1.91,0,2.864c-0.742-0.016-1.486-0.041-2.229-0.074
+	C13.077,45.389,13.077,44.435,13.077,43.482z M15.305,47.486c0,0.961,0,1.922,0,2.883c-0.743-0.019-1.487-0.047-2.23-0.084
+	c0-0.959,0-1.918,0.001-2.875C13.818,47.443,14.562,47.468,15.305,47.486z M16.353,47.504c0.745,0.009,1.49,0.009,2.234,0
+	c0.001,0.96,0.001,1.924,0.001,2.883c-0.745,0.011-1.49,0.011-2.235,0C16.353,49.427,16.353,48.464,16.353,47.504z M19.639,47.486
+	c0.741-0.018,1.483-0.043,2.227-0.076c0,0.957,0.002,1.916,0.002,2.875c-0.742,0.037-1.486,0.065-2.229,0.084
+	C19.639,49.406,19.639,48.447,19.639,47.486z M19.637,46.414c0-0.954,0-1.908,0-2.864c0.742-0.015,1.484-0.036,2.229-0.067
+	c0,0.953,0,1.905,0,2.857C21.122,46.373,20.379,46.398,19.637,46.414z M22.911,43.435c0.741-0.035,1.483-0.082,2.224-0.135
+	c0,0.945,0,1.895,0.002,2.838c-0.74,0.059-1.482,0.107-2.226,0.15C22.911,45.336,22.911,44.386,22.911,43.435z M22.911,42.369
+	c-0.001-0.957-0.001-1.914-0.002-2.871c0.741-0.032,1.483-0.069,2.225-0.117c0,0.954,0.001,1.906,0.001,2.857
+	C24.395,42.289,23.652,42.333,22.911,42.369z M22.909,38.431c0-0.957-0.001-1.915-0.001-2.871c0.742-0.027,1.482-0.061,2.224-0.098
+	c0.001,0.951,0.001,1.904,0.001,2.857C24.393,38.363,23.65,38.4,22.909,38.431z M22.908,34.494c0-0.957-0.002-1.916-0.002-2.871
+	c0.742-0.021,1.482-0.051,2.225-0.079c0,0.952,0,1.903,0.001,2.856C24.391,34.437,23.648,34.468,22.908,34.494z M22.906,30.556
+	c0-0.957,0-1.916-0.002-2.873c0.742-0.016,1.484-0.037,2.226-0.061c0,0.953,0.001,1.904,0.001,2.857
+	C24.391,30.509,23.648,30.535,22.906,30.556z M22.904,26.617c0-0.951,0-1.901,0-2.854c0.74-0.011,1.482-0.025,2.224-0.042
+	c0,0.946,0.001,1.894,0.001,2.841C24.389,26.583,23.646,26.601,22.904,26.617z M22.902,22.699c0-0.957,0-1.916,0-2.874
+	c0.742-0.007,1.482-0.014,2.225-0.023c0.001,0.953,0.001,1.906,0.001,2.859C24.387,22.676,23.646,22.689,22.902,22.699z
+	 M22.902,18.76C22.9,17.802,22.9,16.845,22.9,15.887c0.742,0,1.481-0.003,2.225-0.004c0.001,0.953,0.001,1.906,0.002,2.858
+	C24.385,18.75,23.643,18.756,22.902,18.76z M21.855,18.767c-0.742,0.004-1.482,0.007-2.225,0.009c0-0.961,0-1.922,0-2.884
+	c0.741,0,1.482-0.001,2.225-0.002C21.855,16.849,21.855,17.808,21.855,18.767z M18.585,18.779c-0.743,0.001-1.486,0.001-2.229,0
+	c0-0.961,0-1.923,0-2.885c0.742,0,1.486,0,2.229,0C18.585,16.855,18.585,17.817,18.585,18.779z M15.31,18.777
+	c-0.742-0.002-1.483-0.005-2.225-0.009c0-0.959,0-1.918,0-2.877c0.742,0,1.483,0.001,2.225,0.002
+	C15.31,16.854,15.31,17.815,15.31,18.777z M12.039,18.76c-0.742-0.005-1.483-0.011-2.225-0.019c0-0.953,0-1.905,0.001-2.858
+	c0.742,0.001,1.483,0.004,2.224,0.004C12.039,16.845,12.039,17.803,12.039,18.76z M12.039,19.827c0,0.957-0.001,1.915-0.001,2.872
+	c-0.741-0.01-1.483-0.021-2.224-0.035c0-0.953,0-1.906,0-2.859C10.555,19.813,11.296,19.819,12.039,19.827z M8.768,22.64
+	c-0.741-0.018-1.482-0.035-2.223-0.057c0-0.943,0-1.887,0-2.831c0.741,0.013,1.482,0.025,2.223,0.036
+	C8.768,20.739,8.768,21.689,8.768,22.64z M8.767,23.697c0,0.944,0,1.89,0,2.832c-0.741-0.024-1.482-0.053-2.223-0.084
+	c0-0.938,0-1.873,0-2.811C7.284,23.658,8.026,23.679,8.767,23.697z M8.766,27.587c0,0.949-0.001,1.898-0.001,2.85
+	c-0.74-0.033-1.481-0.068-2.222-0.111c0-0.942,0-1.887,0-2.83C7.284,27.529,8.025,27.56,8.766,27.587z M8.765,31.494
+	c0,0.951-0.001,1.9-0.001,2.852c-0.74-0.04-1.481-0.087-2.221-0.139c0-0.943,0-1.887,0-2.831C7.283,31.42,8.023,31.459,8.765,31.494
+	z M8.763,35.404c0,0.949,0,1.899,0,2.851c-0.741-0.052-1.481-0.104-2.22-0.168c0-0.942,0-1.886,0-2.829
+	C7.282,35.31,8.022,35.361,8.763,35.404z M8.762,39.312c0,0.949,0,1.899-0.001,2.852c-0.741-0.059-1.48-0.123-2.219-0.195
+	c0-0.943,0-1.889,0-2.83C7.281,39.203,8.021,39.26,8.762,39.312z M8.76,43.219c0,0.944,0,1.888-0.001,2.832
+	c-0.74-0.065-1.479-0.14-2.218-0.224c0-0.938,0-1.875,0-2.812C7.281,43.092,8.02,43.16,8.76,43.219z M8.759,47.109
+	c0,0.951,0,1.9,0,2.851c-0.741-0.073-1.48-0.158-2.219-0.253c0-0.942,0-1.887,0-2.828C7.279,46.964,8.019,47.039,8.759,47.109z
+	 M9.804,47.201c0.741,0.06,1.483,0.111,2.224,0.154c0,0.955,0,1.912,0,2.868c-0.742-0.045-1.484-0.103-2.225-0.166
+	C9.804,49.107,9.804,48.154,9.804,47.201z M12.027,51.291c0,0.957,0,1.916,0,2.873c-0.742-0.053-1.484-0.114-2.225-0.188
+	c0-0.951,0.001-1.904,0.001-2.857C10.544,51.187,11.285,51.244,12.027,51.291z M13.075,51.353c0.743,0.039,1.486,0.067,2.229,0.086
+	c0,0.961,0,1.922,0,2.885c-0.743-0.021-1.487-0.053-2.229-0.094C13.075,53.269,13.075,52.312,13.075,51.353z M16.353,51.459
+	c0.745,0.009,1.49,0.009,2.235,0c0,0.961,0,1.924,0,2.885c-0.745,0.013-1.491,0.013-2.235,0
+	C16.353,53.382,16.353,52.42,16.353,51.459z M19.639,51.439c0.741-0.019,1.485-0.049,2.229-0.086c0,0.959,0,1.92,0.001,2.877
+	c-0.743,0.041-1.485,0.072-2.229,0.094C19.639,53.361,19.639,52.4,19.639,51.439z M22.913,51.291
+	c0.743-0.047,1.483-0.104,2.226-0.172c0,0.953,0,1.906,0,2.857c-0.74,0.073-1.481,0.135-2.224,0.188
+	C22.914,53.205,22.914,52.248,22.913,51.291z M22.913,50.224c-0.001-0.956-0.001-1.912-0.001-2.869
+	c0.742-0.043,1.484-0.095,2.225-0.154c0,0.953,0,1.906,0.002,2.857C24.396,50.123,23.654,50.179,22.913,50.224z M26.184,47.109
+	c0.739-0.066,1.479-0.145,2.217-0.229c0,0.942,0,1.887,0,2.83c-0.736,0.092-1.478,0.177-2.217,0.252
+	C26.184,49.009,26.184,48.06,26.184,47.109z M26.184,46.051c-0.002-0.944-0.002-1.888-0.002-2.832
+	c0.739-0.06,1.48-0.127,2.219-0.202c0,0.938,0,1.873,0,2.811C27.662,45.912,26.923,45.986,26.184,46.051z M26.182,42.162
+	c0-0.95-0.002-1.9-0.002-2.85c0.74-0.052,1.48-0.109,2.219-0.176c0.002,0.943,0.002,1.887,0.002,2.83
+	C27.662,42.039,26.921,42.105,26.182,42.162z M26.18,38.253c0-0.95,0-1.9-0.002-2.852c0.742-0.041,1.482-0.093,2.221-0.146
+	c0,0.942,0,1.887,0,2.829C27.66,38.15,26.92,38.203,26.18,38.253z M26.178,34.345c0-0.949,0-1.898,0-2.852
+	c0.74-0.034,1.481-0.073,2.221-0.117c0,0.943,0,1.887,0,2.83C27.659,34.258,26.918,34.305,26.178,34.345z M26.177,30.437
+	c0-0.949,0-1.9-0.001-2.85c0.741-0.027,1.481-0.059,2.221-0.092c0,0.943,0.002,1.888,0.002,2.83
+	C27.659,30.367,26.918,30.404,26.177,30.437z M26.176,26.529c-0.001-0.942-0.001-1.888-0.001-2.832
+	c0.742-0.018,1.482-0.039,2.222-0.063c0,0.938,0,1.873,0,2.811C27.657,26.476,26.917,26.503,26.176,26.529z M26.174,22.64
+	c0-0.951-0.001-1.901-0.001-2.851c0.741-0.01,1.483-0.022,2.224-0.035c0,0.943,0,1.886,0,2.831
+	C27.657,22.605,26.915,22.623,26.174,22.64z M8.769,15.881c0,0.95,0,1.9-0.001,2.85c-0.741-0.008-1.482-0.018-2.223-0.028
+	c0-0.943,0-1.887,0-2.83C7.286,15.876,8.028,15.878,8.769,15.881z M6.54,50.758c0.738,0.097,1.478,0.183,2.218,0.258
+	c0,0.95,0,1.901,0,2.853c-0.741-0.084-1.48-0.178-2.218-0.28C6.54,52.646,6.54,51.701,6.54,50.758z M26.184,53.869
+	c0-0.95,0-1.899,0-2.853c0.739-0.075,1.479-0.163,2.217-0.259c0.002,0.941,0.002,1.889,0.002,2.83
+	C27.663,53.693,26.925,53.785,26.184,53.869z"/&gt;
+&lt;path id="highlight_2_" opacity="0.17" fill="#FFFFFF" enable-background="new    " d="M0,0.943h5.497c0,0,6.847-0.943,11.974-0.943
+	C22.6,0,29.48,0.943,29.48,0.943h5.496v41.951c0,0-12.076-0.521-18.623-2.548C9.807,38.32,0,30.557,0,30.557V0.943z"/&gt;
+&lt;/svg&gt;
+</y:Resource>
+      <y:Resource id="5" xml:space="preserve">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="59px" height="59px" viewBox="0 0 59 59" enable-background="new 0 0 59 59" xml:space="preserve"&gt;
+&lt;g&gt;
+	
+		&lt;linearGradient id="neck_x5F_white_1_" gradientUnits="userSpaceOnUse" x1="13.6323" y1="-1502.7422" x2="14.3617" y2="-1520.2559" gradientTransform="matrix(1 0 0 -1 0.2002 -1487.2285)"&gt;
+		&lt;stop  offset="0.2711" style="stop-color:#FFAB4F"/&gt;
+		&lt;stop  offset="1" style="stop-color:#FFD28F"/&gt;
+	&lt;/linearGradient&gt;
+	&lt;path id="neck_x5F_white_19_" fill="url(#neck_x5F_white_1_)" stroke="#FFAB4F" stroke-width="0.5" stroke-miterlimit="10" d="
+		M9.639,18.899h9.093v10.115c-0.656,0.186-8.586,0.218-9.093,0.086V18.899z"/&gt;
+	
+		&lt;linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="13.1294" y1="-1499.207" x2="13.75" y2="-1514.1072" gradientTransform="matrix(1 0 0 -1 0.2002 -1487.2285)"&gt;
+		&lt;stop  offset="0.2711" style="stop-color:#FFAB4F"/&gt;
+		&lt;stop  offset="1" style="stop-color:#FFD28F"/&gt;
+	&lt;/linearGradient&gt;
+	&lt;path fill="url(#SVGID_1_)" stroke="#ED9135" stroke-width="0.5" stroke-miterlimit="10" d="M24.766,25.612
+		c-2.199-2.197-5.477-2.941-6.033-3.055v-3.658H9.639c0,0,0.019,3.452,0,3.435c0,0-3.437,0.499-6.154,3.216
+		c-2.796,2.796-3.235,5.835-3.235,5.835c0,0.971,0.788,1.746,1.762,1.746h24.255c0.974,0,1.761-0.777,1.761-1.746
+		C28.027,31.384,27.105,27.953,24.766,25.612z"/&gt;
+	
+		&lt;radialGradient id="face_x5F_white_1_" cx="13.7515" cy="-1500.0908" r="11.7123" fx="11.4666" fy="-1501.3357" gradientTransform="matrix(1 0 0 -1 0.2002 -1487.2285)" gradientUnits="userSpaceOnUse"&gt;
+		&lt;stop  offset="0" style="stop-color:#FFD28F"/&gt;
+		&lt;stop  offset="1" style="stop-color:#FFAB4F"/&gt;
+	&lt;/radialGradient&gt;
+	&lt;path id="face_x5F_white_19_" fill="url(#face_x5F_white_1_)" stroke="#ED9135" stroke-width="0.5" stroke-miterlimit="10" d="
+		M21.838,11.679c0.043,5.1-3.369,9.26-7.623,9.293C9.964,21.006,6.483,16.899,6.44,11.8c-0.042-5.1,3.37-9.261,7.622-9.294
+		C18.314,2.473,21.795,6.579,21.838,11.679z"/&gt;
+	
+		&lt;linearGradient id="face_highlight_1_" gradientUnits="userSpaceOnUse" x1="4300.0391" y1="8522.0703" x2="4311.8545" y2="8568.7988" gradientTransform="matrix(0.275 0 0 0.2733 -1169.7629 -2324.9595)"&gt;
+		&lt;stop  offset="0" style="stop-color:#FFFFFF;stop-opacity:0.24"/&gt;
+		&lt;stop  offset="1" style="stop-color:#FFFFFF;stop-opacity:0.16"/&gt;
+	&lt;/linearGradient&gt;
+	&lt;path id="face_highlight_19_" fill="url(#face_highlight_1_)" d="M13.979,3.166c-3.018,0.023-5.374,2.247-6.394,5.193
+		c-0.332,0.96-0.147,2.021,0.49,2.814c1.365,1.699,2.865,3.142,4.73,4.044c1.569,0.759,3.767,1.192,5.946,0.624
+		c1.139-0.297,1.994-1.229,2.188-2.383c0.092-0.548,0.146-1.145,0.143-1.777C21.041,6.977,18.137,3.134,13.979,3.166z"/&gt;
+	
+		&lt;path id="Hair_Female_1_Black_9_" fill="#4B4B4B" stroke="#000000" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" d="
+		M14.187,0.25c-5.418,0-10.052,3.624-9.61,12.813c0.282,3.281,2.931,6.021,4.683,6.766C7.795,14.344,9.107,7.317,8.967,7.064
+		c-0.14-0.252,1.769,3.364,1.769,3.364l1.591-4.155c2.771,2.14,0.197,5.654,0.524,5.528c2.129-0.815,2.67-4.614,2.67-4.614
+		s1.364,1.829,1.35,2.752c-0.025,1.781,1.098-3.033,1.098-3.033l0.514,1.016c3.363,4.911,1.842,8.104,0.826,11.391
+		c7.834-0.352,6.146-5.24,4.83-9.203C21.795,3.046,19.604,0.25,14.187,0.25z"/&gt;
+	
+		&lt;linearGradient id="body_1_" gradientUnits="userSpaceOnUse" x1="53.4854" y1="2393.7295" x2="21.2897" y2="2393.7295" gradientTransform="matrix(0.9852 0 0 0.9852 -22.6981 -2330.2188)"&gt;
+		&lt;stop  offset="0" style="stop-color:#49AD33"/&gt;
+		&lt;stop  offset="1" style="stop-color:#C2DA92"/&gt;
+	&lt;/linearGradient&gt;
+	&lt;path id="body_63_" fill="url(#body_1_)" stroke="#008D33" stroke-width="0.5" d="M0.25,31.384c0,0.97,0.788,1.747,1.762,1.747
+		h24.255c0.974,0,1.761-0.779,1.761-1.747c0,0-0.922-3.431-3.262-5.771c-2.408-2.406-4.123-2.572-4.123-2.572
+		c-0.723,3.491-4.277,4.393-6.503,4.393c-2.227,0-5.75-0.994-6.06-4.393c0,0-1.877-0.207-4.594,2.51
+		C0.689,28.345,0.25,31.384,0.25,31.384z"/&gt;
+	
+		&lt;linearGradient id="neck_x5F_white_3_" gradientUnits="userSpaceOnUse" x1="43.8525" y1="-1502.7417" x2="44.5819" y2="-1520.2552" gradientTransform="matrix(1 0 0 -1 0.2002 -1487.2285)"&gt;
+		&lt;stop  offset="0.2711" style="stop-color:#FFAB4F"/&gt;
+		&lt;stop  offset="1" style="stop-color:#FFD28F"/&gt;
+	&lt;/linearGradient&gt;
+	&lt;path id="neck_x5F_white_17_" fill="url(#neck_x5F_white_3_)" stroke="#FFAB4F" stroke-width="0.5" stroke-miterlimit="10" d="
+		M39.859,18.899h9.094v10.115c-0.656,0.186-8.586,0.218-9.094,0.086V18.899z"/&gt;
+	
+		&lt;linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="43.3506" y1="-1499.2075" x2="43.9712" y2="-1514.1077" gradientTransform="matrix(1 0 0 -1 0.2002 -1487.2285)"&gt;
+		&lt;stop  offset="0.2711" style="stop-color:#FFAB4F"/&gt;
+		&lt;stop  offset="1" style="stop-color:#FFD28F"/&gt;
+	&lt;/linearGradient&gt;
+	&lt;path fill="url(#SVGID_2_)" stroke="#ED9135" stroke-width="0.5" stroke-miterlimit="10" d="M54.986,25.612
+		c-2.199-2.197-5.478-2.941-6.033-3.055v-3.658h-9.094c0,0,0.02,3.452,0,3.435c0,0-3.438,0.499-6.153,3.216
+		c-2.796,2.796-3.235,5.835-3.235,5.835c0,0.971,0.787,1.746,1.762,1.746h24.256c0.974,0,1.761-0.777,1.761-1.746
+		C58.248,31.384,57.326,27.953,54.986,25.612z"/&gt;
+	
+		&lt;radialGradient id="face_x5F_white_3_" cx="43.9727" cy="-1500.0908" r="11.7111" fx="41.6881" fy="-1501.3356" gradientTransform="matrix(1 0 0 -1 0.2002 -1487.2285)" gradientUnits="userSpaceOnUse"&gt;
+		&lt;stop  offset="0" style="stop-color:#FFD28F"/&gt;
+		&lt;stop  offset="1" style="stop-color:#FFAB4F"/&gt;
+	&lt;/radialGradient&gt;
+	&lt;path id="face_x5F_white_17_" fill="url(#face_x5F_white_3_)" stroke="#ED9135" stroke-width="0.5" stroke-miterlimit="10" d="
+		M52.059,11.679c0.043,5.1-3.369,9.26-7.623,9.293c-4.25,0.034-7.731-4.073-7.774-9.172c-0.042-5.1,3.368-9.261,7.622-9.294
+		C48.536,2.473,52.016,6.579,52.059,11.679z"/&gt;
+	
+		&lt;linearGradient id="face_highlight_3_" gradientUnits="userSpaceOnUse" x1="4409.9326" y1="8522.0703" x2="4421.7476" y2="8568.7969" gradientTransform="matrix(0.275 0 0 0.2733 -1169.7629 -2324.9595)"&gt;
+		&lt;stop  offset="0" style="stop-color:#FFFFFF;stop-opacity:0.24"/&gt;
+		&lt;stop  offset="1" style="stop-color:#FFFFFF;stop-opacity:0.16"/&gt;
+	&lt;/linearGradient&gt;
+	&lt;path id="face_highlight_17_" fill="url(#face_highlight_3_)" d="M44.2,3.166c-3.019,0.023-5.374,2.247-6.394,5.193
+		c-0.332,0.96-0.147,2.021,0.489,2.814c1.364,1.699,2.864,3.142,4.729,4.044c1.568,0.759,3.768,1.192,5.945,0.624
+		c1.139-0.297,1.994-1.229,2.188-2.383c0.092-0.548,0.146-1.145,0.143-1.777C51.262,6.977,48.357,3.134,44.2,3.166z"/&gt;
+	
+		&lt;path id="hair_x5F_gray_17_" fill="#ECECEC" stroke="#9B9B9B" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" d="
+		M40.359,6.625c0,0,2.66,3.625,7.5,1.875c1.365-0.281,4.529,0.518,4.529,0.518s-1.828-8.085-8.523-7.646
+		c-8.943,0.69-7.615,11.467-7.615,11.467s1.384-0.342,2.518-2.401C39.255,9.553,40.359,6.625,40.359,6.625z"/&gt;
+	
+		&lt;radialGradient id="collar_x5F_body_2_" cx="37.6602" cy="-1515.813" r="16.2003" gradientTransform="matrix(1 0 0 -1 0.2002 -1487.2285)" gradientUnits="userSpaceOnUse"&gt;
+		&lt;stop  offset="0" style="stop-color:#B0E8FF"/&gt;
+		&lt;stop  offset="1" style="stop-color:#74AEEE"/&gt;
+	&lt;/radialGradient&gt;
+	&lt;path id="collar_x5F_body_8_" fill="url(#collar_x5F_body_2_)" stroke="#5491CF" stroke-width="0.5" d="M30.471,31.384
+		c0,0.97,0.787,1.747,1.762,1.747h24.256c0.974,0,1.761-0.779,1.761-1.747c0,0-0.922-3.431-3.263-5.771
+		c-2.407-2.406-5.623-3.072-5.623-3.072c-0.885,0.827-2.805,1.4-5.03,1.4s-4.146-0.573-5.031-1.4c0,0-2.878,0.293-5.595,3.01
+		C30.91,28.345,30.471,31.384,30.471,31.384z"/&gt;
+	
+		&lt;radialGradient id="collar_x5F_r_2_" cx="45.8311" cy="-1510.8745" r="4.6401" gradientTransform="matrix(1 0 0 -1 0.2002 -1487.2285)" gradientUnits="userSpaceOnUse"&gt;
+		&lt;stop  offset="0" style="stop-color:#80CCFF"/&gt;
+		&lt;stop  offset="1" style="stop-color:#74AEEE"/&gt;
+	&lt;/radialGradient&gt;
+	&lt;path id="collar_x5F_r_8_" fill="url(#collar_x5F_r_2_)" stroke="#5491CF" stroke-width="0.5" d="M49.301,20.69
+		c0,0-0.287,1.185-1.506,2.221c-1.055,0.897-2.893,1.036-2.893,1.036l1.986,3.108c0,0,1.479-0.818,2.504-1.924
+		c0.961-1.036,0.686-2.74,0.686-2.74L49.301,20.69z"/&gt;
+	
+		&lt;radialGradient id="collar_x5F_l_2_" cx="39.6494" cy="-1510.896" r="4.6426" gradientTransform="matrix(1 0 0 -1 0.2002 -1487.2285)" gradientUnits="userSpaceOnUse"&gt;
+		&lt;stop  offset="0" style="stop-color:#80CCFF"/&gt;
+		&lt;stop  offset="1" style="stop-color:#74AEEE"/&gt;
+	&lt;/radialGradient&gt;
+	&lt;path id="collar_x5F_l_8_" fill="url(#collar_x5F_l_2_)" stroke="#5491CF" stroke-width="0.5" d="M39.536,20.711
+		c0,0,0.288,1.185,1.506,2.221c1.056,0.896,2.894,1.036,2.894,1.036l-1.987,3.108c0,0-1.479-0.818-2.505-1.925
+		c-0.961-1.036-0.685-2.74-0.685-2.74L39.536,20.711z"/&gt;
+	
+		&lt;radialGradient id="Knob2_2_" cx="44.0645" cy="-742.6421" r="0.4846" gradientTransform="matrix(1 0 0 -1 0.1201 -714.5371)" gradientUnits="userSpaceOnUse"&gt;
+		&lt;stop  offset="0" style="stop-color:#80CCFF"/&gt;
+		&lt;stop  offset="1" style="stop-color:#74AEEE"/&gt;
+	&lt;/radialGradient&gt;
+	&lt;circle id="Knob2_8_" fill="url(#Knob2_2_)" stroke="#5491CF" stroke-width="0.5" cx="44.35" cy="28.127" r="0.292"/&gt;
+	
+		&lt;radialGradient id="Knob1_2_" cx="44.083" cy="-745.7642" r="0.4847" gradientTransform="matrix(1 0 0 -1 0.1201 -714.5371)" gradientUnits="userSpaceOnUse"&gt;
+		&lt;stop  offset="0" style="stop-color:#80CCFF"/&gt;
+		&lt;stop  offset="1" style="stop-color:#74AEEE"/&gt;
+	&lt;/radialGradient&gt;
+	&lt;circle id="Knob1_8_" fill="url(#Knob1_2_)" stroke="#5491CF" stroke-width="0.5" cx="44.369" cy="31.25" r="0.292"/&gt;
+	
+		&lt;radialGradient id="jacket_x5F_body_1_" cx="36.7842" cy="-1515.3755" r="20.459" gradientTransform="matrix(1 0 0 -1 0.2002 -1487.2285)" gradientUnits="userSpaceOnUse"&gt;
+		&lt;stop  offset="0" style="stop-color:#D0D0D0"/&gt;
+		&lt;stop  offset="1" style="stop-color:#9B9B9B"/&gt;
+	&lt;/radialGradient&gt;
+	
+		&lt;path id="jacket_x5F_body_8_" fill="url(#jacket_x5F_body_1_)" stroke="#4B4B4B" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" d="
+		M54.986,25.612c-2.217-2.217-5.111-2.955-5.557-3.059l-2.695,10.572h-4.43L39.686,22.84c-0.145-0.096-0.271-0.196-0.385-0.301
+		c0,0-2.877,0.293-5.595,3.01c-2.796,2.796-3.233,5.835-3.233,5.835c0,0.97,0.786,1.747,1.76,1.747h24.256
+		c0.975,0,1.761-0.779,1.761-1.747C58.248,31.384,57.326,27.953,54.986,25.612z"/&gt;
+	
+		&lt;polygon id="jacket_x5F_r_8_" fill="#9B9B9B" stroke="#4B4B4B" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" points="
+		49.688,21.038 51.305,23.187 50.615,27.835 48.914,28.25 49.547,29.563 47.509,33.126 46.734,33.126 	"/&gt;
+	
+		&lt;polygon id="jacket_x5F_l_8_" fill="#B2B2B2" stroke="#4B4B4B" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" points="
+		39.354,21.038 37.734,23.187 38.426,27.835 40.127,28.25 39.493,29.563 41.531,33.126 42.307,33.126 	"/&gt;
+	&lt;path id="path5135_8_" fill="#D54A30" stroke="#B51A19" stroke-width="0.5" d="M43.936,27.61c0,0-0.926,1.028-1.041,3.271
+		c-0.115,2.244,0,2.244,0,2.244h3.273c0,0,0.115,0.031-0.077-2.182c-0.2-2.302-1.194-3.334-1.194-3.334L43.936,27.61L43.936,27.61z"
+		/&gt;
+	&lt;path id="path5131_8_" fill="#D54A30" stroke="#B51A19" stroke-width="0.5" d="M44.377,24.34h0.063l1.275,2.001
+		c0.258,0.477-0.604,0.898-0.729,1.274l-1.139-0.008c-0.121-0.38-1.129-0.683-0.738-1.292L44.377,24.34z"/&gt;
+	
+		&lt;linearGradient id="neck_x5F_white_4_" gradientUnits="userSpaceOnUse" x1="43.6328" y1="-1527.7417" x2="44.3621" y2="-1545.2545" gradientTransform="matrix(1 0 0 -1 0.2002 -1487.2285)"&gt;
+		&lt;stop  offset="0.2711" style="stop-color:#FFAB4F"/&gt;
+		&lt;stop  offset="1" style="stop-color:#FFD28F"/&gt;
+	&lt;/linearGradient&gt;
+	&lt;path id="neck_x5F_white_11_" fill="url(#neck_x5F_white_4_)" stroke="#FFAB4F" stroke-width="0.5" stroke-miterlimit="10" d="
+		M39.639,43.898h9.094v10.115c-0.655,0.187-8.586,0.219-9.094,0.086V43.898z"/&gt;
+	
+		&lt;linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="43.1309" y1="-1524.2065" x2="43.7515" y2="-1539.1072" gradientTransform="matrix(1 0 0 -1 0.2002 -1487.2285)"&gt;
+		&lt;stop  offset="0.2711" style="stop-color:#FFAB4F"/&gt;
+		&lt;stop  offset="1" style="stop-color:#FFD28F"/&gt;
+	&lt;/linearGradient&gt;
+	&lt;path fill="url(#SVGID_3_)" stroke="#ED9135" stroke-width="0.5" stroke-miterlimit="10" d="M54.766,50.611
+		c-2.199-2.196-5.477-2.94-6.033-3.055v-3.658h-9.094c0,0,0.021,3.453,0,3.436c0,0-3.437,0.499-6.152,3.216
+		c-2.797,2.796-3.235,5.835-3.235,5.835c0,0.971,0.787,1.746,1.763,1.746h24.254c0.975,0,1.762-0.777,1.762-1.746
+		C58.027,56.384,57.105,52.953,54.766,50.611z"/&gt;
+	
+		&lt;radialGradient id="face_x5F_white_4_" cx="43.752" cy="-1525.0908" r="11.7114" fx="41.4673" fy="-1526.3356" gradientTransform="matrix(1 0 0 -1 0.2002 -1487.2285)" gradientUnits="userSpaceOnUse"&gt;
+		&lt;stop  offset="0" style="stop-color:#FFD28F"/&gt;
+		&lt;stop  offset="1" style="stop-color:#FFAB4F"/&gt;
+	&lt;/radialGradient&gt;
+	&lt;path id="face_x5F_white_11_" fill="url(#face_x5F_white_4_)" stroke="#ED9135" stroke-width="0.5" stroke-miterlimit="10" d="
+		M51.838,36.68c0.043,5.1-3.369,9.26-7.623,9.293c-4.251,0.033-7.732-4.074-7.775-9.173c-0.041-5.1,3.369-9.261,7.623-9.294
+		C48.314,27.473,51.795,31.579,51.838,36.68z"/&gt;
+	
+		&lt;linearGradient id="face_highlight_4_" gradientUnits="userSpaceOnUse" x1="4409.1299" y1="8613.5469" x2="4420.9448" y2="8660.2725" gradientTransform="matrix(0.275 0 0 0.2733 -1169.7629 -2324.9595)"&gt;
+		&lt;stop  offset="0" style="stop-color:#FFFFFF;stop-opacity:0.24"/&gt;
+		&lt;stop  offset="1" style="stop-color:#FFFFFF;stop-opacity:0.16"/&gt;
+	&lt;/linearGradient&gt;
+	&lt;path id="face_highlight_11_" fill="url(#face_highlight_4_)" d="M43.979,28.166c-3.018,0.023-5.373,2.247-6.394,5.193
+		c-0.332,0.959-0.147,2.021,0.49,2.813c1.364,1.699,2.864,3.142,4.729,4.044c1.568,0.76,3.768,1.192,5.945,0.624
+		c1.139-0.297,1.994-1.229,2.188-2.383c0.092-0.548,0.146-1.146,0.144-1.776C51.041,31.977,48.137,28.134,43.979,28.166z"/&gt;
+	&lt;path fill="#CC9869" stroke="#99724F" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" d="M46.107,29.969
+		c0,0,2.845,1.375,3.845,4.062c1.052,2.826,2.062,4.117,2.095,4c0.938-3.395,0.531-10.718-5.086-10.792
+		c-10.229-3.832-12.79,5.98-11.947,9.824c0.539,2.457,1.117,3.344,1.971,4.041C36.982,41.104,37.514,33.781,46.107,29.969z"/&gt;
+	
+		&lt;linearGradient id="body_2_" gradientUnits="userSpaceOnUse" x1="83.9365" y1="2419.1064" x2="51.7404" y2="2419.1064" gradientTransform="matrix(0.9852 0 0 0.9852 -22.6981 -2330.2188)"&gt;
+		&lt;stop  offset="0" style="stop-color:#49AD33"/&gt;
+		&lt;stop  offset="1" style="stop-color:#C2DA92"/&gt;
+	&lt;/linearGradient&gt;
+	&lt;path id="body_35_" fill="url(#body_2_)" stroke="#008D33" stroke-width="0.5" d="M30.25,56.384c0,0.97,0.787,1.747,1.762,1.747
+		h24.256c0.974,0,1.76-0.779,1.76-1.747c0,0-0.922-3.431-3.262-5.771c-2.408-2.406-4.123-2.572-4.123-2.572
+		c-0.723,3.49-4.276,4.393-6.504,4.393c-2.227,0-5.75-0.994-6.059-4.393c0,0-1.878-0.207-4.596,2.51
+		C30.689,53.346,30.25,56.384,30.25,56.384z"/&gt;
+	
+		&lt;radialGradient id="neck_x5F_white_5_" cx="14.0952" cy="-1534.9302" r="5.7236" fx="12.9786" fy="-1535.5386" gradientTransform="matrix(1 0 0 -1 0.2002 -1487.2285)" gradientUnits="userSpaceOnUse"&gt;
+		&lt;stop  offset="0" style="stop-color:#B38E5D"/&gt;
+		&lt;stop  offset="1" style="stop-color:#805126"/&gt;
+	&lt;/radialGradient&gt;
+	&lt;path id="neck_x5F_white_2_" fill="url(#neck_x5F_white_5_)" stroke="#5B453B" stroke-width="0.5" stroke-miterlimit="10" d="
+		M9.859,43.898h9.094v6.615c-0.656,0.187-8.586,0.219-9.094,0.086V43.898z"/&gt;
+	
+		&lt;radialGradient id="SVGID_4_" cx="13.8213" cy="-1539.1084" r="15.5272" fx="10.7923" fy="-1540.7589" gradientTransform="matrix(1 0 0 -1 0.2002 -1487.2285)" gradientUnits="userSpaceOnUse"&gt;
+		&lt;stop  offset="0" style="stop-color:#B38E5D"/&gt;
+		&lt;stop  offset="1" style="stop-color:#805126"/&gt;
+	&lt;/radialGradient&gt;
+	&lt;path fill="url(#SVGID_4_)" stroke="#5B453B" stroke-width="0.5" stroke-miterlimit="10" d="M24.986,50.611
+		c-2.199-2.196-5.477-2.94-6.033-3.055v-3.658H9.859c0,0,0.02,3.453,0,3.436c0,0-3.437,0.499-6.153,3.216
+		c-2.796,2.796-3.235,5.835-3.235,5.835c0,0.971,0.787,1.746,1.762,1.746h24.255c0.974,0,1.761-0.777,1.761-1.746
+		C28.248,56.384,27.326,52.953,24.986,50.611z"/&gt;
+	
+		&lt;radialGradient id="face_x5F_white_5_" cx="13.9722" cy="-1525.0908" r="11.7123" fx="11.6873" fy="-1526.3357" gradientTransform="matrix(1 0 0 -1 0.2002 -1487.2285)" gradientUnits="userSpaceOnUse"&gt;
+		&lt;stop  offset="0" style="stop-color:#B38E5D"/&gt;
+		&lt;stop  offset="1" style="stop-color:#805126"/&gt;
+	&lt;/radialGradient&gt;
+	&lt;path id="face_x5F_white_2_" fill="url(#face_x5F_white_5_)" stroke="#5B453B" stroke-width="0.5" stroke-miterlimit="10" d="
+		M22.059,36.68c0.043,5.1-3.369,9.26-7.623,9.293c-4.251,0.033-7.732-4.074-7.775-9.173c-0.042-5.1,3.369-9.261,7.622-9.294
+		C18.536,27.473,22.016,31.579,22.059,36.68z"/&gt;
+	
+		&lt;linearGradient id="face_highlight_5_" gradientUnits="userSpaceOnUse" x1="4300.8428" y1="8613.5449" x2="4312.6582" y2="8660.2734" gradientTransform="matrix(0.275 0 0 0.2733 -1169.7629 -2324.9595)"&gt;
+		&lt;stop  offset="0" style="stop-color:#FFFFFF;stop-opacity:0.42"/&gt;
+		&lt;stop  offset="1" style="stop-color:#FFFFFF;stop-opacity:0.12"/&gt;
+	&lt;/linearGradient&gt;
+	&lt;path id="face_highlight_2_" fill="url(#face_highlight_5_)" d="M14.2,28.166c-3.018,0.023-5.374,2.247-6.394,5.193
+		c-0.332,0.959-0.147,2.021,0.49,2.813c1.364,1.699,2.864,3.142,4.73,4.044c1.568,0.76,3.767,1.192,5.945,0.624
+		c1.139-0.297,1.994-1.229,2.188-2.383c0.092-0.548,0.146-1.146,0.143-1.776C21.262,31.977,18.357,28.134,14.2,28.166z"/&gt;
+	
+		&lt;path id="Hair_Young_Black_1_" fill="#4B4B4B" stroke="#000000" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" d="
+		M10.359,31.625c1.709,2.166,4.667,3.459,4.667,3.459l-0.708-1.75c0,0,3.547,2.346,4.041,2.166c0.484-0.1-0.541-1.902-0.541-1.902
+		s1.568,0.896,2.428,1.983c0.9,1.14,2.143,1.752,2.143,1.752s1.346-10.974-8.523-10.961C4.359,26.354,6.25,38.839,6.25,38.839
+		L7.568,33.5c0,0,0.457,2.879,0.699,2.438C9.151,32.605,9.651,30.75,10.359,31.625z"/&gt;
+	
+		&lt;radialGradient id="collar_x5F_body_3_" cx="7.6602" cy="-1540.813" r="16.2003" gradientTransform="matrix(1 0 0 -1 0.2002 -1487.2285)" gradientUnits="userSpaceOnUse"&gt;
+		&lt;stop  offset="0" style="stop-color:#B0E8FF"/&gt;
+		&lt;stop  offset="1" style="stop-color:#74AEEE"/&gt;
+	&lt;/radialGradient&gt;
+	&lt;path id="collar_x5F_body_1_" fill="url(#collar_x5F_body_3_)" stroke="#5491CF" stroke-width="0.5" d="M0.471,56.384
+		c0,0.97,0.787,1.747,1.762,1.747h24.255c0.974,0,1.761-0.779,1.761-1.747c0,0-0.922-3.431-3.262-5.771
+		c-2.408-2.406-5.623-3.072-5.623-3.072c-0.885,0.827-2.805,1.4-5.031,1.4s-4.146-0.573-5.031-1.4c0,0-2.878,0.293-5.595,3.01
+		C0.91,53.346,0.471,56.384,0.471,56.384z"/&gt;
+	
+		&lt;radialGradient id="collar_x5F_r_3_" cx="15.8306" cy="-1535.874" r="4.6412" gradientTransform="matrix(1 0 0 -1 0.2002 -1487.2285)" gradientUnits="userSpaceOnUse"&gt;
+		&lt;stop  offset="0" style="stop-color:#80CCFF"/&gt;
+		&lt;stop  offset="1" style="stop-color:#74AEEE"/&gt;
+	&lt;/radialGradient&gt;
+	&lt;path id="collar_x5F_r_1_" fill="url(#collar_x5F_r_3_)" stroke="#5491CF" stroke-width="0.5" d="M19.301,45.689
+		c0,0-0.287,1.186-1.506,2.222c-1.055,0.897-2.893,1.036-2.893,1.036l1.986,3.107c0,0,1.479-0.818,2.504-1.924
+		c0.961-1.035,0.686-2.74,0.686-2.74L19.301,45.689z"/&gt;
+	
+		&lt;radialGradient id="collar_x5F_l_3_" cx="9.6494" cy="-1535.896" r="4.6422" gradientTransform="matrix(1 0 0 -1 0.2002 -1487.2285)" gradientUnits="userSpaceOnUse"&gt;
+		&lt;stop  offset="0" style="stop-color:#80CCFF"/&gt;
+		&lt;stop  offset="1" style="stop-color:#74AEEE"/&gt;
+	&lt;/radialGradient&gt;
+	&lt;path id="collar_x5F_l_1_" fill="url(#collar_x5F_l_3_)" stroke="#5491CF" stroke-width="0.5" d="M9.536,45.711
+		c0,0,0.288,1.186,1.506,2.221c1.055,0.896,2.893,1.037,2.893,1.037l-1.987,3.107c0,0-1.479-0.818-2.504-1.926
+		c-0.961-1.035-0.685-2.739-0.685-2.739L9.536,45.711z"/&gt;
+	
+		&lt;radialGradient id="Knob2_3_" cx="14.0645" cy="-767.6421" r="0.4842" gradientTransform="matrix(1 0 0 -1 0.1201 -714.5371)" gradientUnits="userSpaceOnUse"&gt;
+		&lt;stop  offset="0" style="stop-color:#80CCFF"/&gt;
+		&lt;stop  offset="1" style="stop-color:#74AEEE"/&gt;
+	&lt;/radialGradient&gt;
+	&lt;circle id="Knob2_1_" fill="url(#Knob2_3_)" stroke="#5491CF" stroke-width="0.5" cx="14.35" cy="53.127" r="0.292"/&gt;
+	
+		&lt;radialGradient id="Knob1_3_" cx="14.0835" cy="-770.7642" r="0.4844" gradientTransform="matrix(1 0 0 -1 0.1201 -714.5371)" gradientUnits="userSpaceOnUse"&gt;
+		&lt;stop  offset="0" style="stop-color:#80CCFF"/&gt;
+		&lt;stop  offset="1" style="stop-color:#74AEEE"/&gt;
+	&lt;/radialGradient&gt;
+	&lt;circle id="Knob1_1_" fill="url(#Knob1_3_)" stroke="#5491CF" stroke-width="0.5" cx="14.369" cy="56.25" r="0.292"/&gt;
+	&lt;path id="path5135_1_" fill="#D54A30" stroke="#B51A19" stroke-width="0.5" d="M13.935,52.609c0,0-0.925,1.029-1.04,3.271
+		c-0.115,2.244,0,2.244,0,2.244h3.273c0,0,0.115,0.031-0.077-2.182c-0.2-2.303-1.194-3.334-1.194-3.334H13.935L13.935,52.609z"/&gt;
+	&lt;path id="path5131_1_" fill="#D54A30" stroke="#B51A19" stroke-width="0.5" d="M14.377,49.34h0.062l1.276,2.001
+		c0.258,0.478-0.604,0.897-0.728,1.274l-1.14-0.008c-0.121-0.381-1.128-0.684-0.738-1.293L14.377,49.34z"/&gt;
+&lt;/g&gt;
+&lt;/svg&gt;
+</y:Resource>
+      <y:Resource id="6" xml:space="preserve">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="57px" height="65px" viewBox="0 0 57 65" enable-background="new 0 0 57 65" xml:space="preserve"&gt;
+&lt;g&gt;
+	
+		&lt;linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="26.3398" y1="3115.7266" x2="27.5807" y2="3145.5239" gradientTransform="matrix(1 0 0 1 0.3203 -3091.7656)"&gt;
+		&lt;stop  offset="0.2711" style="stop-color:#FFAB4F"/&gt;
+		&lt;stop  offset="1" style="stop-color:#FFD28F"/&gt;
+	&lt;/linearGradient&gt;
+	&lt;path fill="url(#SVGID_1_)" stroke="#ED9135" stroke-miterlimit="10" d="M49.529,51.225c-4.396-4.396-10.951-5.884-12.063-6.109
+		V37.8H19.278c0,0,0.038,6.903,0,6.868c0,0-6.874,0.997-12.308,6.432C1.378,56.691,0.5,62.77,0.5,62.77
+		c0,1.938,1.575,3.492,3.523,3.492h48.51c1.947,0,3.521-1.558,3.521-3.492C56.055,62.768,54.211,55.906,49.529,51.225z"/&gt;
+	
+		&lt;radialGradient id="face_x5F_white_1_" cx="27.5835" cy="3117.4922" r="23.425" fx="23.0139" fy="3115.0024" gradientTransform="matrix(1 0 0 1 0.3203 -3091.7656)" gradientUnits="userSpaceOnUse"&gt;
+		&lt;stop  offset="0" style="stop-color:#FFD28F"/&gt;
+		&lt;stop  offset="1" style="stop-color:#FFAB4F"/&gt;
+	&lt;/radialGradient&gt;
+	&lt;path id="face_x5F_white_3_" fill="url(#face_x5F_white_1_)" stroke="#ED9135" stroke-miterlimit="10" d="M43.676,23.357
+		c0.086,10.2-6.738,18.52-15.25,18.586c-8.5,0.068-15.464-8.146-15.55-18.344C12.794,13.4,19.618,5.079,28.123,5.012
+		C36.627,4.945,43.59,13.158,43.676,23.357z"/&gt;
+	
+		&lt;linearGradient id="face_highlight_1_" gradientUnits="userSpaceOnUse" x1="6468.501" y1="-12291.5195" x2="6492.1304" y2="-12384.9688" gradientTransform="matrix(0.275 0 0 -0.2733 -1752.8849 -3351.7349)"&gt;
+		&lt;stop  offset="0" style="stop-color:#FFFFFF;stop-opacity:0.24"/&gt;
+		&lt;stop  offset="1" style="stop-color:#FFFFFF;stop-opacity:0.16"/&gt;
+	&lt;/linearGradient&gt;
+	&lt;path id="face_highlight_3_" fill="url(#face_highlight_1_)" d="M28.415,5.625c-6.035,0.047-10.747,4.493-12.787,10.386
+		c-0.664,1.919-0.294,4.043,0.98,5.629c2.73,3.398,5.729,6.283,9.461,8.088c3.137,1.518,7.535,2.385,11.893,1.247
+		c2.274-0.592,3.988-2.459,4.375-4.766c0.187-1.094,0.293-2.289,0.283-3.553C42.54,13.244,36.729,5.56,28.415,5.625z"/&gt;
+	&lt;path id="hair_x5F_gray_3_" fill="#ECECEC" stroke="#9B9B9B" stroke-linecap="round" stroke-linejoin="round" d="M20.278,13.25
+		c0,0,5.321,7.25,15,3.75c2.729-0.563,9.058,1.035,9.058,1.035S40.68,1.865,27.289,2.744C9.403,4.125,12.058,25.678,12.058,25.678
+		s2.768-0.684,5.036-4.802C18.068,19.106,20.278,13.25,20.278,13.25z"/&gt;
+	
+		&lt;radialGradient id="collar_x5F_body_1_" cx="14.9609" cy="3148.9336" r="32.4004" gradientTransform="matrix(1 0 0 1 0.3203 -3091.7656)" gradientUnits="userSpaceOnUse"&gt;
+		&lt;stop  offset="0" style="stop-color:#B0E8FF"/&gt;
+		&lt;stop  offset="1" style="stop-color:#74AEEE"/&gt;
+	&lt;/radialGradient&gt;
+	&lt;path id="collar_x5F_body_3_" fill="url(#collar_x5F_body_1_)" stroke="#5491CF" d="M0.5,62.768c0,1.938,1.575,3.494,3.523,3.494
+		h48.51c1.947,0,3.521-1.559,3.521-3.494c0,0-1.844-6.861-6.525-11.543c-4.815-4.813-11.244-6.146-11.244-6.146
+		c-1.771,1.655-5.61,2.802-10.063,2.802c-4.453,0-8.292-1.146-10.063-2.802c0,0-5.755,0.586-11.189,6.021
+		C1.378,56.689,0.5,62.768,0.5,62.768z"/&gt;
+	
+		&lt;radialGradient id="collar_x5F_r_1_" cx="31.2998" cy="3139.0605" r="9.2823" gradientTransform="matrix(1 0 0 1 0.3203 -3091.7656)" gradientUnits="userSpaceOnUse"&gt;
+		&lt;stop  offset="0" style="stop-color:#80CCFF"/&gt;
+		&lt;stop  offset="1" style="stop-color:#74AEEE"/&gt;
+	&lt;/radialGradient&gt;
+	&lt;path id="collar_x5F_r_3_" fill="url(#collar_x5F_r_1_)" stroke="#5491CF" d="M38.159,41.381c0,0-0.574,2.369-3.013,4.441
+		c-2.108,1.795-5.783,2.072-5.783,2.072l3.974,6.217c0,0,2.957-1.637,5.009-3.848c1.922-2.072,1.37-5.479,1.37-5.479L38.159,41.381z
+		"/&gt;
+	
+		&lt;radialGradient id="collar_x5F_l_1_" cx="18.9375" cy="3139.1016" r="9.2843" gradientTransform="matrix(1 0 0 1 0.3203 -3091.7656)" gradientUnits="userSpaceOnUse"&gt;
+		&lt;stop  offset="0" style="stop-color:#80CCFF"/&gt;
+		&lt;stop  offset="1" style="stop-color:#74AEEE"/&gt;
+	&lt;/radialGradient&gt;
+	&lt;path id="collar_x5F_l_3_" fill="url(#collar_x5F_l_1_)" stroke="#5491CF" d="M18.63,41.422c0,0,0.576,2.369,3.012,4.441
+		c2.109,1.793,5.785,2.072,5.785,2.072l-3.974,6.217c0,0-2.957-1.637-5.007-3.85c-1.922-2.072-1.37-5.48-1.37-5.48L18.63,41.422z"/&gt;
+	
+		&lt;radialGradient id="Knob2_1_" cx="27.6895" cy="2375.2871" r="0.9669" gradientTransform="matrix(1 0 0 1 0.2402 -2319.0742)" gradientUnits="userSpaceOnUse"&gt;
+		&lt;stop  offset="0" style="stop-color:#80CCFF"/&gt;
+		&lt;stop  offset="1" style="stop-color:#74AEEE"/&gt;
+	&lt;/radialGradient&gt;
+	&lt;circle id="Knob2_3_" fill="url(#Knob2_1_)" stroke="#5491CF" cx="28.258" cy="56.254" r="0.584"/&gt;
+	
+		&lt;radialGradient id="Knob1_1_" cx="27.7275" cy="2381.5283" r="0.9669" gradientTransform="matrix(1 0 0 1 0.2402 -2319.0742)" gradientUnits="userSpaceOnUse"&gt;
+		&lt;stop  offset="0" style="stop-color:#80CCFF"/&gt;
+		&lt;stop  offset="1" style="stop-color:#74AEEE"/&gt;
+	&lt;/radialGradient&gt;
+	&lt;circle id="Knob1_3_" fill="url(#Knob1_1_)" stroke="#5491CF" cx="28.297" cy="62.499" r="0.584"/&gt;
+	
+		&lt;radialGradient id="path5135_1_" cx="26.9917" cy="4.1973" r="6.0918" gradientTransform="matrix(1 0 0 -1 0.04 64.1543)" gradientUnits="userSpaceOnUse"&gt;
+		&lt;stop  offset="0" style="stop-color:#FCB57A"/&gt;
+		&lt;stop  offset="1" style="stop-color:#FF8C36"/&gt;
+	&lt;/radialGradient&gt;
+	&lt;path id="path5135_2_" fill="url(#path5135_1_)" stroke="#E55E03" d="M27.427,55.221c0,0-1.848,2.057-2.079,6.543
+		c-0.231,4.488,0,4.488,0,4.488h6.544c0,0,0.23,0.063-0.152-4.363c-0.399-4.604-2.389-6.668-2.389-6.668H27.427z"/&gt;
+	
+		&lt;radialGradient id="path5131_1_" cx="26.7456" cy="11.9678" r="4.8472" gradientTransform="matrix(1 0 0 -1 0.04 64.1543)" gradientUnits="userSpaceOnUse"&gt;
+		&lt;stop  offset="0" style="stop-color:#FCB57A"/&gt;
+		&lt;stop  offset="1" style="stop-color:#FF8C36"/&gt;
+	&lt;/radialGradient&gt;
+	&lt;path id="path5131_2_" fill="url(#path5131_1_)" stroke="#E55E03" d="M28.313,48.68h0.122l2.551,4.002
+		c0.517,0.953-1.204,1.797-1.453,2.549l-2.279-0.016c-0.243-0.76-2.257-1.365-1.476-2.584L28.313,48.68z"/&gt;
+&lt;/g&gt;
+&lt;/svg&gt;
+</y:Resource>
+      <y:Resource id="7" xml:space="preserve">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="57px" height="65px" viewBox="0 0 57 65" enable-background="new 0 0 57 65" xml:space="preserve"&gt;
+&lt;g&gt;
+	&lt;polygon fill="#FAE1AA" stroke="#F9C969" stroke-linecap="round" stroke-linejoin="round" points="44.365,49.031 13.101,53.422 
+		12.191,30.465 43.408,31.092 	"/&gt;
+	
+		&lt;linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="26.3398" y1="3115.7266" x2="27.5807" y2="3145.5239" gradientTransform="matrix(1 0 0 1 0.3203 -3091.7656)"&gt;
+		&lt;stop  offset="0.2711" style="stop-color:#FFAB4F"/&gt;
+		&lt;stop  offset="1" style="stop-color:#FFD28F"/&gt;
+	&lt;/linearGradient&gt;
+	&lt;path fill="url(#SVGID_1_)" stroke="#ED9135" stroke-miterlimit="10" d="M49.529,51.225c-4.396-4.396-10.951-5.884-12.063-6.109
+		V37.8H19.278c0,0,0.038,6.903,0,6.868c0,0-6.874,0.997-12.308,6.432C1.378,56.691,0.5,62.77,0.5,62.77
+		c0,1.938,1.575,3.492,3.523,3.492h48.51c1.947,0,3.521-1.558,3.521-3.492C56.055,62.768,54.211,55.906,49.529,51.225z"/&gt;
+	
+		&lt;radialGradient id="face_x5F_white_1_" cx="27.5835" cy="3117.4922" r="23.425" fx="23.0139" fy="3115.0024" gradientTransform="matrix(1 0 0 1 0.3203 -3091.7656)" gradientUnits="userSpaceOnUse"&gt;
+		&lt;stop  offset="0" style="stop-color:#FFD28F"/&gt;
+		&lt;stop  offset="1" style="stop-color:#FFAB4F"/&gt;
+	&lt;/radialGradient&gt;
+	&lt;path id="face_x5F_white_3_" fill="url(#face_x5F_white_1_)" stroke="#ED9135" stroke-miterlimit="10" d="M43.676,23.357
+		c0.086,10.2-6.738,18.52-15.25,18.586c-8.5,0.068-15.464-8.146-15.55-18.344C12.794,13.4,19.618,5.079,28.123,5.012
+		C36.627,4.945,43.59,13.158,43.676,23.357z"/&gt;
+	
+		&lt;linearGradient id="face_highlight_1_" gradientUnits="userSpaceOnUse" x1="6468.501" y1="-12291.5195" x2="6492.1304" y2="-12384.9688" gradientTransform="matrix(0.275 0 0 -0.2733 -1752.8849 -3351.7349)"&gt;
+		&lt;stop  offset="0" style="stop-color:#FFFFFF;stop-opacity:0.24"/&gt;
+		&lt;stop  offset="1" style="stop-color:#FFFFFF;stop-opacity:0.16"/&gt;
+	&lt;/linearGradient&gt;
+	&lt;path id="face_highlight_3_" fill="url(#face_highlight_1_)" d="M28.415,5.625c-6.035,0.047-10.747,4.493-12.787,10.386
+		c-0.664,1.919-0.294,4.043,0.98,5.629c2.73,3.398,5.729,6.283,9.461,8.088c3.137,1.518,7.535,2.385,11.893,1.247
+		c2.274-0.592,3.988-2.459,4.375-4.766c0.187-1.094,0.293-2.289,0.283-3.553C42.54,13.244,36.729,5.56,28.415,5.625z"/&gt;
+	&lt;path fill="#FAE1AA" stroke="#E2B354" stroke-linecap="round" stroke-linejoin="round" d="M17.754,45.004
+		c-0.413-3.02-0.771-6.182-0.946-9.033c-0.574-9.349,2.886-17.721,2.886-17.721l0.882-2.078l0.94,2.419l1.872-4.956l-0.049,4.553
+		l1.311-0.749l0.701-1.653L25.715,18l1.055-0.988l2.13-0.729L29.84,17l0.479-2.375l0.834,2.554l1.125-1.024l1.68-0.214l1.07,1.372
+		l-0.243-4.246l1.883,3.967L37.611,17c0,0,5.595,10.622,3.313,29.1c2.154,0.76,4.916,2.016,7.316,3.976
+		c0.001-0.001,0.011-0.013,0.011-0.013L44.111,19.38C43.079,12.873,38.752,2.599,28.73,2.648
+		C5.153,2.568,13.025,42.055,8.945,49.334c-0.007,0.014-0.012,0.025-0.02,0.039C12.292,46.729,15.809,45.516,17.754,45.004z"/&gt;
+	
+		&lt;radialGradient id="collar_x5F_body_1_" cx="15.2412" cy="9.9829" r="32.4004" gradientTransform="matrix(1 0 0 -1 0.04 64.1543)" gradientUnits="userSpaceOnUse"&gt;
+		&lt;stop  offset="0" style="stop-color:#FCB57A"/&gt;
+		&lt;stop  offset="1" style="stop-color:#FF8C36"/&gt;
+	&lt;/radialGradient&gt;
+	&lt;path id="collar_x5F_body_2_" fill="url(#collar_x5F_body_1_)" stroke="#E55E03" d="M0.5,62.768c0,1.938,1.575,3.494,3.523,3.494
+		h48.51c1.947,0,3.521-1.559,3.521-3.494c0,0-1.844-6.861-6.525-11.543c-4.815-4.813-11.244-6.146-11.244-6.146
+		c-1.771,1.655-5.61,2.802-10.063,2.802c-4.453,0-8.292-1.146-10.063-2.802c0,0-5.755,0.586-11.189,6.021
+		C1.378,56.689,0.5,62.768,0.5,62.768z"/&gt;
+	
+		&lt;radialGradient id="collar_x5F_r_1_" cx="31.5801" cy="15.957" r="9.2823" gradientTransform="matrix(1 0 0 -1 0.04 64.1543)" gradientUnits="userSpaceOnUse"&gt;
+		&lt;stop  offset="0" style="stop-color:#FCB57A"/&gt;
+		&lt;stop  offset="1" style="stop-color:#FF8C36"/&gt;
+	&lt;/radialGradient&gt;
+	&lt;path id="collar_x5F_r_2_" fill="url(#collar_x5F_r_1_)" stroke="#E55E03" d="M38.159,41.381c0,0-0.574,2.369-3.013,4.441
+		c-2.108,1.795-5.783,2.072-5.783,2.072l3.974,6.217c0,0,2.957-1.637,5.009-3.848c1.922-2.072,1.37-5.479,1.37-5.479L38.159,41.381z
+		"/&gt;
+	
+		&lt;radialGradient id="collar_x5F_l_1_" cx="19.2178" cy="15.916" r="9.2843" gradientTransform="matrix(1 0 0 -1 0.04 64.1543)" gradientUnits="userSpaceOnUse"&gt;
+		&lt;stop  offset="0" style="stop-color:#FCB57A"/&gt;
+		&lt;stop  offset="1" style="stop-color:#FF8C36"/&gt;
+	&lt;/radialGradient&gt;
+	&lt;path id="collar_x5F_l_2_" fill="url(#collar_x5F_l_1_)" stroke="#E55E03" d="M18.63,41.422c0,0,0.576,2.369,3.012,4.441
+		c2.109,1.793,5.785,2.072,5.785,2.072l-3.974,6.217c0,0-2.957-1.637-5.007-3.85c-1.922-2.072-1.37-5.48-1.37-5.48L18.63,41.422z"/&gt;
+	&lt;circle id="Knob2_2_" fill="#E55E03" stroke="#E55E03" cx="28.258" cy="56.254" r="0.584"/&gt;
+	&lt;circle id="Knob1_2_" fill="#E55E03" stroke="#E55E03" cx="28.297" cy="62.499" r="0.584"/&gt;
+&lt;/g&gt;
+&lt;/svg&gt;
+</y:Resource>
+      <y:Resource id="8" xml:space="preserve">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="57px" height="65px" viewBox="0 0 57 65" enable-background="new 0 0 57 65" xml:space="preserve"&gt;
+&lt;g&gt;
+	
+		&lt;linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="26.3398" y1="3115.7266" x2="27.5807" y2="3145.5239" gradientTransform="matrix(1 0 0 1 0.3203 -3091.7656)"&gt;
+		&lt;stop  offset="0.2711" style="stop-color:#FFAB4F"/&gt;
+		&lt;stop  offset="1" style="stop-color:#FFD28F"/&gt;
+	&lt;/linearGradient&gt;
+	&lt;path fill="url(#SVGID_1_)" stroke="#ED9135" stroke-miterlimit="10" d="M49.529,51.225c-4.396-4.396-10.951-5.884-12.063-6.109
+		V37.8H19.278c0,0,0.038,6.903,0,6.868c0,0-6.874,0.997-12.308,6.432C1.378,56.691,0.5,62.77,0.5,62.77
+		c0,1.938,1.575,3.492,3.523,3.492h48.51c1.947,0,3.521-1.558,3.521-3.492C56.055,62.768,54.211,55.906,49.529,51.225z"/&gt;
+	&lt;path id="body_18_" fill="#ECECEC" stroke="#9B9B9B" stroke-miterlimit="10" d="M0.5,62.768c0,1.938,1.575,3.494,3.523,3.494h48.51
+		c1.947,0,3.521-1.559,3.521-3.494c0,0-1.844-6.861-6.525-11.543c-4.815-4.813-11.244-6.146-11.244-6.146
+		c-1.771,1.655-5.61,3.802-10.063,3.802c-4.453,0-8.292-2.146-10.063-3.802c0,0-5.755,0.586-11.189,6.021
+		C1.378,56.689,0.5,62.768,0.5,62.768z"/&gt;
+	
+		&lt;radialGradient id="SVGID_2_" cx="22.6621" cy="21.707" r="17.7954" gradientTransform="matrix(1 0 0 -1 0.04 64.1543)" gradientUnits="userSpaceOnUse"&gt;
+		&lt;stop  offset="0" style="stop-color:#FCB57A"/&gt;
+		&lt;stop  offset="1" style="stop-color:#FF8C36"/&gt;
+	&lt;/radialGradient&gt;
+	&lt;path fill="url(#SVGID_2_)" stroke="#E55E03" d="M28.106,33.486c-8.112,0-12.688,4.313-12.688,10.438
+		c0,7.422,12.688,10.438,12.688,10.438s14.688-3.016,14.688-10.438C42.793,38.75,36.215,33.486,28.106,33.486z M26.288,53.051
+		c0,0-7.135-2.093-8.805-7.201c-0.222-0.682,0.147-1.156,0.795-1.521V37.8h20.188v6.663c0.235,0.352,1.109,0.737,1.229,1.387
+		C40.445,49.917,26.288,53.051,26.288,53.051z"/&gt;
+	
+		&lt;radialGradient id="SVGID_3_" cx="15.2056" cy="831.1875" r="32.3071" gradientTransform="matrix(1 0 0 1 0.0801 -773.6914)" gradientUnits="userSpaceOnUse"&gt;
+		&lt;stop  offset="0" style="stop-color:#FCB57A"/&gt;
+		&lt;stop  offset="1" style="stop-color:#FF8C36"/&gt;
+	&lt;/radialGradient&gt;
+	&lt;path fill="url(#SVGID_3_)" stroke="#E55E03" d="M49.529,51.225c-2.239-2.24-5.041-3.724-7.396-4.67
+		c-2.854,5.51-14.021,7.807-14.021,7.807s-10.472-2.483-12.387-8.514c-2.439,0.771-5.787,2.287-8.749,5.25
+		c-5.592,5.592-6.47,11.67-6.47,11.67c0,1.938,1.575,3.492,3.523,3.492h48.51c1.946,0,3.521-1.558,3.521-3.492
+		C56.055,62.768,54.211,55.906,49.529,51.225z"/&gt;
+	
+		&lt;radialGradient id="SVGID_4_" cx="17.0723" cy="18.4907" r="11.8931" gradientTransform="matrix(1 0 0 -1 0.04 64.1543)" gradientUnits="userSpaceOnUse"&gt;
+		&lt;stop  offset="0" style="stop-color:#FCB57A"/&gt;
+		&lt;stop  offset="1" style="stop-color:#FF8C36"/&gt;
+	&lt;/radialGradient&gt;
+	&lt;path fill="url(#SVGID_4_)" stroke="#E55E03" d="M13.404,44.173c1.15-1.81,2.039-3.832,3.332-5.397
+		c-0.514,1.027-1.669,4.084-1.669,5.148c0,5.186,10.366,9.079,14.688,10.438c-3.472,1.627-9.134-1.498-11.334-2.359
+		c-3.601-1.419-4.071-3.063-5.89-4.854C12.523,47.135,12.878,45,13.404,44.173z"/&gt;
+	
+		&lt;radialGradient id="SVGID_5_" cx="31.8184" cy="19.3525" r="14.63" gradientTransform="matrix(1 0 0 -1 0.04 64.1543)" gradientUnits="userSpaceOnUse"&gt;
+		&lt;stop  offset="0" style="stop-color:#FCB57A"/&gt;
+		&lt;stop  offset="1" style="stop-color:#FF8C36"/&gt;
+	&lt;/radialGradient&gt;
+	&lt;path fill="url(#SVGID_5_)" stroke="#E55E03" d="M45.777,43.924c-1.317-1.568-5.11-9.424-6.604-6.617
+		c0.516,1.025,3.617,3.693,3.617,6.617c0,5.186-10.271,8.576-16.699,9.145c1.429,4.938,11.373,1.293,13.805-0.313
+		c3.563-2.354,4.563-5.133,7.854-3.705C47.754,49.045,48.006,46.574,45.777,43.924z"/&gt;
+	
+		&lt;radialGradient id="SVGID_6_" cx="30.4893" cy="4.8721" r="5.2028" gradientTransform="matrix(1 0 0 -1 0.04 64.1543)" gradientUnits="userSpaceOnUse"&gt;
+		&lt;stop  offset="0" style="stop-color:#FCB57A"/&gt;
+		&lt;stop  offset="1" style="stop-color:#FF8C36"/&gt;
+	&lt;/radialGradient&gt;
+	&lt;path fill="url(#SVGID_6_)" stroke="#E55E03" d="M30.777,54.167c0.357,0.836-0.153,1.983-0.352,2.813
+		c-0.256,1.084-0.072,2.104,0.102,3.186c0.164,1.02,0.156,2.107,0.25,3.167c0.082,0.916,0.482,1.849,0.357,2.75"/&gt;
+	
+		&lt;radialGradient id="SVGID_7_" cx="23.2871" cy="5.3008" r="5.5143" gradientTransform="matrix(1 0 0 -1 0.04 64.1543)" gradientUnits="userSpaceOnUse"&gt;
+		&lt;stop  offset="0" style="stop-color:#FCB57A"/&gt;
+		&lt;stop  offset="1" style="stop-color:#FF8C36"/&gt;
+	&lt;/radialGradient&gt;
+	&lt;path fill="url(#SVGID_7_)" stroke="#E55E03" d="M23.695,53.417c-0.508,0.584-0.476,2.209-0.398,3
+		c0.116,1.183,0.456,2.099,0.333,3.333c-0.192,1.943,0.154,4.479-0.436,6.333"/&gt;
+	
+		&lt;radialGradient id="face_x5F_white_1_" cx="27.5835" cy="3117.4922" r="23.425" fx="23.0139" fy="3115.0024" gradientTransform="matrix(1 0 0 1 0.3203 -3091.7656)" gradientUnits="userSpaceOnUse"&gt;
+		&lt;stop  offset="0" style="stop-color:#FFD28F"/&gt;
+		&lt;stop  offset="1" style="stop-color:#FFAB4F"/&gt;
+	&lt;/radialGradient&gt;
+	&lt;path id="face_x5F_white_3_" fill="url(#face_x5F_white_1_)" stroke="#ED9135" stroke-miterlimit="10" d="M43.676,23.357
+		c0.086,10.2-6.738,18.52-15.25,18.586c-8.5,0.068-15.464-8.146-15.55-18.344C12.794,13.4,19.618,5.079,28.123,5.012
+		C36.627,4.945,43.59,13.158,43.676,23.357z"/&gt;
+	
+		&lt;linearGradient id="face_highlight_1_" gradientUnits="userSpaceOnUse" x1="6468.501" y1="-12291.5195" x2="6492.1304" y2="-12384.9688" gradientTransform="matrix(0.275 0 0 -0.2733 -1752.8849 -3351.7349)"&gt;
+		&lt;stop  offset="0" style="stop-color:#FFFFFF;stop-opacity:0.24"/&gt;
+		&lt;stop  offset="1" style="stop-color:#FFFFFF;stop-opacity:0.16"/&gt;
+	&lt;/linearGradient&gt;
+	&lt;path id="face_highlight_3_" fill="url(#face_highlight_1_)" d="M28.415,5.625c-6.035,0.047-10.747,4.493-12.787,10.386
+		c-0.664,1.919-0.294,4.043,0.98,5.629c2.73,3.398,5.729,6.283,9.461,8.088c3.137,1.518,7.535,2.385,11.893,1.247
+		c2.274-0.592,3.988-2.459,4.375-4.766c0.187-1.094,0.293-2.289,0.283-3.553C42.54,13.244,36.729,5.56,28.415,5.625z"/&gt;
+	&lt;path id="Hair_Young_Black_1_" fill="#5C5C5C" stroke="#353535" stroke-linecap="round" stroke-linejoin="round" d="M20.278,13.25
+		c3.417,4.333,9.333,6.917,9.333,6.917l-1.417-3.5c0,0,7.094,4.691,8.083,4.333c0.968-0.2-1.082-3.807-1.082-3.807
+		s3.138,1.795,4.854,3.969c1.803,2.28,4.285,3.504,4.285,3.504S47.027,2.719,27.289,2.744C8.278,2.709,12.058,27.678,12.058,27.678
+		L14.695,17c0,0,0.914,5.757,1.399,4.875C17.861,15.211,18.861,11.5,20.278,13.25z"/&gt;
+&lt;/g&gt;
+&lt;/svg&gt;
+</y:Resource>
+      <y:Resource id="9" xml:space="preserve">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;svg version="1.1"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	 x="0px" y="0px" width="37px" height="59px" viewBox="-0.569 -0.349 37 59" enable-background="new -0.569 -0.349 37 59"
+	 xml:space="preserve"&gt;
+&lt;defs&gt;
+&lt;/defs&gt;
+&lt;linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="115.7744" y1="-158.8057" x2="115.7743" y2="-219.9759" gradientTransform="matrix(1 0 0 -1 -97.6001 -161.5986)"&gt;
+	&lt;stop  offset="0" style="stop-color:#B3B3B3"/&gt;
+	&lt;stop  offset="0.164" style="stop-color:#ABABAB"/&gt;
+	&lt;stop  offset="0.4188" style="stop-color:#959595"/&gt;
+	&lt;stop  offset="0.7308" style="stop-color:#717171"/&gt;
+	&lt;stop  offset="1" style="stop-color:#4D4D4D"/&gt;
+&lt;/linearGradient&gt;
+&lt;path fill="url(#SVGID_1_)" d="M35.79,55.773c0,1.392-1.137,2.528-2.527,2.528H3.086c-1.39,0-2.528-1.139-2.528-2.528V2.528
+	C0.559,1.138,1.697,0,3.086,0h30.176c1.391,0,2.527,1.138,2.527,2.528V55.773z"/&gt;
+&lt;linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="115.7744" y1="-158.8057" x2="115.7743" y2="-219.9759" gradientTransform="matrix(1 0 0 -1 -97.6001 -161.5986)"&gt;
+	&lt;stop  offset="0" style="stop-color:#B3B3B3"/&gt;
+	&lt;stop  offset="0.164" style="stop-color:#ABABAB"/&gt;
+	&lt;stop  offset="0.4188" style="stop-color:#959595"/&gt;
+	&lt;stop  offset="0.7308" style="stop-color:#717171"/&gt;
+	&lt;stop  offset="1" style="stop-color:#4D4D4D"/&gt;
+&lt;/linearGradient&gt;
+&lt;path fill="url(#SVGID_2_)" d="M35.79,55.773c0,1.392-1.137,2.528-2.527,2.528H3.086c-1.39,0-2.528-1.139-2.528-2.528V2.528
+	C0.559,1.138,1.697,0,3.086,0h30.176c1.391,0,2.527,1.138,2.527,2.528V55.773z"/&gt;
+&lt;path opacity="0.19" fill="#FFFFFF" d="M35.79,39.342L0.559,26.702V2.529c0-1.391,1.138-2.528,2.528-2.528h30.176
+	c1.391,0,2.527,1.138,2.527,2.528V39.342z"/&gt;
+&lt;path fill="#353535" d="M32.868,53.717c0,1.392-1.138,2.529-2.527,2.529H11.854c-1.39,0-2.528-1.139-2.528-2.529V11.534
+	c0-1.39,1.138-2.528,2.528-2.528H30.34c1.391,0,2.528,1.138,2.528,2.528V53.717L32.868,53.717z"/&gt;
+&lt;linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="123.9893" y1="-171.4683" x2="123.9893" y2="-215.0464" gradientTransform="matrix(1 0 0 -1 -97.6001 -161.5986)"&gt;
+	&lt;stop  offset="0" style="stop-color:#B3B3B3"/&gt;
+	&lt;stop  offset="0.164" style="stop-color:#ABABAB"/&gt;
+	&lt;stop  offset="0.4188" style="stop-color:#959595"/&gt;
+	&lt;stop  offset="0.7308" style="stop-color:#717171"/&gt;
+	&lt;stop  offset="1" style="stop-color:#4D4D4D"/&gt;
+&lt;/linearGradient&gt;
+&lt;path fill="url(#SVGID_3_)" d="M30.34,52.129c0,0.695-0.568,1.265-1.265,1.265h-5.371c-0.695,0-1.265-0.568-1.265-1.265V13.123
+	c0-0.695,0.568-1.264,1.265-1.264h5.371c0.695,0,1.265,0.569,1.265,1.264V52.129z"/&gt;
+&lt;linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="113.4834" y1="-171.4683" x2="113.4834" y2="-215.0464" gradientTransform="matrix(1 0 0 -1 -97.6001 -161.5986)"&gt;
+	&lt;stop  offset="0" style="stop-color:#B3B3B3"/&gt;
+	&lt;stop  offset="0.164" style="stop-color:#ABABAB"/&gt;
+	&lt;stop  offset="0.4188" style="stop-color:#959595"/&gt;
+	&lt;stop  offset="0.7308" style="stop-color:#717171"/&gt;
+	&lt;stop  offset="1" style="stop-color:#4D4D4D"/&gt;
+&lt;/linearGradient&gt;
+&lt;path fill="url(#SVGID_4_)" d="M19.833,52.129c0,0.695-0.567,1.265-1.264,1.265h-5.372c-0.695,0-1.264-0.568-1.264-1.265V13.123
+	c0-0.695,0.569-1.264,1.264-1.264h5.372c0.695,0,1.264,0.569,1.264,1.264V52.129z"/&gt;
+&lt;linearGradient id="SVGID_5_" gradientUnits="userSpaceOnUse" x1="123.9932" y1="-215.5532" x2="123.9932" y2="-209.4927" gradientTransform="matrix(1 0 0 -1 -97.6001 -161.5986)"&gt;
+	&lt;stop  offset="0" style="stop-color:#8D8D8D"/&gt;
+	&lt;stop  offset="0.2282" style="stop-color:#858585"/&gt;
+	&lt;stop  offset="0.5829" style="stop-color:#6F6F6F"/&gt;
+	&lt;stop  offset="1" style="stop-color:#4D4D4D"/&gt;
+&lt;/linearGradient&gt;
+&lt;rect x="23.362" y="45.948" fill="url(#SVGID_5_)" width="6.06" height="6.061"/&gt;
+&lt;linearGradient id="SVGID_6_" gradientUnits="userSpaceOnUse" x1="113.4834" y1="-215.4204" x2="113.4834" y2="-209.3599" gradientTransform="matrix(1 0 0 -1 -97.6001 -161.5986)"&gt;
+	&lt;stop  offset="0" style="stop-color:#8D8D8D"/&gt;
+	&lt;stop  offset="0.2282" style="stop-color:#858585"/&gt;
+	&lt;stop  offset="0.5829" style="stop-color:#6F6F6F"/&gt;
+	&lt;stop  offset="1" style="stop-color:#4D4D4D"/&gt;
+&lt;/linearGradient&gt;
+&lt;rect x="12.854" y="45.815" fill="url(#SVGID_6_)" width="6.06" height="6.061"/&gt;
+&lt;rect x="12.854" y="24.328" fill="#6E6E6E" width="6.06" height="15.014"/&gt;
+&lt;rect x="23.36" y="24.328" fill="#6E6E6E" width="6.061" height="15.014"/&gt;
+&lt;rect x="0.071" y="50.68" fill="#C8FF00" stroke="#717171" stroke-width="0.1416" stroke-miterlimit="10" width="5.709" height="2.898"/&gt;
+&lt;radialGradient id="SVGID_7_" cx="124.1484" cy="-180.064" r="3.221" gradientTransform="matrix(1 0 0 -1 -97.6001 -161.5986)" gradientUnits="userSpaceOnUse"&gt;
+	&lt;stop  offset="0" style="stop-color:#8D8D8D"/&gt;
+	&lt;stop  offset="0.2282" style="stop-color:#858585"/&gt;
+	&lt;stop  offset="0.5829" style="stop-color:#6F6F6F"/&gt;
+	&lt;stop  offset="1" style="stop-color:#4D4D4D"/&gt;
+&lt;/radialGradient&gt;
+&lt;circle fill="url(#SVGID_7_)" stroke="#666666" stroke-width="0.632" stroke-miterlimit="10" cx="26.391" cy="18.307" r="2.296"/&gt;
+&lt;radialGradient id="SVGID_8_" cx="113.6426" cy="-180.064" r="3.2209" gradientTransform="matrix(1 0 0 -1 -97.6001 -161.5986)" gradientUnits="userSpaceOnUse"&gt;
+	&lt;stop  offset="0" style="stop-color:#8D8D8D"/&gt;
+	&lt;stop  offset="0.2282" style="stop-color:#858585"/&gt;
+	&lt;stop  offset="0.5829" style="stop-color:#6F6F6F"/&gt;
+	&lt;stop  offset="1" style="stop-color:#4D4D4D"/&gt;
+&lt;/radialGradient&gt;
+&lt;circle fill="url(#SVGID_8_)" stroke="#666666" stroke-width="0.632" stroke-miterlimit="10" cx="15.885" cy="18.307" r="2.295"/&gt;
+&lt;/svg&gt;
+</y:Resource>
+      <y:Resource id="10" xml:space="preserve">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="57px" height="67px" viewBox="0 0 57 67" enable-background="new 0 0 57 67" xml:space="preserve"&gt;
+&lt;g&gt;
+	
+		&lt;linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="26.3398" y1="3115.7266" x2="27.5807" y2="3145.5239" gradientTransform="matrix(1 0 0 1 0.3203 -3091.7656)"&gt;
+		&lt;stop  offset="0.2711" style="stop-color:#FFAB4F"/&gt;
+		&lt;stop  offset="1" style="stop-color:#FFD28F"/&gt;
+	&lt;/linearGradient&gt;
+	&lt;path fill="url(#SVGID_1_)" stroke="#ED9135" stroke-miterlimit="10" d="M49.529,51.225c-4.396-4.396-10.951-5.884-12.063-6.109
+		V37.8H19.278c0,0,0.038,6.903,0,6.868c0,0-6.874,0.997-12.308,6.432C1.378,56.691,0.5,62.77,0.5,62.77
+		c0,1.938,1.575,3.492,3.523,3.492h48.51c1.947,0,3.521-1.558,3.521-3.492C56.055,62.768,54.211,55.906,49.529,51.225z"/&gt;
+	
+		&lt;radialGradient id="face_x5F_white_1_" cx="27.5835" cy="3117.4922" r="23.425" fx="23.0139" fy="3115.0024" gradientTransform="matrix(1 0 0 1 0.3203 -3091.7656)" gradientUnits="userSpaceOnUse"&gt;
+		&lt;stop  offset="0" style="stop-color:#FFD28F"/&gt;
+		&lt;stop  offset="1" style="stop-color:#FFAB4F"/&gt;
+	&lt;/radialGradient&gt;
+	&lt;path id="face_x5F_white_3_" fill="url(#face_x5F_white_1_)" stroke="#ED9135" stroke-miterlimit="10" d="M43.676,23.357
+		c0.086,10.199-6.738,18.52-15.25,18.586c-8.5,0.068-15.464-8.146-15.55-18.344C12.794,13.4,19.618,5.079,28.123,5.012
+		C36.627,4.945,43.59,13.158,43.676,23.357z"/&gt;
+	
+		&lt;linearGradient id="face_highlight_1_" gradientUnits="userSpaceOnUse" x1="6468.5" y1="-12286.8594" x2="6492.1294" y2="-12380.3086" gradientTransform="matrix(0.275 0 0 -0.2733 -1752.8849 -3350.4617)"&gt;
+		&lt;stop  offset="0" style="stop-color:#FFFFFF;stop-opacity:0.24"/&gt;
+		&lt;stop  offset="1" style="stop-color:#FFFFFF;stop-opacity:0.16"/&gt;
+	&lt;/linearGradient&gt;
+	&lt;path id="face_highlight_3_" fill="url(#face_highlight_1_)" d="M28.415,5.625c-6.035,0.047-10.747,4.493-12.787,10.386
+		c-0.664,1.919-0.294,4.043,0.98,5.629c2.73,3.398,5.729,6.283,9.461,8.088c3.137,1.518,7.535,2.385,11.893,1.247
+		c2.274-0.592,3.988-2.459,4.375-4.766c0.187-1.094,0.293-2.289,0.283-3.553C42.54,13.244,36.729,5.56,28.415,5.625z"/&gt;
+	&lt;path id="Hair_Female_1_Black_1_" fill="#5C5C5C" stroke="#353535" stroke-linecap="round" stroke-linejoin="round" d="M28.372,0.5
+		C17.537,0.5,8.269,7.748,9.153,26.125c0.563,6.563,5.862,12.042,9.366,13.531c-2.929-10.968-0.304-25.021-0.585-25.526
+		c-0.281-0.505,3.536,6.728,3.536,6.728l3.183-8.312c5.541,4.28,0.393,11.309,1.049,11.058c4.26-1.631,5.34-9.228,5.34-9.228
+		s2.729,3.657,2.701,5.504c-0.054,3.562,2.194-6.067,2.194-6.067l1.027,2.031c6.727,9.822,3.684,16.208,1.648,22.781
+		c15.666-0.703,12.291-10.48,9.66-18.407C43.59,6.092,39.206,0.5,28.372,0.5z"/&gt;
+	
+		&lt;linearGradient id="body_1_" gradientUnits="userSpaceOnUse" x1="95.9063" y1="-3134.2153" x2="31.5133" y2="-3134.2153" gradientTransform="matrix(0.9852 0 0 -0.9852 -34.4844 -3031.9851)"&gt;
+		&lt;stop  offset="0" style="stop-color:#49AD33"/&gt;
+		&lt;stop  offset="1" style="stop-color:#C2DA92"/&gt;
+	&lt;/linearGradient&gt;
+	&lt;path id="body_8_" fill="url(#body_1_)" stroke="#008D33" d="M0.5,62.768c0,1.938,1.575,3.494,3.523,3.494h48.51
+		c1.947,0,3.521-1.559,3.521-3.494c0,0-1.844-6.861-6.525-11.543c-4.815-4.813-8.244-5.146-8.244-5.146
+		c-1.444,6.983-8.555,8.786-13.007,8.786s-11.322-2.643-11.941-9.439c0,0-4.559,1.199-9.367,5.674
+		C1.378,56.689,0.5,62.768,0.5,62.768z"/&gt;
+&lt;/g&gt;
+&lt;/svg&gt;
+</y:Resource>
+      <y:Resource id="11" xml:space="preserve">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;svg version="1.1"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	 x="0px" y="0px" width="68px" height="46px" viewBox="-0.064 -0.075 68 46" enable-background="new -0.064 -0.075 68 46"
+	 xml:space="preserve"&gt;
+&lt;defs&gt;
+&lt;/defs&gt;
+&lt;radialGradient id="SVGID_1_" cx="478.8413" cy="1991.2729" r="21.6001" gradientTransform="matrix(1.15 0 0 1 -526.6598 -1982.4023)" gradientUnits="userSpaceOnUse"&gt;
+	&lt;stop  offset="0" style="stop-color:#F2F2F2"/&gt;
+	&lt;stop  offset="1" style="stop-color:#8D8D8D"/&gt;
+&lt;/radialGradient&gt;
+&lt;path fill="url(#SVGID_1_)" d="M10.263,1.903c0-0.987,0.807-1.794,1.794-1.794h43.279c0.986,0,1.795,0.807,1.795,1.794v26.978
+	c0,0.987-0.809,1.794-1.795,1.794h-43.28c-0.987,0-1.794-0.807-1.794-1.794L10.263,1.903L10.263,1.903z"/&gt;
+&lt;path display="none" fill="none" stroke="#3C89C9" stroke-width="0.2185" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+	M10.263,1.903c0-0.987,0.807-1.794,1.794-1.794h43.279c0.986,0,1.795,0.807,1.795,1.794v26.978c0,0.987-0.809,1.794-1.795,1.794
+	h-43.28c-0.987,0-1.794-0.807-1.794-1.794L10.263,1.903L10.263,1.903z"/&gt;
+&lt;radialGradient id="SVGID_2_" cx="455.894" cy="1983.9624" r="47.8462" fx="493.5344" fy="1977.5143" gradientTransform="matrix(1.1935 0 0 1 -509.6731 -1982.4023)" gradientUnits="userSpaceOnUse"&gt;
+	&lt;stop  offset="0" style="stop-color:#4D4D4D"/&gt;
+	&lt;stop  offset="1" style="stop-color:#999999"/&gt;
+&lt;/radialGradient&gt;
+&lt;path fill="url(#SVGID_2_)" d="M11.18,2.819c0-0.987,0.807-1.794,1.794-1.794h41.649c0.986,0,1.795,0.807,1.795,1.794v24.943
+	c0,0.985-0.809,1.794-1.795,1.794H12.974c-0.987,0-1.794-0.809-1.794-1.794V2.819z"/&gt;
+&lt;radialGradient id="SVGID_3_" cx="456.8843" cy="1984.0386" r="30.6699" gradientTransform="matrix(1.1923 0 0 1 -510.1314 -1982.4023)" gradientUnits="userSpaceOnUse"&gt;
+	&lt;stop  offset="0" style="stop-color:#9CD7FF"/&gt;
+	&lt;stop  offset="1" style="stop-color:#3C89C9"/&gt;
+&lt;/radialGradient&gt;
+&lt;path fill="url(#SVGID_3_)" d="M11.689,3.228c0-0.987,0.807-1.794,1.794-1.794h40.633c0.986,0,1.795,0.807,1.795,1.794v24.126
+	c0,0.986-0.809,1.794-1.795,1.794H13.483c-0.987,0-1.794-0.809-1.794-1.794V3.228z"/&gt;
+&lt;path opacity="0.24" fill="#F2F2F2" d="M11.689,21.472V3.228c0-0.987,0.807-1.794,1.794-1.794h40.633
+	c0.986,0,1.795,0.807,1.795,1.794v9.454c0,0.987-10.518,5.21-18.256,6.795C29.917,21.062,11.689,21.472,11.689,21.472z"/&gt;
+&lt;linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="131.3501" y1="-212.2612" x2="131.3501" y2="-170.6274" gradientTransform="matrix(1 0 0 -1 -97.6001 -165.0498)"&gt;
+	&lt;stop  offset="0" style="stop-color:#4D4D4D"/&gt;
+	&lt;stop  offset="0.0667" style="stop-color:#717171"/&gt;
+	&lt;stop  offset="0.069" style="stop-color:#757575"/&gt;
+	&lt;stop  offset="0.0831" style="stop-color:#8C8C8C"/&gt;
+	&lt;stop  offset="0.0996" style="stop-color:#9E9E9E"/&gt;
+	&lt;stop  offset="0.1196" style="stop-color:#AAAAAA"/&gt;
+	&lt;stop  offset="0.1466" style="stop-color:#B1B1B1"/&gt;
+	&lt;stop  offset="0.2121" style="stop-color:#B3B3B3"/&gt;
+	&lt;stop  offset="1" style="stop-color:#C5C5C5"/&gt;
+&lt;/linearGradient&gt;
+&lt;path fill="url(#SVGID_4_)" d="M58.385,32.234c-0.689-0.856-2.154-1.559-3.254-1.559H12c-1.1,0-2.552,0.711-3.227,1.579
+	l-7.546,9.717C0,43.55,0.042,43.785,0,44.55v0.125c0.056,0.393,0.311,1.002,1.248,1.002h64.75c0.75,0.002,1.5-0.252,1.5-1.002V44.55
+	c0-0.813,0-0.813-1.254-2.559L58.385,32.234z"/&gt;
+&lt;path opacity="0.23" fill="#F2F2F2" enable-background="new    " d="M58.385,32.234c-0.689-0.856-2.154-1.559-3.254-1.559H12
+	c-1.1,0-2.552,0.711-3.227,1.579l-7.055,9.085l58.098-7.33L58.385,32.234z"/&gt;
+&lt;path fill="#6E6E6E" d="M59.75,37.205c0.344,0.431,0.172,0.783-0.377,0.783H8.249c-0.55,0-0.742-0.369-0.427-0.819l2.786-3.986
+	c0.315-0.45,1.023-0.819,1.573-0.819h42.729c0.551,0,1.279,0.354,1.623,0.783L59.75,37.205z"/&gt;
+&lt;path fill="#6E6E6E" d="M40.43,41.906c0.072,0.217-0.057,0.395-0.285,0.395H26.727c-0.229,0-0.364-0.18-0.3-0.398l0.822-2.826
+	c0.064-0.221,0.303-0.399,0.532-0.399h11.167c0.229,0,0.475,0.179,0.547,0.396L40.43,41.906z"/&gt;
+&lt;/svg&gt;
+</y:Resource>
+    </y:Resources>
+  </data>
+</graphml>

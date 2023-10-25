@@ -1,0 +1,18 @@
+#!/bin/sh
+#info: File to execute when pressing function keys in openbox
+
+case $1 in
+F9)
+    cinac hide-vms
+    ;;
+F10)
+    cinac hide-all
+    ;;
+F11)
+    :
+    ;;
+F12)
+    cinac hide-all
+    xterm -e 'cinac tgui'
+    ;;
+esac

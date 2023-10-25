@@ -1,0 +1,344 @@
+#!/bin/sh
+# info: Erase current CinaC blueprint
+
+# must run as normal user
+if [ "$(id -u)" = 0 ]; then
+    echo 'This script must be run as a normal user, not root!' >&2
+    echo 'Run as the user that will be using CinaC' >&2
+    echo 'This user must can become root on this system' >&2
+    exit 1
+fi
+
+# parse arguments
+if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
+    man cinac.1 || ronn -r <README.md | man -l -
+    exit
+fi
+
+wait_for_openbox() {
+    if ! w | grep -qF openbox; then
+        echo "Waiting for openbox session..."
+        sleep 2
+    fi
+}
+
+# parameter
+DIR_OR_SEARCH="$(basename "$1")"
+VERBOSE="$2"
+if [ "$VERBOSE" = "v" ]; then
+    DB_ENABLE=true
+elif [ "$VERBOSE" = "vv" ]; then
+    DB_ENABLE=true
+elif [ "$VERBOSE" = "vvv" ]; then
+    DB_ENABLE=true
+elif [ "$VERBOSE" = "vvvv" ]; then
+    DB_ENABLE=true
+else
+    DB_ENABLE=false
+fi
+
+# basic variables
+PATH_CINAC="$HOME/.cinac"
+FILE_RUNNING="$PATH_CINAC/running"
+
+# verify input
+if [ -z "$DIR_OR_SEARCH" ]; then
+    if [ -f "$FILE_RUNNING" ]; then
+        ENV_RUNNING=$(cat "$FILE_RUNNING")
+        DIR_OR_SEARCH=$(basename "$ENV_RUNNING")
+    else
+        echo "No running blueprint found"
+        exit 1
+    fi
+fi
+case "$DIR_OR_SEARCH" in
+'' | *[' !&()'@#$%^*+]*)
+    echo "DIR_OR_SEARCH has forbidden character, please rename"
+    exit 1
+    ;;
+esac
+
+# search current path and default config folder for envionment
+if [ -d "$PATH_CINAC/$DIR_OR_SEARCH" ]; then
+    DIR_DEF="$PATH_CINAC/$DIR_OR_SEARCH"
+else
+    echo "No blueprint folder found '$DIR_OR_SEARCH'"
+    exit 1
+fi
+
+# default display fallback
+if [ -n "$(command -v autokiosk)" ]; then
+    # wait for an openbox session
+    wait_for_openbox
+    wait_for_openbox
+    wait_for_openbox
+    wait_for_openbox
+    wait_for_openbox
+
+    if [ -z "$DISPLAY" ]; then
+        # required if run from terminal
+        export DISPLAY=:0
+        # required for systemd to run as service
+        echo "Running cinac in none-interactive mode"
+        xhost +local: 1>/dev/null
+    fi
+fi
+
+# variables
+# tput requires an interactive terminal
+if [ -n "$TERM" ]; then
+    RED=$(tput setaf 1)
+    GREEN=$(tput setaf 2)
+    YELLOW=$(tput setaf 3)
+    BLUE=$(tput setaf 4)
+    PURPLE=$(tput setaf 5)
+    NOCOL=$(tput sgr0)
+else
+    RED=""
+    GREEN=""
+    YELLOW=""
+    BLUE=""
+    PURPLE=""
+    NOCOL=""
+fi
+
+# check that cinac-init has been run before!
+if ! [ -f "$PATH_CINAC/setup-complete" ]; then
+    echo "Must run 'cinac-setup' first!"
+    exit 1
+fi
+
+abort() {
+    if [ -z "$1" ]; then
+        echo "Setup aborted because a variable was empty" >&2
+        exit 1
+    fi
+}
+
+title() {
+    echo "${RED}[CinaC ### ${YELLOW}$1 ${RED}### ]${NOCOL}"
+}
+
+info_autokiosk() {
+    # display status information on desktop
+    # shellcheck disable=SC2009
+    if [ -n "$(command -v autokiosk)" ] &&
+        ps a | grep -v grep | grep -q Xorg; then
+
+        INFO_TEXT=$(echo "$1" | tr -d "\'")
+        IMAGE_OUT="$HOME/.autokiosk_update.png"
+
+        # load custom background image
+        BG_IMAGE="$HOME/.autokiosk.png"
+        BG_IMAGE_CUSTOM="$DIR_DEF/autokiosk.png"
+        if [ -f "$BG_IMAGE_CUSTOM" ]; then
+            BG_IMAGE="$BG_IMAGE_CUSTOM"
+        fi
+
+        # generate image
+        gm convert \
+            -font '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf' \
+            -pointsize 36 \
+            -fill black \
+            -draw "text 40,1030 '$INFO_TEXT'" \
+            "$BG_IMAGE" "$IMAGE_OUT" || error_crit "gm convert: '$INFO_TEXT'"
+
+        # draw image to background
+        feh --bg-scale "$IMAGE_OUT" || error_crit "feh"
+    fi
+}
+
+info() {
+    echo "${PURPLE}[CinaC ### ${YELLOW}$1 ${PURPLE}### ]${NOCOL}"
+    info_autokiosk "$1" || error_crit "info_autokiosk"
+}
+
+info_ok() {
+    if [ "$DB_ENABLE" = true ]; then
+        echo "[ ${GREEN}OK${NOCOL} ] $1"
+    else
+        echo "[ OK ] $1"
+    fi
+}
+
+info_skip() {
+    echo "[${YELLOW}SKIP${NOCOL}] $1"
+}
+
+debug() {
+    if [ "$DB_ENABLE" = true ]; then
+        if echo "$ARGS" | grep -q "vv"; then
+            echo "${BLUE}[CinaC] $1${NOCOL}"
+        fi
+    fi
+}
+
+error_crit() {
+    echo "${RED}[CinaC] ERROR, aborting: ${NOCOL}$1" >&2
+    exit 1
+}
+
+error() {
+    echo "${RED}[CinaC] ERROR, aborting: ${NOCOL}$1" >&2
+    info_autokiosk "ERROR: $1" || error_crit "info_autokiosk"
+    # play fail sound
+    if [ -n "$(command -v aplay)" ]; then
+        aplay -q "/usr/local/share/cinac/fail.wav" 1>/dev/null 2>&1 &
+    fi
+    exit 1
+}
+
+get_section() {
+    sed 's:#.*$::g' <"$DIR_DEF/bp.ini" |
+        tr '\t' ' ' |
+        sed 's/  */ /g' |
+        tr ' ' '@' |
+        tr '\n' ' ' |
+        sed "s|.*\[$1\]||g" |
+        sed "s|\[.*||g" |
+        awk '{$1=$1;print}'
+}
+
+### MAIN ######################################################################
+
+debug "DIR_DEF $DIR_DEF"
+
+ENV_NAME=$(basename "$DIR_DEF")
+
+title "BLUEPRINT: $ENV_NAME"
+
+if [ -f "$FILE_RUNNING" ]; then
+    if grep -Fxq "$DIR_DEF" <"$FILE_RUNNING"; then
+        title "UNLOADING"
+    else
+        error "Another blueprint is already running"
+    fi
+else
+    info_skip "No blueprint running"
+    exit 0
+fi
+
+info "Verify blueprint package"
+# blueprint readme
+if [ -f "$DIR_DEF/README.md" ]; then
+    info_ok "README.md"
+fi
+# blueprint definition
+if [ -f "$DIR_DEF/bp.ini" ]; then
+    info_ok "bp.ini"
+else
+    error "Missing bp.ini"
+fi
+# inventory
+INVENTORY_EXISTS=$(find "$DIR_DEF/inventory/"*)
+if echo "$INVENTORY_EXISTS" | grep -q ".csv$"; then
+    info_ok "inventory"
+fi
+
+# vmh config
+PATH_VMH_ENV=$(sudo vmh get path_environments) ||
+    error "vmh get path_environments"
+debug "PATH_VMH_ENV $PATH_VMH_ENV"
+if ! [ -d "$PATH_VMH_ENV" ]; then
+    error "Can not find PATH_ENVIRONMENTS in $VMH_CFG"
+fi
+
+# vmh debug
+sudo vmh set debug "$DB_ENABLE" || error "vmh set"
+
+info "Stop old processes"
+# todo: move this to vmh, because of access rights
+#pkill -f "vmh wait"
+#pkill -f "vmh env"
+if [ -n "$(command -v autokiosk)" ]; then
+    autokiosk close-all 1>/dev/null
+fi
+
+# enable spice-web-client
+if [ -n "$(command -v spice-web-client)" ]; then
+    info "Uninstalling SPICE web clients"
+    sudo spice-web-client u /var/www/cinac || error "spice-web-client"
+fi
+
+info "Erasing virtual machines"
+VMH_AUTOCONFIG=$(get_section auto-config) || error "get_section auto-config"
+debug "VMH_AUTOCONFIG $VMH_AUTOCONFIG"
+TMP_ALREADY_ERASED="$(mktemp)"
+# shellcheck disable=SC2002
+VALID_HOSTS=$(awk -F ',' '{print $2}' "$PATH_VMH_ENV/"*.csv)
+for m in $VMH_AUTOCONFIG; do
+    COUNTER=0
+    TARGET_HOST=""
+    WW_CMD=$(echo "$m" | tr '@' ' ' | sed 's/  */ /g')
+    debug "WW_CMD $WW_CMD"
+    for i in $WW_CMD; do
+        COUNTER=$((COUNTER + 1))
+        if [ "$COUNTER" = 1 ]; then
+            TARGET_HOST="$i"
+        fi
+    done
+
+    debug "TARGET_HOST $TARGET_HOST"
+
+    if grep -Fxq "$TARGET_HOST" <"$TMP_ALREADY_ERASED"; then
+        debug "skip erase '$TARGET_HOST', already erased"
+    elif echo "$VALID_HOSTS" | grep -Fxq "$TARGET_HOST"; then
+        debug "skip erase '$TARGET_HOST', is a host"
+    else
+        sudo vmh env-erase-full "$TARGET_HOST" ||
+            error "vmh env-erase-full $TARGET_HOST"
+        echo "$TARGET_HOST" >>"$TMP_ALREADY_ERASED"
+    fi
+done
+rm "$TMP_ALREADY_ERASED"
+sudo vmh purge-environments || error "vmh purge-environments"
+
+# remove extra templates
+EXTRA_TEMPLATES="$DIR_DEF/vm_templates"
+if [ -d "$EXTRA_TEMPLATES" ]; then
+    info "Remove extra templates"
+    for TEMPLATE in "$EXTRA_TEMPLATES"/*; do
+        [ -e "$TEMPLATE" ] || continue
+        debug "template file: $TEMPLATE"
+        sudo vmh template-del "$TEMPLATE" || error "vmh template-del $TEMPLATE"
+    done
+else
+    debug "skip remove vm_templates"
+fi
+
+# todo: create a cleanup command instead
+info "Reset vmh configuration"
+sudo vmh unlink || error "vmh unlink"
+sudo vmh init || error "vmh init"
+
+info "Reset wildwest and ansible configuration"
+PATH_WW="$HOME/.ww"
+rm -rf "$PATH_WW"
+debug "rm -rf $PATH_WW"
+ww 1>/dev/null || error "ww gen"
+
+FILE_WWCFG_DES="$PATH_WW/ww.cfg"
+FILE_WWCFG_ORI="$PATH_CINAC/ww.cfg.orig"
+if [ -f "$FILE_WWCFG_ORI" ]; then
+    rm -f "$FILE_WWCFG_DES"
+    debug "rm -f $FILE_WWCFG_DES"
+    mv "$FILE_WWCFG_ORI" "$FILE_WWCFG_DES" || error "move ansible.cfg"
+    debug "mv $FILE_WWCFG_ORI $FILE_WWCFG_DES"
+fi
+
+FILE_ANSCFG_DES="$PATH_WW/ansible.cfg"
+FILE_ANSCFG_ORI="$PATH_CINAC/ansible.cfg.orig"
+if [ -f "$FILE_ANSCFG_ORI" ]; then
+    rm -f "$FILE_ANSCFG_DES"
+    debug "rm -f $FILE_ANSCFG_DES"
+    mv "$FILE_ANSCFG_ORI" "$FILE_ANSCFG_DES" || error "move ansible.cfg"
+    debug "mv $FILE_ANSCFG_ORI $FILE_ANSCFG_DES"
+fi
+
+info "Sync filesystem"
+sync || error "sync"
+
+info "Unregister blueprint"
+rm -f "$FILE_RUNNING"
+
+info "No blueprint loaded"
