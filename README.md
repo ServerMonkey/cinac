@@ -23,7 +23,7 @@ cinac(1) -- Generic infrastructure installation and management system
 
 [SUPPORT](#support)
 
-[FAE (frequently asked errors)](#fae-frequently-asked-errors)
+[KNOWN ISSUES](#known-issues)
 
 [COPYRIGHT](#copyright)
 
@@ -182,6 +182,7 @@ This will install:
 * autokiosk
 * spice-web-client
 * nginx
+* pulseaudio
 
 Then run the following command and follow the graphical terminal
 instructions. For a quick-start, first time users in a lab environment can just
@@ -238,6 +239,43 @@ Put your certificates in the folloing location:
 
 Certificate: /etc/ssl/certs/cinac.crt  
 Private-key: /etc/ssl/private/cinac.key
+
+### Autokiosk
+
+To enable the autokiosk front-end, you need to install the autokiosk package:
+
+    $ sudo apt install autokiosk
+
+After installation reboot and rerun 'cinac-init' to enable autokiosk.
+
+To open a VM in autokiosk (virt-viewer), run:
+
+    $ autokiosk <VM_NAME>
+
+In virt-vier mode the VM will hog you entire keyboard and mouse. To exit
+virt-viewer mode, press 'CTRL+ALT' once and then press another of the following
+key combinations to leave virt-viewer mode:
+
+'ALT+TAB' to switch between windows.  
+'CTRL+SHIFT+F9' to minimize only all VM autokiosk windows.  
+'CTRL+SHIFT+F10' to minimize all autokiosk windows.  
+'CTRL+SHIFT+F12' to minimize all autokiosk windows and start 'cinac tgui'.
+
+It is important that you press the correct key combination after 'CTRL+ALT'.
+Else the virt-viewer assumes you want to send the key combination to the VM.  
+This can be trycky if you push the keys too fast, slow or in the wrong order.  
+Try it a couple of times to get the hang of it.
+
+The next step requires the package spice-web-client and nginx.  
+To open a VM in autokiosk over HTTP+WS, run:
+
+    $ autokiosk http://<CINAC_HOST>/<VM_NAME>
+
+The next step requires a fully working root certificate chain. A single
+Self-signed certificate will not work with the package simple-kiosk.  
+To open a VM in autokiosk over HTTPS+WSS, run:
+
+    $ autokiosk https://<CINAC_HOST>/wss.<VM_NAME>
 
 ### Multiple hosts / cluster / server farm
 
@@ -448,14 +486,18 @@ That being said you can get support via Discord, mail dev(at)muspekaren.se or
 GitHub. I am usually available UTC+2 (Sweden) on mo-fr after 18:00 PM.
 Preferably via mail or GitHub-issues.
 
-## FAE (frequently asked errors)
+## KNOWN ISSUES
 
 - **fastpkg does not install / download a package** : Fastpkg downloads
   packages from all over the Internet. Sometimes servers are down or there are
-  connection issues. Running fastpkg one or two times usually fixes the
-  problem. If not, the culprit is usually an outdated link. In that case please
-  mail me, and I will fix it. To get around that problem yourself, you can
+  connection issues. Running fastpkg again or with '-f' usually fixes the
+  issue. If not, the culprit is usually an outdated link. In that case please
+  contact me, and I will fix it. To get around that problem yourself, you can
   mirror and host a local copy of any fastpkg repo yourself.
+- **There is no sound from the VM in virt-viewer/autokiosk** : This seems to be
+  a bug or a virt-viewer dependency issue. The workaround is to install the
+  package 'pulseaudio' and reboot, on the machine you are running virt-viewer
+  on (not the VM).
 
 ## COPYRIGHT
 
@@ -463,6 +505,8 @@ See license file
 
 ## SEE ALSO
 
-fastpkg(1), inventorymaker(1), vmh(1), wildwest(1)  
+fastpkg(1), inventorymaker(1), vmh(1), wildwest(1), autokiosk(1),
+spice-web-client(1), cinac2deb(1), ansible2deb(1), isoremixer(1)
+
 [github.com/ServerMonkey/cinac](https://github.com/ServerMonkey/cinac)  
 [github.com/ServerMonkey/cinac/docs](https://github.com/ServerMonkey/cinac/docs)
