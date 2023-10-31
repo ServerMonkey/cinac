@@ -2,24 +2,36 @@
 #info: Generate a complete PDF manual for CinaC
 # shellcheck disable=SC2039
 
+set -e
+
 if [ -z "$(command -v pdflatex)" ]; then
-	echo "pdflatex is not installed, please install:"
-	echo "texlive-latex-base and texlive-latex-recommended"
-	exit 1
+    echo "pdflatex is not installed, please install:"
+    echo "texlive-latex-base and texlive-latex-recommended"
+    exit 1
 fi
 
 if [ -z "$(command -v img2pdf)" ]; then
-	echo "img2pdf is not installed, please install"
-	exit 1
+    echo "img2pdf is not installed, please install"
+    exit 1
 fi
 
 if [ -z "$(command -v wkhtmltopdf)" ]; then
-	echo "wkhtmltopdf is not installed, please install."
-	echo "The default Debian 11 version is unpatched."
-	echo "The switch '--disable-smart-shrinking' will not work."
-	echo "Recommend to install with:"
-	echo "  fastpkg -p wkhtmltox install"
-	exit 1
+    echo "wkhtmltopdf is not installed, please install."
+    echo "The default Debian 11/12 version is unpatched."
+    echo "The switch '--disable-smart-shrinking' will not work."
+    echo "Recommend to install wkhtmltox, you can try:"
+    echo "  fastpkg -p wkhtmltox install"
+    exit 1
+fi
+
+if [ -z "$(command -v ansi2html)" ]; then
+    echo "colorized-logs is not installed, please install"
+    exit 1
+fi
+
+if [ -z "$(command -v qpdf)" ]; then
+    echo "qpdf is not installed, please install"
+    exit 1
 fi
 
 TMP_DIR=/tmp/cinac-documentation
@@ -52,33 +64,34 @@ COUNTER=10
 #}
 
 topdf() {
-	COUNTER=$((COUNTER + 1))
-	echo "Generating $COUNTER $2"
-	pandoc \
-		-V geometry:margin=0.75in \
-		-V papersize:a4 "$1" \
-		-o "$TMP_DIR/$COUNTER $2.pdf" || exit 1
+    COUNTER=$((COUNTER + 1))
+    echo "Generating $COUNTER $2"
+    pandoc \
+        -V geometry:margin=0.75in \
+        -V papersize:a4 "$1" \
+        -o "$TMP_DIR/$COUNTER $2.pdf" || exit 1
 }
 
 imgtopdf() {
-	COUNTER=$((COUNTER + 1))
-	echo "Generating $COUNTER $2"
-	img2pdf --pagesize A4 -o "$TMP_DIR/$COUNTER $2.pdf" "$1" || exit 1
+    COUNTER=$((COUNTER + 1))
+    echo "Generating $COUNTER $2"
+    img2pdf --pagesize A4 -o "$TMP_DIR/$COUNTER $2.pdf" "$1" || exit 1
 }
 
 txttopdf() {
-	COUNTER=$((COUNTER + 1))
-	echo "Generating $COUNTER $2"
-	pygmentize -g -O style=colorful,linenos=1 "$1" |
-		ansi2html -w >"$TMP_DIR/$COUNTER $2.html"
-	wkhtmltopdf --disable-smart-shrinking --dpi 96 -s A4 \
-		"$TMP_DIR/$COUNTER $2.html" "$TMP_DIR/$COUNTER $2.pdf" || exit 1
+    COUNTER=$((COUNTER + 1))
+    echo "Generating $COUNTER $2"
+    pygmentize -g -O style=colorful,linenos=1 "$1" |
+        ansi2html -w >"$TMP_DIR/$COUNTER $2.html"
+    wkhtmltopdf --disable-smart-shrinking --dpi 96 -s A4 \
+        "$TMP_DIR/$COUNTER $2.html" "$TMP_DIR/$COUNTER $2.pdf" || exit 1
 }
 
 # base
 topdf docs/toc.md "Index"
 topdf README.md "CinaC"
 topdf ../servermonkeys-devtools/docs/software-philosophy.md "Philosophy"
+topdf ../usbprep/README.md "usbprep"
 topdf ../servermonkeys-templates/templates/ventoy/README.md "ventoy-templates"
 topdf ../fastpkg/README.md "fastpkg"
 imgtopdf docs/fastpkg-example.png "fastpkg-example"

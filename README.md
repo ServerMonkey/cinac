@@ -44,7 +44,7 @@ once I'm happy with the code-base, testing and have good documentation.
 ## DESCRIPTION
 
 To make your life easier, here is a dictionary of terms used in this manual:  
-[Servermonkeys IT-dictionary for dummies](https://github.com/ServerMonkey/servermonkeys-devtools/dictionary.md)
+[Servermonkeys IT-dictionary for dummies](https://github.com/ServerMonkey/servermonkeys-devtools/docs/dictionary.md)
 
 The goal of CinaC is to be a generic IT-infrastructure installation,
 configuration and management system with focus on immutable hosts. It is mainly
@@ -52,7 +52,7 @@ build up on Debian, libvirt and Ansible. It takes ideas from Ansible Tower,
 ESXi, OpenStack and DebianLAN. The basic concept is to use Infrastructure as
 code in form of 'blueprints'. CinaC tries to follow these philosophies found
 here:  
-[ServerMonkey Software Philosophy](https://github.com/ServerMonkey/servermonkeys-devtools/software-philosophy.md)
+[ServerMonkey Software Philosophy](https://github.com/ServerMonkey/servermonkeys-devtools/docs/software-philosophy.md)
 
 CinaC is a recursive backronym that stands for 'CinaC is not a Cyberrange'.
 
@@ -163,15 +163,25 @@ Recommend following the Stable or Proposed release cykle.
 
 ## INSTALLATION
 
+### Single instance Quick-start
+
+Install Debian 11 or 12 on to a single PC or VM in a lab environment. You can
+but don't need to configure anything except that there is a sudo user and a
+working Internet connection. Then just run on that machine:
+
+    wget https://raw.githubusercontent.com/ServerMonkey/servermonkeys-devtools/main/bin/cinac-bootstrap.ini
+    wget https://raw.githubusercontent.com/ServerMonkey/servermonkeys-devtools/main/bin/cinac-bootstrap
+    sudo sh cinac-bootstrap
+
 ### Single instance
 
-You can compile all code yourself, but I recommend using my public Debian 11
-repo: [github.com/ServerMonkey](https://github.com/ServerMonkey/ServerMonkey)  
+Else you can just add my public Debian repo that contains all CinaC packages:  
+[github.com/ServerMonkey](https://github.com/ServerMonkey/ServerMonkey)  
 Add this repo first. Then install the basic headless server with:
 
     $ sudo apt install cinac
 
-Or to install everything, including a full desktop environment, you can install
+To install everything, including a full desktop environment, you can install
 the meta package:
 
     $ sudo apt install cinac-full
@@ -185,10 +195,13 @@ This will install:
 * pulseaudio
 
 Then run the following command and follow the graphical terminal
-instructions. For a quick-start, first time users in a lab environment can just
-push enter on all questions.
+instructions.  
+For a quick-start, first time users can just push enter on all questions.
 
     $ cinac-init
+
+If you add or remove packages from the cinac-full list, you need to re-run
+'cinac-init' to update the configuration.
 
 To run 'cinac-init' unattended, export some or all of the following variables
 before you run 'cinac-init':
@@ -200,6 +213,90 @@ before you run 'cinac-init':
     export CINAC_MAIL=cinac@localhost
     export CINAC_NAME=CinaC
     export CINAC_PASSWORD=none
+
+The GPG key, mail and password is used to decrypt passwords for the Ansible
+inventory. You only need this for specific production environments. For example
+a centralized command and control server. In a lab just use the defaults and
+an empty password (or undefine with 'none'). Else, if you set a password, GPG
+will ask you for it each time you install a cinac blueprint.
+
+### Multiple hosts / cluster / server farm
+
+If you have only a couple of hosts, you can install Debian via a
+bootable automated installation USB-stick.  
+Here is a tool for
+that: [github.com/ServerMonkey/usbprep](https://github.com/ServerMonkey/usbprep)
+
+Also you can follow this Ventoy template guide:  
+[github.com/ServerMonkey/servermonkeys-templates](https://github.com/ServerMonkey/servermonkeys-templates/tree/main/templates/ventoy)
+
+You can also use the cinac-bootstrap script in combination with Ventoy:  
+[github.com/ServerMonkey/servermonkeys-devtools](https://github.com/ServerMonkey/servermonkeys-devtools/blob/main/bin/cinac-bootstrap)
+
+Quick-start example:
+
+    # On a Debian 11 or 12 machine that has my APT repo added:
+    # Alternatively you can download all scripts manually from github
+    #
+    # Install usbprep tool and Ventoy templates:
+    $ sudo apt install usbprep servermonkeys-templates
+    
+    # Link the Ventoy templates to usbprep's config folder:
+    $ ln -s /usr/share/servermonkeys-templates/templates/ventoy "$HOME/.ventoy"
+
+    # Insert a 32 GB large USB stick and list all aviable USB drives with:
+    $ usbprep-ventoy l
+
+    # Create a bootable USB stick with the previous listed USB drive.
+    # This can take several minutes or hours depending on your hardware,
+    # internet connection and fastpkg packages download speed.
+    # This step happens to download Windows 10 ISOs and other images.
+    # If you want to skip this, just modify the ventoy.json file.
+    # Then run:
+    $ usbprep-ventoy i sdX
+
+    # Change directory to your mounted USB devices root folder and add the
+    # cinac-bootstrap script:
+    $ wget https://raw.githubusercontent.com/ServerMonkey/servermonkeys-devtools/main/bin/cinac-bootstrap
+    
+    # Also, this config file for cinac-bootstrap
+    $ wget https://raw.githubusercontent.com/ServerMonkey/servermonkeys-devtools/main/bin/cinac-bootstrap.ini
+    
+    # Download and all bootstrap files
+    # This step can be used to offline install or update a CinaC installation
+    $ sh cinac-bootstrap dl
+
+    # Unmount and remove the USB stick and insert it into the target machine
+    # you want to install CinaC on. Mount the USB stick and execute:
+    $ sudo sh cinac-bootstrap
+
+## BASIC USAGE
+
+After installation and cinac-init you need to get some blueprints.  
+Demo blueprints can be installed via:
+
+    $ cinac install-demo-blueprints
+
+List all available blueprints:
+
+    $ cinac list-available
+
+Load a blueprint:
+
+    $ cinac-load <BLUEPRINT_NAME>
+
+List the currently running blueprint:
+
+    $ cinac list-available
+
+You are only allowed to load one bluprint at a time.  
+To unload any blueprint:
+
+    $ cinac unload
+
+Or run the Terminal GUI for a graphical interface:
+
+    $ cinac tgui
 
 ### Firewall
 
@@ -217,12 +314,12 @@ for encrypted (WSS) connections.
 
 To see all firewall rules run:
 
-    sudo ufw status numbered
+    $ sudo ufw status numbered
 
 Every time you run cinac-init the firewall rules will be reset. So if you want
 to add your own rules, you need to add them each time after running cinac-init.
 
-### SPICE web client
+## SPICE web client
 
 To connect to the virtual machines via a web-browser, you need to install the
 spice-web-client and a webserver.
@@ -252,7 +349,7 @@ To open a VM in autokiosk (virt-viewer), run:
 
     $ autokiosk <VM_NAME>
 
-In virt-vier mode the VM will hog you entire keyboard and mouse. To exit
+In virt-viwer mode the VM will hog you entire keyboard and mouse. To exit
 virt-viewer mode, press 'CTRL+ALT' once and then press another of the following
 key combinations to leave virt-viewer mode:
 
@@ -276,40 +373,6 @@ Self-signed certificate will not work with the package simple-kiosk.
 To open a VM in autokiosk over HTTPS+WSS, run:
 
     $ autokiosk https://<CINAC_HOST>/wss.<VM_NAME>
-
-### Multiple hosts / cluster / server farm
-
-If you have only a couple of hosts, you can install via an automated bootable
-USB-stick. Follow this guide:  
-[Ventoy with Debian Preseed and fastpkg](https://github.com/ServerMonkey/servermonkeys-devtools/docs/ventoy.md)
-
-## BASIC USAGE
-
-After installation and cinac-init you need to get some blueprints.  
-Demo blueprints can be installed via:
-
-    $ cinac install-demo-blueprints
-
-List all available blueprints:
-
-    $ cinac list-available
-
-Load a blueprint:
-
-    $ cinac-load <BLUEPRINT_NAME>
-
-List currently running blueprint:
-
-    $ cinac list-available
-
-You are only allowed to load one bluprint at a time.  
-To unload any blueprint:
-
-    $ cinac unload
-
-Or run the Terminal GUI for a graphical interface:
-
-    $ cinac tgui
 
 ## UNDERSTANDING BLUEPRINTS
 
@@ -437,7 +500,8 @@ that install the development tools via:
         servermonkeys-templates \
         ansible-role-servermonkey-cinac \
         isoremixer \
-        cinac2deb
+        cinac2deb \
+        usbprep
 
 If you are on a machine that already has a Desktop environment, you are done.
 If not, you can automatically set up a complete development workstation by
