@@ -44,7 +44,7 @@ once I'm happy with the code-base, testing and have good documentation.
 ## DESCRIPTION
 
 To make your life easier, here is a dictionary of terms used in this manual:  
-[Servermonkeys IT-dictionary for dummies](https://github.com/ServerMonkey/servermonkeys-devtools/docs/dictionary.md)
+[github.com/ServerMonkey/servermonkeys-devtools](https://github.com/ServerMonkey/servermonkeys-devtools/blob/main/docs/dictionary.md)
 
 The goal of CinaC is to be a generic IT-infrastructure installation,
 configuration and management system with focus on immutable hosts. It is mainly
@@ -52,7 +52,7 @@ build up on Debian, libvirt and Ansible. It takes ideas from Ansible Tower,
 ESXi, OpenStack and DebianLAN. The basic concept is to use Infrastructure as
 code in form of 'blueprints'. CinaC tries to follow these philosophies found
 here:  
-[ServerMonkey Software Philosophy](https://github.com/ServerMonkey/servermonkeys-devtools/docs/software-philosophy.md)
+[github.com/ServerMonkey/servermonkeys-devtools](https://github.com/ServerMonkey/servermonkeys-devtools/blob/main/docs/software-philosophy.md)
 
 CinaC is a recursive backronym that stands for 'CinaC is not a Cyberrange'.
 
@@ -133,12 +133,6 @@ CinaC combines the following programs to realize its goals:
 
 ![Architectural overview:](docs/architecture.png)
 
-## COMPARISON
-
-A comparison with other tools can be found
-at: [github.com/ServerMonkey/cinac/docs/comparison.md](https://github.com/ServerMonkey/cinac/docs/comparison.md)
-or in /usr/local/share/cinac/docs/comparison.md
-
 ## REQUIREMENTS
 
 For first time users a single PC, Laptop or server is recommended.  
@@ -165,7 +159,7 @@ Recommend following the Stable or Proposed release cykle.
 
 ### Single instance Quick-start
 
-Install Debian 11 or 12 on to a single PC or VM in a lab environment. You can
+Install Debian on to a single PC or VM in a lab environment. You can
 but don't need to configure anything except that there is a sudo user and a
 working Internet connection. Then just run on that machine:
 
