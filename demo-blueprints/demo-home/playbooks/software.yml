@@ -74,10 +74,16 @@
     ww_vm_res_x: 1280
     ww_vm_res_y: 720
   tasks:
+    - name: Check if Doom config exists
+      stat:
+        path: "/home/{{ ansible_user }}/.config/zdoom/zdoom.ini"
+      register: demo_home_doom_config
+
     - name: Create Doom config
       shell: |
         export DISPLAY=:0
         zdoom -norun 1>/dev/null 2>&1 || true
+      when: demo_home_doom_config.stat.exists == false
 
     - name: Set Doom config (OPL MIDI)
       lineinfile:

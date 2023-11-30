@@ -153,7 +153,7 @@ develop and use.
 
 For the OS, install a fresh copy
 of [Debian 11 or 12](https://www.debian.org/download)  
-Recommend following the Stable or Proposed release cykle.
+Recommend following the Stable or Proposed release cycle.
 
 ## INSTALLATION
 
@@ -281,7 +281,7 @@ Load a blueprint:
 
 List the currently running blueprint:
 
-    $ cinac list-available
+    $ cinac list
 
 You are only allowed to load one bluprint at a time.  
 To unload any blueprint:

@@ -99,6 +99,7 @@ topdf ../inventorymaker/README.md "inventorymaker"
 topdf ../wildwest/README.md "wildwest"
 txttopdf ../wildwest/ww_default.cfg "wildwest-config"
 topdf ../vmh/README.md "vmh"
+topdf ../cinacr/README.md "cinacr"
 topdf ../autokiosk/README.md "autokiosk"
 topdf ../spice-web-client/README_2.md "spice-web-client"
 # devtools

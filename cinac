@@ -44,6 +44,14 @@ fi
 
 CINAC_BASE="$HOME/.cinac"
 
+# make all commands work remotely
+if [ -z "$DISPLAY" ] && [ -n "$(command -v xhost)" ]; then
+    # required if run from terminal
+    export DISPLAY=:0
+    # required for systemd to run as service
+    xhost +local: 1>/dev/null
+fi
+
 info() {
     # shellcheck disable=SC2046
     #whiptail --title "Info" --msgbox "$1" $(stty size)
@@ -373,7 +381,7 @@ view)
             for j in $LIST_ENVS; do
                 OUT_IMG=$(basename "$j" | sed 's|.svg$|.png|g')
                 convert -font \
-                '/usr/share/fonts/truetype/noto/NotoSansMono-Regular.ttf' \
+                    '/usr/share/fonts/truetype/noto/NotoSansMono-Regular.ttf' \
                     -size 300% "$j" "$TMP_IMG_DIR/$OUT_IMG" ||
                     error convert
             done
